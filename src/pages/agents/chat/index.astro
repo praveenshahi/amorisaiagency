@@ -1,0 +1,22 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AgentCard from '../../../components/AgentCard.astro';
+const agents = [
+  { name: "WhatsApp Business Agent", description: "Full commerce on WhatsApp: catalog, orders, payments, support — without a human for 80% of queries.", setupINR: "₹1.25L", setupUSD: "$2.5k", href: "/agents/chat/whatsapp-agent" },
+  { name: "Website Support Agent", description: "Trained on your business docs; answers, qualifies, and hands off to humans with full context.", setupINR: "₹1L", setupUSD: "$2k", href: "/agents/chat/website-support" },
+  { name: "Lead Qualification Agent", description: "Engages every inbound lead conversationally, scores against your ICP, pushes hot ones to sales.", setupINR: "₹1.5L", setupUSD: "$3k", href: "/agents/chat/lead-qualification" },
+  { name: "Instagram DM Agent", description: "Auto-responds to DMs and qualifying comments, captures leads, moves high-intent followers to WhatsApp.", setupINR: "₹1L", setupUSD: "$2k", href: "/agents/chat/instagram-dm" },
+];
+---
+<Base title="Chat & Support AI Agents — WhatsApp, Website, Instagram | Amoris" description="4 chat agent types for WhatsApp, your website, and Instagram. Each handles conversations, qualifies leads, and transfers to humans when needed.">
+  <section>
+    <Breadcrumbs crumbs={[{label:"Home",href:"/"},{label:"Agents",href:"/agents"},{label:"Chat & Support Agents"}]} />
+    <div class="section-label reveal">Chat & Support · 4 Agent Types</div>
+    <h1 class="reveal">Text-based agents for every channel.</h1>
+    <p class="reveal" style="margin:16px 0 48px; font-size:1.1rem; max-width:56ch;">WhatsApp, website chat, and Instagram DMs — agents that handle the full conversation, not just an FAQ lookup.</p>
+    <div class="grid-2">
+      {agents.map(agent => <AgentCard {...agent} category="Chat" />)}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,184 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import PricingCard from '../../../components/PricingCard.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ROIBlock from '../../../components/ROIBlock.astro';
+
+export function getStaticPaths() {
+  const data = [
+  {
+    slug: "whatsapp-agent",
+    title: "WhatsApp AI Agent for Business — Commerce, Support & Orders | Amoris",
+    description: "A WhatsApp AI agent that handles your entire customer conversation: product catalog, order taking, payments, support, and follow-ups — all inside WhatsApp.",
+    name: "WhatsApp Business Agent",
+    answer: "A WhatsApp Business Agent handles customer conversations end-to-end inside WhatsApp: catalog browsing, order taking, payment collection, order tracking, and support — without a human agent for 80% of queries. Starting at ₹1.25L setup + ₹15k/month.",
+    setupINR: "₹1.25L–2.5L", retainerINR: "₹15k/mo",
+    setupUSD: "$2.5k–5k", retainerUSD: "$300/mo",
+    builtFor: ["D2C brands", "Restaurants & cloud kitchens", "Service businesses", "Retail", "Real estate"],
+    languages: ["Hindi", "English", "Tamil", "Telugu", "Kannada"],
+    integrations: ["WhatsApp Business API", "Razorpay", "Shiprocket", "Zoho CRM"],
+    steps: [
+      { step: "Customer messages your number", detail: "New inquiry, support question, or order follow-up." },
+      { step: "Agent responds instantly", detail: "Identifies intent (buy / track / support / general) and routes the conversation." },
+      { step: "Task completed", detail: "Order built. Payment link sent. Tracking number shared. Complaint logged." },
+      { step: "CRM sync", detail: "Every interaction logged. New customers added. Orders tracked." }
+    ],
+    roi: { before: "Human agent: handles 50–80 chats/day, 9am–6pm, 6 days/week.", after: "WhatsApp Agent: handles 500+ chats/day, 24/7, with consistent quality.", outcome: "80% of customer queries resolved without human involvement." },
+    faqs: [
+      { q: "How much does a WhatsApp chatbot cost in India?", a: "Setup ranges from ₹1.25L to ₹2.5L. Monthly retainer is ₹15k, covering hosting and up to 5,000 conversations/month." },
+      { q: "Is this a button-based bot or does it understand natural language?", a: "Natural language. Customers type what they want and the agent understands. No confusing numbered menus." },
+      { q: "Can it take payments inside WhatsApp?", a: "Yes. With Razorpay or PayU integration, the agent sends a payment link inside the chat. Customer pays without leaving WhatsApp." },
+      { q: "What about customers who want to speak to a human?", a: "The agent detects frustration or explicit human requests and transfers to a human agent with full conversation context." },
+      { q: "Does it work for regional language customers?", a: "Yes. Hindi, Tamil, Telugu, Kannada, and English in the same conversation. Customer can switch languages mid-chat." }
+    ]
+  },
+  {
+    slug: "website-support",
+    title: "Website AI Support Agent — Trained on Your Business | Amoris",
+    description: "A website chat agent trained on your docs, FAQs, and policies. It answers customer questions accurately, qualifies leads, and hands off to humans — without hallucinating.",
+    name: "Website Support Agent",
+    answer: "A Website Support Agent is trained on your specific documentation, FAQs, and policies. It gives accurate answers from your knowledge base — not guesses — qualifies leads inline, and transfers to humans only when genuinely needed. Deflects 60–80% of tickets.",
+    setupINR: "₹1L–2L", retainerINR: "₹15k/mo",
+    setupUSD: "$2k–4k", retainerUSD: "$300/mo",
+    builtFor: ["SaaS & tech products", "Service businesses", "E-commerce", "EdTech", "Healthcare"],
+    languages: ["Hindi", "English"],
+    integrations: ["Freshdesk", "Intercom", "Zoho Desk", "HubSpot", "Slack"],
+    steps: [
+      { step: "Knowledge base setup", detail: "You share docs (PDFs, Notion, Google Docs). We ingest and index them. 1–2 weeks." },
+      { step: "Deployed on your website", detail: "Small script added. Works with your existing design." },
+      { step: "Customer asks a question", detail: "Agent searches knowledge base, finds answer, responds in 1–2 seconds." },
+      { step: "Escalation path", detail: "Can't resolve → creates a support ticket with conversation history attached." }
+    ],
+    roi: { before: "Support tickets: ₹150–500 each to resolve. 60–70% are repetitive questions.", after: "Website Agent deflects 60–80% of tickets. Humans handle the complex 20%.", outcome: "Typical client saves ₹40–80k/month in support costs after 3 months." },
+    faqs: [
+      { q: "Will the agent make up answers?", a: "No. This is a RAG agent — it only answers from your approved knowledge base. If a question isn't covered, it says 'I'm not sure, let me connect you with the team' rather than guessing." },
+      { q: "What documents can it be trained on?", a: "PDFs, Google Docs, Notion pages, Confluence pages, website pages, and structured FAQs." },
+      { q: "How often does the knowledge base update?", a: "We sync weekly by default, or on-demand when you push major changes. The agent always answers from the latest approved version." },
+      { q: "Can it qualify leads too?", a: "Yes. You define 3–5 qualification questions. The agent weaves them into the conversation and pushes qualified leads to your CRM." },
+      { q: "What if the customer is frustrated?", a: "The agent detects negative sentiment and transfers to a human agent immediately, with the full conversation context." }
+    ]
+  },
+  {
+    slug: "lead-qualification",
+    title: "AI Lead Qualification Agent — Engage & Score Every Inbound Lead | Amoris",
+    description: "An AI chat agent that engages every new lead, asks your qualification questions, scores them against your ICP, and pushes hot leads to your sales team instantly.",
+    name: "Lead Qualification Agent",
+    answer: "A Lead Qualification Agent engages every visitor who raises their hand — on your website, WhatsApp, or landing page — asks your qualification questions conversationally, scores them against your ICP, and either books a meeting for hot leads or adds cold ones to nurture.",
+    setupINR: "₹1.5L–2.5L", retainerINR: "₹20k/mo",
+    setupUSD: "$3k–5k", retainerUSD: "$400/mo",
+    builtFor: ["B2B SaaS", "Consulting & agencies", "Real estate", "EdTech", "Financial services"],
+    languages: ["Hindi", "English"],
+    integrations: ["HubSpot", "Zoho CRM", "Salesforce", "Google Calendar", "Slack"],
+    steps: [
+      { step: "Lead arrives", detail: "Fills a form, starts a website chat, or messages your WhatsApp number." },
+      { step: "Agent engages", detail: "'Hi, thanks for reaching out. Quick question — what's the main thing you're trying to solve?'" },
+      { step: "Qualification conversation", detail: "Over 3–5 exchanges: pain point, company size, timeline, budget signal, decision authority." },
+      { step: "Routing", detail: "Hot lead → demo booked in calendar. Warm → CRM follow-up task. Cold → nurture sequence." }
+    ],
+    roi: { before: "Form conversion: 30–40% completion, no context on what's driving the inquiry.", after: "Conversational qualification: 60–75% completion, full ICP data per lead.", outcome: "Sales team time spent on qualified leads only — not chasing cold inquiries." },
+    faqs: [
+      { q: "What qualification questions does the agent ask?", a: "You define them during setup. Typical B2B: company size, current tool/process, pain, timeline, budget range. The agent asks them conversationally, not as a form." },
+      { q: "How does it score leads?", a: "You define your ICP criteria with weights. The agent scores each lead 1–100. Hot leads (above your threshold) get pushed to CRM and a Slack alert to your sales team." },
+      { q: "What happens to leads that don't qualify?", a: "They're added to a nurture sequence — email drip or WhatsApp follow-up series. Not discarded." },
+      { q: "Can it book a demo directly?", a: "Yes. Hot leads can book a demo slot directly in the chat using your Calendly or Google Calendar link." },
+      { q: "How is this different from a contact form?", a: "A form collects data. This agent has a conversation. Form completion rates are 30–40%. Conversation completion rates are 60–75%." }
+    ]
+  },
+  {
+    slug: "instagram-dm",
+    title: "Instagram DM AI Agent — Auto-Respond & Convert Followers | Amoris",
+    description: "An AI agent that responds to Instagram DMs automatically, handles product enquiries, and converts follower messages into qualified leads.",
+    name: "Instagram DM Agent",
+    answer: "An Instagram DM Agent responds to every message and relevant comment on your Instagram account — handles product questions, collects contact details, moves high-intent followers to WhatsApp, and logs leads in your CRM.",
+    setupINR: "₹1L–1.75L", retainerINR: "₹15k/mo",
+    setupUSD: "$2k–3.5k", retainerUSD: "$300/mo",
+    builtFor: ["D2C brands", "Coaches & creators", "Fashion & lifestyle", "Food & beverage", "Fitness"],
+    languages: ["Hindi", "English"],
+    integrations: ["Instagram Business API", "WhatsApp Business API", "Google Sheets", "Zoho CRM"],
+    steps: [
+      { step: "Follower messages", detail: "'Hey, how much is the blue dress?' or 'Do you ship to Pune?'" },
+      { step: "Agent responds instantly", detail: "Pulls from product catalog or FAQ. Personalised per message." },
+      { step: "Qualification", detail: "Purchase intent detected → asks 2 questions: requirement + contact number." },
+      { step: "WhatsApp transfer", detail: "For order-ready conversations, agent moves to WhatsApp for purchase completion." }
+    ],
+    roi: { before: "Instagram DMs go unanswered for hours. High-intent comments get a 👍 and nothing else.", after: "Every DM answered within 30 seconds. Leads captured. High-intent conversations moved to WhatsApp for closure.", outcome: "Followers stop bouncing to competitor pages because someone else responded faster." },
+    faqs: [
+      { q: "Does this use the official Instagram API?", a: "Yes. We use the official Meta Business API. No third-party automation tools that risk account bans." },
+      { q: "Can it respond to story replies?", a: "Story replies: auto-response to send them to WhatsApp or website. Post comments: can reply with a link or DM prompt." },
+      { q: "What about people who just want to say 'nice pic'?", a: "The agent identifies intent. Casual positive comments get a friendly reply. 'How much does this cost?' gets a product response." },
+      { q: "How does it handle pricing inquiries without revealing prices publicly?", a: "For private pricing, the agent moves the conversation to DM or WhatsApp. Comment-level responses stay general." },
+      { q: "Can I see all conversations the agent has?", a: "Yes. Every conversation is logged. You can review, edit response templates, and flag conversations for manual follow-up." }
+    ]
+  }
+];
+  return data.map(a => ({ params: { slug: a.slug }, props: { agent: a } }));
+}
+
+const { agent } = Astro.props;
+---
+<Base title={agent.title} description={agent.description}>
+<article>
+<section style="padding-bottom:40px;">
+  <Breadcrumbs crumbs={[{label:"Home",href:"/"},{label:"Agents",href:"/agents"},{label:"Chat & Support",href:"/agents/chat"},{label:agent.name}]} />
+  <div class="section-label reveal">Chat Agent</div>
+  <h1 class="reveal" style="margin-bottom:20px;">{agent.name}</h1>
+  <div class="card reveal" style="background:var(--surface2); border-color:rgba(200,240,58,0.15); margin-bottom:32px;">
+    <p style="font-size:1.05rem; color:var(--text); margin-bottom:16px;">{agent.answer}</p>
+    <div style="display:flex; gap:32px; flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Starting at</div>
+        <span class="price-inr"><span class="price-amount">{agent.setupINR}</span> <span class="price-recur">setup + {agent.retainerINR}</span></span>
+        <span class="price-usd"><span class="price-amount">{agent.setupUSD}</span> <span class="price-recur">setup + {agent.retainerUSD}</span></span>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Languages</div>
+        <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim);">{agent.languages.join(' · ')}</div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal" style="margin-bottom:48px;">
+    <div class="section-label">Built For</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+      {agent.builtFor.map((ind: string) => <span style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border2); padding:4px 14px; border-radius:4px;">{ind}</span>)}
+    </div>
+  </div>
+</section>
+<section style="padding-top:0;">
+  <h2 class="reveal" style="margin-bottom:32px;">How it works.</h2>
+  <div>
+    {agent.steps.map((step: any, i: number) => (
+      <div class="reveal" style="display:flex; gap:24px; padding:24px 0; border-bottom:1px solid var(--border);">
+        <div style="font-family:'DM Mono',monospace; font-size:13px; color:var(--accent); min-width:28px; flex-shrink:0; padding-top:2px;">0{i+1}</div>
+        <div><h3 style="margin-bottom:4px;">{step.step}</h3><p style="font-size:14px; margin:0;">{step.detail}</p></div>
+      </div>
+    ))}
+  </div>
+</section>
+<section style="padding-top:48px;">
+  <ROIBlock before={agent.roi.before} after={agent.roi.after} outcome={agent.roi.outcome} />
+</section>
+<section style="padding-top:48px; padding-bottom:48px;">
+  <div class="section-label reveal">Integrations</div>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {agent.integrations.map((int: string) => <span style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border); padding:4px 14px; border-radius:4px;">{int}</span>)}
+  </div>
+</section>
+<section style="padding-top:0;">
+  <PricingCard setupINR={agent.setupINR} retainerINR={agent.retainerINR} setupUSD={agent.setupUSD} retainerUSD={agent.retainerUSD} />
+</section>
+<section>
+  <div class="section-label reveal">FAQ</div>
+  <h2 class="reveal" style="margin-bottom:32px;">Common questions about {agent.name}.</h2>
+  <FAQ items={agent.faqs} />
+</section>
+<section style="text-align:center; border-top:1px solid var(--border); background: radial-gradient(ellipse at 50% 100%, var(--accent-dim) 0%, transparent 70%);">
+  <h2 style="margin-bottom:16px;">Ready to deploy {agent.name}?</h2>
+  <p style="margin:0 auto 32px; max-width:44ch;">Book a 30-minute discovery call. We'll scope your use case and give you a cost on the call.</p>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="/contact" class="btn btn-primary">Book a Call →</a>
+    <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
+</section>
+</article>
+</Base>

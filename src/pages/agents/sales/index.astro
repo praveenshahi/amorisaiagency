@@ -1,0 +1,21 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AgentCard from '../../../components/AgentCard.astro';
+const agents = [
+  { name: "Lead Research Agent", description: "Builds enriched prospect lists matching your ICP daily — pushed to your CRM every morning.", setupINR: "₹1.5L", setupUSD: "$3k", href: "/agents/sales/lead-research" },
+  { name: "Outreach Agent", description: "Personalised email and LinkedIn sequences at scale. Replies triaged. Your team closes, not chases.", setupINR: "₹2L", setupUSD: "$4k", href: "/agents/sales/outreach-agent" },
+  { name: "CRM Copilot", description: "Auto-updates CRM from calls and emails, drafts follow-ups, and flags stalling deals.", setupINR: "₹1.75L", setupUSD: "$3.5k", href: "/agents/sales/crm-copilot" },
+];
+---
+<Base title="Sales & Growth AI Agents — Lead Research, Outreach & CRM | Amoris" description="3 sales AI agents for B2B teams: daily enriched prospect lists, personalised outreach sequences, and a CRM copilot that updates itself after every call.">
+  <section>
+    <Breadcrumbs crumbs={[{label:"Home",href:"/"},{label:"Agents",href:"/agents"},{label:"Sales & Growth Agents"}]} />
+    <div class="section-label reveal">Sales & Growth · 3 Agent Types</div>
+    <h1 class="reveal">Your sales team, backed by AI.</h1>
+    <p class="reveal" style="margin:16px 0 48px; font-size:1.1rem; max-width:56ch;">Research prospects overnight, send personalised outreach at scale, keep CRM current automatically. Your team focuses on conversations, not busywork.</p>
+    <div class="grid-3">
+      {agents.map(agent => <AgentCard {...agent} category="Sales" />)}
+    </div>
+  </section>
+</Base>

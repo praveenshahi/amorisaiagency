@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import FAQ from '../components/FAQ.astro';
+
+const faqs = [
+  { q: "What's the difference between individual agents and AIOS?", a: "An individual agent does one specific job — your AI Receptionist answers calls, your WhatsApp Agent handles messages. AIOS is the layer that connects them: shared memory so each agent knows what the others have done, one dashboard to see it all, and a command centre to manage and expand the system." },
+  { q: "How long does AIOS take to deploy?", a: "AIOS Core (one department, 3–5 agents): 6–8 weeks. AIOS Company (multi-department): 10–14 weeks. Timeline depends on integration complexity and how ready your data and documentation is." },
+  { q: "Do I need to start with AIOS or can I start with one agent?", a: "Start with one agent. Most clients deploy 1–2 agents first, see results, then graduate to AIOS when they want the system-level view and cross-agent memory. Setup fees for agents are credited toward AIOS." },
+  { q: "What does 'shared memory' mean?", a: "If your AI Receptionist books an appointment for a customer, your CRM Copilot already knows about it before the sales call starts. If your Reporting Agent noticed a dip in a metric last Tuesday, your daily brief mentions it. Agents share context, not just data." },
+  { q: "What's the difference between AIOS Core and AIOS Company?", a: "AIOS Core is one department: 3–5 agents, one team's workflows, one vault. Great starting point. AIOS Company is multi-department: custom agents per team, cross-department workflows, and training sessions for your team to manage and expand the system themselves." }
+];
+---
+<Base title="Amoris AIOS — AI Operating System for Your Business | Amoris" description="Amoris AIOS is not one agent — it's an operating system. Multiple agents, shared memory, one command centre. Start with one agent, graduate to AIOS.">
+<section style="padding-bottom:40px;">
+  <div class="section-label reveal">Flagship Product</div>
+  <h1 class="reveal" style="margin-bottom:20px;">Amoris AIOS</h1>
+  <p class="reveal" style="font-size:1.2rem; max-width:54ch; margin-bottom:40px;">
+    Not one agent. An operating system. Multiple agents, shared memory, one command centre that gives you visibility and control over everything they're doing.
+  </p>
+  <p class="reveal" style="font-size:1rem; color:var(--text-dim); max-width:56ch; margin-bottom:48px;">
+    Individual agents are entry points. AIOS is where clients graduate when they want the agents to work together, not in silos. "Start with one agent. Grow into an operating system."
+  </p>
+  <div class="reveal" style="display:flex; gap:16px; flex-wrap:wrap;">
+    <a href="/contact" class="btn btn-primary">Book a Discovery Call →</a>
+    <a href="/pricing" class="btn btn-outline">See Pricing</a>
+  </div>
+</section>
+
+<!-- WHAT MAKES AIOS DIFFERENT -->
+<section style="border-top:1px solid var(--border);">
+  <div class="section-label reveal">The AIOS Difference</div>
+  <h2 class="reveal" style="margin-bottom:48px;">Agents working together, not in silos.</h2>
+  <div class="grid-3">
+    <div class="card reveal">
+      <div class="card-label">Shared Memory</div>
+      <h3>Every agent knows what the others know.</h3>
+      <p>Your CRM Copilot knows who your AI Receptionist booked. Your daily brief knows what your Reporting Agent flagged. Context flows across the system.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-label">One Dashboard</div>
+      <h3>Single view of your entire AI operation.</h3>
+      <p>Calls handled, chats resolved, leads qualified, reports sent — all in one place. You see the system working, not just individual outputs.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-label">Vault</div>
+      <h3>Your business knowledge, centralised.</h3>
+      <p>All agents draw from the same approved vault — your SOPs, pricing, policies, playbooks. Update once, every agent knows immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section style="border-top:1px solid var(--border);">
+  <div class="section-label reveal">Packages</div>
+  <h2 class="reveal" style="margin-bottom:40px;">Two ways to start.</h2>
+  <div class="grid-2">
+    <div class="card reveal" style="padding:40px;">
+      <div class="card-label">AIOS Core</div>
+      <h3 style="font-size:1.4rem; margin-bottom:12px;">One department, 3–5 agents.</h3>
+      <p style="margin-bottom:24px;">Best for: one team, one workflow, one problem to solve well. Sales, operations, or customer support — pick the function, we build the system.</p>
+      <ul style="list-style:none; margin-bottom:28px;">
+        {["3–5 custom agents", "Shared memory vault", "Workflow automations", "1 integration stack", "Monthly reporting", "Slack-based command centre"].map(f => (
+          <li style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim); padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:10px; align-items:center;">
+            <span style="color:var(--accent);">✓</span> {f}
+          </li>
+        ))}
+      </ul>
+      <div style="margin-bottom:20px;">
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">Investment</div>
+        <span class="price-inr"><span class="price-amount">₹3.5L–6L</span> <span class="price-recur">setup + ₹40k/mo</span></span>
+        <span class="price-usd"><span class="price-amount">$7k–12k</span> <span class="price-recur">setup + $800/mo</span></span>
+      </div>
+      <a href="/contact" class="btn btn-primary">Start with AIOS Core →</a>
+    </div>
+    <div class="card reveal" style="padding:40px; border-color:var(--accent-dim);">
+      <div class="card-label" style="color:var(--accent);">AIOS Company</div>
+      <h3 style="font-size:1.4rem; margin-bottom:12px;">Multi-department, custom per team.</h3>
+      <p style="margin-bottom:24px;">Best for: companies that want AI running across sales, ops, and customer experience — with each team having their own agents and a shared central vault.</p>
+      <ul style="list-style:none; margin-bottom:28px;">
+        {["Unlimited agents across departments", "Cross-department shared memory", "Custom workflows per team", "Full integration stack", "Team training & documentation", "Dedicated expansion roadmap"].map(f => (
+          <li style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim); padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:10px; align-items:center;">
+            <span style="color:var(--accent);">✓</span> {f}
+          </li>
+        ))}
+      </ul>
+      <div style="margin-bottom:20px;">
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">Investment</div>
+        <span class="price-inr"><span class="price-amount">₹8L–15L</span> <span class="price-recur">setup + ₹75k–1.25L/mo</span></span>
+        <span class="price-usd"><span class="price-amount">$15k–30k</span> <span class="price-recur">setup + $1.5k–2.5k/mo</span></span>
+      </div>
+      <a href="/contact" class="btn btn-primary">Explore AIOS Company →</a>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border);">
+  <div class="section-label reveal">FAQ</div>
+  <h2 class="reveal" style="margin-bottom:32px;">Questions about AIOS.</h2>
+  <FAQ items={faqs} />
+</section>
+
+<section style="text-align:center; border-top:1px solid var(--border); background: radial-gradient(ellipse at 50% 100%, var(--accent-dim) 0%, transparent 70%);">
+  <h2 style="margin-bottom:16px;">Not sure which to start with?</h2>
+  <p style="margin:0 auto 32px; max-width:44ch;">Most clients start with one agent. We'll tell you on the call whether AIOS Core makes sense for your situation.</p>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="/contact" class="btn btn-primary">Book a Discovery Call →</a>
+    <a href="/agents" class="btn btn-outline">Browse Individual Agents</a>
+  </div>
+</section>
+</Base>

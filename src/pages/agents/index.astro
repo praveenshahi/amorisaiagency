@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const categories = [
+  {
+    label: "Voice AI Agents",
+    slug: "voice",
+    description: "Phone calls handled by AI — inbound and outbound, human-sounding, in Hindi and regional languages.",
+    count: 4,
+    agents: ["AI Receptionist", "Appointment Booking", "Outbound Follow-Up", "Payment Reminders"]
+  },
+  {
+    label: "Chat & Support Agents",
+    slug: "chat",
+    description: "Text-based agents on WhatsApp, your website, and Instagram — for commerce, support, and lead qualification.",
+    count: 4,
+    agents: ["WhatsApp Business Agent", "Website Support Agent", "Lead Qualification Agent", "Instagram DM Agent"]
+  },
+  {
+    label: "Knowledge (RAG) Agents",
+    slug: "knowledge",
+    description: "Agents that know your documents, policies, and data — and answer accurately from them.",
+    count: 4,
+    agents: ["Internal Knowledge Agent", "Document Intelligence Agent", "Customer Docs Agent", "Compliance & Policy Agent"]
+  },
+  {
+    label: "Sales & Growth Agents",
+    slug: "sales",
+    description: "Research prospects, write personalised outreach, and keep your CRM current — automatically.",
+    count: 3,
+    agents: ["Lead Research Agent", "Outreach Agent", "CRM Copilot"]
+  },
+  {
+    label: "Operations Agents",
+    slug: "operations",
+    description: "Generate reports, process invoices, and screen candidates — the work that has to happen but doesn't need a human.",
+    count: 3,
+    agents: ["Reporting Agent", "Invoice & Data Entry Agent", "Recruiting Agent"]
+  }
+];
+---
+<Base title="AI Agents Catalog — 18 Named Agent Systems | Amoris" description="18 named AI agent systems across voice, chat, knowledge, sales, and operations. Each one does a specific job, deployed in 3–4 weeks. Public pricing in INR and USD.">
+  <section>
+    <Breadcrumbs crumbs={[{label: "Home", href: "/"}, {label: "AI Agents"}]} />
+    <div class="section-label reveal">18 Agent Types</div>
+    <h1 class="reveal">AI Agents for every function.</h1>
+    <p class="reveal" style="margin:16px 0 56px; font-size:1.1rem; max-width:56ch;">
+      Named systems with specific jobs. Not "AI solutions" — an AI Receptionist, a WhatsApp Agent, a Document Intelligence Agent. Each one deployed in 3–4 weeks with public pricing.
+    </p>
+    <div style="display:flex; flex-direction:column; gap:32px;">
+      {categories.map(cat => (
+        <a href={`/agents/${cat.slug}`} class="card cat-card" style="text-decoration:none; display:block; padding:36px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;">
+            <div>
+              <div class="card-label">{cat.count} agents</div>
+              <h3 style="font-size:1.3rem; margin-bottom:8px;">{cat.label}</h3>
+              <p style="max-width:52ch; margin-bottom:16px;">{cat.description}</p>
+              <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                {cat.agents.map(name => (
+                  <span style="font-family:'DM Mono',monospace; font-size:11px; color:var(--text-dim); background:var(--surface2); border:1px solid var(--border); padding:2px 10px; border-radius:3px;">{name}</span>
+                ))}
+              </div>
+            </div>
+            <div style="font-family:'DM Mono',monospace; font-size:13px; color:var(--accent); white-space:nowrap; padding-top:4px;">View {cat.count} agents →</div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+  <section style="border-top:1px solid var(--border); text-align:center;">
+    <p style="margin:0 auto 28px; max-width:44ch;">Not sure which agent fits your problem? Book a 30-minute call — we'll map your use case to the right system.</p>
+    <a href="/contact" class="btn btn-primary">Book a Discovery Call →</a>
+  </section>
+</Base>
+
+<style>
+.cat-card:hover h3 { color: var(--accent); }
+</style>

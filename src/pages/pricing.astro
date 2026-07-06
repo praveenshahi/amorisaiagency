@@ -1,0 +1,150 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Pricing — AI Agents, Automation & AIOS | Amoris" description="Public pricing for all Amoris services. AI agents from ₹1L setup + ₹15k/month. AIOS from ₹3.5L setup. INR and USD. No vague 'contact for pricing'.">
+<section>
+  <div class="section-label reveal">Public Pricing</div>
+  <h1 class="reveal" style="margin-bottom:16px;">What it costs to deploy AI.</h1>
+  <p class="reveal" style="max-width:52ch; margin-bottom:8px;">All prices shown. "Starting at" figures are floor prices — exact scope and quote on a call. Ranges reflect integration complexity.</p>
+  <p class="reveal" style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-muted); margin-bottom:48px;">Use the currency toggle in the nav to switch between INR and USD.</p>
+</section>
+
+<!-- VOICE AGENTS -->
+<section style="padding-top:0; border-top:1px solid var(--border);">
+  <div class="section-label reveal">Division 01 — Voice AI Agents</div>
+  <table class="pricing-table reveal">
+    <thead>
+      <tr>
+        <th>Agent</th>
+        <th>What it does</th>
+        <th>Setup</th>
+        <th>Monthly</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        { name: "AI Receptionist", href: "/agents/voice/ai-receptionist", desc: "Answers every inbound call 24/7, routes, books, takes messages", inrSetup: "₹1.5L–2.5L", usdSetup: "$3k–5k", inrMo: "₹20k/mo", usdMo: "$400/mo" },
+        { name: "Appointment Booking Agent", href: "/agents/voice/appointment-booking", desc: "Books/reschedules over phone, syncs live to calendar", inrSetup: "₹1.5L–3L", usdSetup: "$3.5k–6k", inrMo: "₹25k/mo", usdMo: "$500/mo" },
+        { name: "Outbound Follow-Up Agent", href: "/agents/voice/outbound-follow-up", desc: "Calls leads within 5 min of inquiry, qualifies, books meetings", inrSetup: "₹2L–4L", usdSetup: "$4k–8k", inrMo: "₹30k/mo", usdMo: "$600/mo" },
+        { name: "Payment & Reminder Agent", href: "/agents/voice/payment-reminders", desc: "EMI reminders, renewal calls, feedback calls at scale", inrSetup: "₹2L–3.5L", usdSetup: "$4k–7k", inrMo: "₹30k/mo", usdMo: "$600/mo" },
+      ].map(row => (
+        <tr>
+          <td><a href={row.href} style="color:var(--accent); text-decoration:none;">{row.name}</a></td>
+          <td style="font-size:13px;">{row.desc}</td>
+          <td>
+            <span class="price-inr" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text);">{row.inrSetup}</span>
+            <span class="price-usd" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text);">{row.usdSetup}</span>
+          </td>
+          <td>
+            <span class="price-inr" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim);">{row.inrMo}</span>
+            <span class="price-usd" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim);">{row.usdMo}</span>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</section>
+
+<!-- CHAT AGENTS -->
+<section style="padding-top:0; border-top:1px solid var(--border);">
+  <div class="section-label reveal">Division 01 — Chat & Support Agents</div>
+  <table class="pricing-table reveal">
+    <thead><tr><th>Agent</th><th>What it does</th><th>Setup</th><th>Monthly</th></tr></thead>
+    <tbody>
+      {[
+        { name: "WhatsApp Business Agent", href: "/agents/chat/whatsapp-agent", desc: "Full commerce on WhatsApp: catalog, orders, payments, support", inrSetup: "₹1.25L–2.5L", usdSetup: "$2.5k–5k", inrMo: "₹15k/mo", usdMo: "$300/mo" },
+        { name: "Website Support Agent", href: "/agents/chat/website-support", desc: "Trained on your business; answers, qualifies, hands off", inrSetup: "₹1L–2L", usdSetup: "$2k–4k", inrMo: "₹15k/mo", usdMo: "$300/mo" },
+        { name: "Lead Qualification Agent", href: "/agents/chat/lead-qualification", desc: "Engages every lead, scores against your ICP, routes hot ones", inrSetup: "₹1.5L–2.5L", usdSetup: "$3k–5k", inrMo: "₹20k/mo", usdMo: "$400/mo" },
+        { name: "Instagram DM Agent", href: "/agents/chat/instagram-dm", desc: "Auto-responds to DMs/comments, converts followers to leads", inrSetup: "₹1L–1.75L", usdSetup: "$2k–3.5k", inrMo: "₹15k/mo", usdMo: "$300/mo" },
+      ].map(row => (
+        <tr>
+          <td><a href={row.href} style="color:var(--accent); text-decoration:none;">{row.name}</a></td>
+          <td style="font-size:13px;">{row.desc}</td>
+          <td><span class="price-inr" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text);">{row.inrSetup}</span><span class="price-usd" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text);">{row.usdSetup}</span></td>
+          <td><span class="price-inr" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim);">{row.inrMo}</span><span class="price-usd" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim);">{row.usdMo}</span></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</section>
+
+<!-- KNOWLEDGE AGENTS -->
+<section style="padding-top:0; border-top:1px solid var(--border);">
+  <div class="section-label reveal">Division 01 — Knowledge (RAG) Agents</div>
+  <table class="pricing-table reveal">
+    <thead><tr><th>Agent</th><th>What it does</th><th>Setup</th><th>Monthly</th></tr></thead>
+    <tbody>
+      {[
+        { name: "Internal Knowledge Agent", href: "/agents/knowledge/internal-knowledge", desc: "Company brain: SOPs, HR, product docs — staff ask, it answers with sources", inrSetup: "₹2L–4L", usdSetup: "$4k–8k", inrMo: "₹25k/mo", usdMo: "$500/mo" },
+        { name: "Document Intelligence Agent", href: "/agents/knowledge/document-intelligence", desc: "Contracts, invoices, reports — extract, compare, summarise", inrSetup: "₹2.5L–4.5L", usdSetup: "$5k–9k", inrMo: "₹30k/mo", usdMo: "$600/mo" },
+        { name: "Customer Docs Agent", href: "/agents/knowledge/customer-docs", desc: "Public-facing help docs answered conversationally", inrSetup: "₹1.75L–3L", usdSetup: "$3.5k–6k", inrMo: "₹20k/mo", usdMo: "$400/mo" },
+        { name: "Compliance & Policy Agent", href: "/agents/knowledge/compliance", desc: "Regulated sectors: answers grounded strictly in approved policy text", inrSetup: "₹3L–5L", usdSetup: "$6k–10k", inrMo: "₹35k/mo", usdMo: "$700/mo" },
+      ].map(row => (
+        <tr>
+          <td><a href={row.href} style="color:var(--accent); text-decoration:none;">{row.name}</a></td>
+          <td style="font-size:13px;">{row.desc}</td>
+          <td><span class="price-inr" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text);">{row.inrSetup}</span><span class="price-usd" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text);">{row.usdSetup}</span></td>
+          <td><span class="price-inr" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim);">{row.inrMo}</span><span class="price-usd" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim);">{row.usdMo}</span></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</section>
+
+<!-- AIOS -->
+<section style="padding-top:0; border-top:1px solid var(--border);">
+  <div class="section-label reveal">Division 03 — Amoris AIOS (Flagship)</div>
+  <div class="grid-2 reveal">
+    <div class="card" style="border-color:var(--accent-dim);">
+      <div class="card-label">AIOS Core</div>
+      <h3>One department: 3–5 agents + vault + workflows</h3>
+      <div style="margin-top:16px;">
+        <span class="price-inr"><span class="price-amount">₹3.5L–6L</span> <span class="price-recur">setup + ₹40k/mo</span></span>
+        <span class="price-usd"><span class="price-amount">$7k–12k</span> <span class="price-recur">setup + $800/mo</span></span>
+      </div>
+    </div>
+    <div class="card" style="border-color:var(--accent-dim);">
+      <div class="card-label">AIOS Company</div>
+      <h3>Multi-department, custom agents per team, training</h3>
+      <div style="margin-top:16px;">
+        <span class="price-inr"><span class="price-amount">₹8L–15L</span> <span class="price-recur">setup + ₹75k–1.25L/mo</span></span>
+        <span class="price-usd"><span class="price-amount">$15k–30k</span> <span class="price-recur">setup + $1.5k–2.5k/mo</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGY -->
+<section style="padding-top:0; border-top:1px solid var(--border);">
+  <div class="section-label reveal">Division 04 — Strategy & Enablement</div>
+  <div class="grid-3 reveal">
+    {[
+      { name: "AI Opportunity Audit", desc: "2 weeks, full roadmap + ROI projections. Fee credited to any build.", inr: "₹49k–1.25L", usd: "$1k–2.5k" },
+      { name: "AI Team Workshop", desc: "Half or full-day, hands-on session for your team.", inr: "₹50k–1L", usd: "$1k–2k" },
+      { name: "Fractional AI Team", desc: "Monthly retainer: run, improve, and expand your AI systems.", inr: "₹1L–3L/mo", usd: "$2k–6k/mo" },
+    ].map(s => (
+      <div class="card">
+        <div class="card-label">{s.name}</div>
+        <p style="font-size:14px; margin-bottom:16px;">{s.desc}</p>
+        <span class="price-inr"><span class="price-amount">{s.inr}</span></span>
+        <span class="price-usd"><span class="price-amount">{s.usd}</span></span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section style="text-align:center; border-top:1px solid var(--border);">
+  <p style="margin:0 auto 28px; max-width:44ch;">Ready to scope your build? We'll confirm the exact cost on the call — no surprises.</p>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="/contact" class="btn btn-primary">Book a Discovery Call →</a>
+    <a href="/agents" class="btn btn-outline">Browse Agents</a>
+  </div>
+</section>
+
+<style>
+.pricing-table { width:100%; border-collapse:collapse; margin-top:20px; }
+.pricing-table th { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); padding:8px 12px; border-bottom:1px solid var(--border2); text-align:left; }
+.pricing-table td { padding:14px 12px; border-bottom:1px solid var(--border); color:var(--text-dim); vertical-align:top; }
+@media(max-width:768px){ .pricing-table th:nth-child(2), .pricing-table td:nth-child(2) { display:none; } }
+</style>
+</Base>

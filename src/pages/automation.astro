@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="AI Automation & Integration Services | Amoris" description="Connect your CRM, email, WhatsApp, Sheets, and AI agents into automated workflows that run without human intervention. Workflow automation, content engines, and custom integrations.">
+<section>
+  <div class="section-label reveal">Division 02</div>
+  <h1 class="reveal" style="margin-bottom:20px;">AI Automation & Integration</h1>
+  <p class="reveal" style="font-size:1.15rem; max-width:56ch; margin-bottom:48px;">Connecting your tools so work flows without humans pushing it. CRM to email to Sheets to WhatsApp — automated workflows that run while you sleep.</p>
+</section>
+
+<section style="padding-top:0;">
+  <div class="grid-3">
+    <div class="card reveal" style="padding:36px;">
+      <div class="card-label">Workflow Automation</div>
+      <h3>CRM ↔ Email ↔ Sheets ↔ WhatsApp pipelines</h3>
+      <p style="margin:12px 0 20px;">Lead fills form → CRM updated → welcome email sent → WhatsApp message queued → Slack alert to sales. One trigger, everything happens.</p>
+      <div style="font-family:'DM Mono',monospace; font-size:11px; color:var(--text-muted); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.1em;">Starting at</div>
+      <span class="price-inr"><span class="price-amount">₹75k–2.5L</span> <span class="price-recur">per workflow</span></span>
+      <span class="price-usd"><span class="price-amount">$1.5k–5k</span> <span class="price-recur">per workflow</span></span>
+    </div>
+    <div class="card reveal" style="padding:36px;">
+      <div class="card-label">AI Content Engine</div>
+      <h3>Research → Draft → Publish in your brand voice</h3>
+      <p style="margin:12px 0 20px;">Topic brief → AI research → draft in your voice → approval step → scheduled publish. LinkedIn posts, newsletters, proposals — all consistent, all on-brand.</p>
+      <div style="font-family:'DM Mono',monospace; font-size:11px; color:var(--text-muted); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.1em;">Starting at</div>
+      <span class="price-inr"><span class="price-amount">₹1.5L–3L</span> <span class="price-recur">setup</span></span>
+      <span class="price-usd"><span class="price-amount">$3k–6k</span> <span class="price-recur">setup</span></span>
+    </div>
+    <div class="card reveal" style="padding:36px;">
+      <div class="card-label">Custom Integrations</div>
+      <h3>Your stack ↔ any AI agent above</h3>
+      <p style="margin:12px 0 20px;">Using a niche CRM, proprietary ERP, or custom-built system? We build the integration layer so your AI agents connect to your actual stack.</p>
+      <div style="font-family:'DM Mono',monospace; font-size:11px; color:var(--text-muted); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.1em;">Starting at</div>
+      <span class="price-inr"><span class="price-amount">₹50k–1.5L</span></span>
+      <span class="price-usd"><span class="price-amount">$1k–3k</span></span>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border);">
+  <div class="section-label reveal">Common Automation Flows</div>
+  <h2 class="reveal" style="margin-bottom:32px;">Workflows we've built before.</h2>
+  <div style="display:flex; flex-direction:column; gap:0;">
+    {[
+      { trigger: "New lead from Facebook Ads", flow: "→ Zoho CRM entry → welcome WhatsApp → Outbound Follow-Up Agent call within 5 min → CRM stage updated" },
+      { trigger: "Invoice email received", flow: "→ Invoice Agent extracts data → Zoho Books entry → PO match check → finance team notified if mismatch" },
+      { trigger: "Customer raises support ticket", flow: "→ Customer Docs Agent attempts resolution → if unresolved → Freshdesk ticket created → human agent assigned" },
+      { trigger: "Weekly Monday 8am", flow: "→ Reporting Agent pulls CRM + GA + Meta Ads → generates report with commentary → Slack message to team + PDF to founder" },
+      { trigger: "Sales call ends on Zoom", flow: "→ CRM Copilot processes transcript → deal record updated → follow-up email drafted → calendar reminder set" },
+    ].map(item => (
+      <div class="reveal" style="padding:20px 0; border-bottom:1px solid var(--border);">
+        <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--accent); margin-bottom:6px;">Trigger: {item.trigger}</div>
+        <p style="font-size:14px; margin:0;">{item.flow}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section style="text-align:center; border-top:1px solid var(--border); background: radial-gradient(ellipse at 50% 100%, var(--accent-dim) 0%, transparent 70%);">
+  <h2 style="margin-bottom:16px;">Have a workflow in mind?</h2>
+  <p style="margin:0 auto 32px; max-width:44ch;">Describe what you want automated and we'll scope it on the call.</p>
+  <a href="/contact" class="btn btn-primary">Book a Call →</a>
+</section>
+</Base>

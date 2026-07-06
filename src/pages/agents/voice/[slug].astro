@@ -1,0 +1,167 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import PricingCard from '../../../components/PricingCard.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ROIBlock from '../../../components/ROIBlock.astro';
+
+export function getStaticPaths() {
+  const agents = [
+  {
+    slug: "appointment-booking",
+    title: "AI Appointment Booking Agent for Clinics, Salons & Real Estate | Amoris",
+    description: "An AI voice agent that books, reschedules, and confirms appointments over the phone — synced live to your calendar — in Hindi, English, and regional languages.",
+    name: "Appointment Booking Agent",
+    answer: "An AI Appointment Booking Agent handles every booking call end-to-end: checks your calendar for availability, confirms the slot, sends the caller a WhatsApp confirmation, and sends reminder calls before the appointment — all without staff involvement.",
+    setupINR: "₹1.5L–3L", retainerINR: "₹25k/mo",
+    setupUSD: "$3.5k–6k", retainerUSD: "$500/mo",
+    builtFor: ["Clinics & diagnostic centres", "Salons & spas", "Real estate agents", "Fitness studios", "Tutoring centres"],
+    languages: ["Hindi", "English", "Tamil", "Telugu", "Kannada", "Marathi"],
+    integrations: ["Google Calendar", "Calendly", "Zoho Calendar", "WhatsApp Business API"],
+    howItWorks: [
+      { step: "Caller states intent", detail: "'I need to book with Dr. Sharma' or 'Can I get a facial on Saturday?'" },
+      { step: "Agent checks live calendar", detail: "Pulls real-time availability. Offers 2–3 time slots." },
+      { step: "Booking confirmed", detail: "Slot blocked immediately. WhatsApp confirmation sent to caller." },
+      { step: "Reminders sent", detail: "Automated reminder 24 hours and 2 hours before the appointment." }
+    ],
+    roi: { before: "Booking coordinator: ₹18–22k/month, handles ~80 bookings/day, no weekend coverage.", after: "Booking Agent: ₹25k/month, handles 200+ bookings/day, 24/7, with automated reminders.", outcome: "No-show rate drops 30–50% with automated reminders alone." },
+    faqs: [
+      { q: "How much does an AI booking agent cost in India?", a: "Setup is ₹1.5L–3L. Monthly retainer is ₹25k, covering up to 200 bookings/day. A typical clinic with 100+ bookings/month recovers this in saved staff time within the first month." },
+      { q: "Does it handle rescheduling and cancellations?", a: "Yes. Callers can reschedule or cancel via the same number. Calendar updated in real time, slot freed, WhatsApp confirmation sent." },
+      { q: "What about multi-doctor setups?", a: "The agent handles multiple practitioners and locations. Caller says 'I want Dr. Sharma in Indiranagar' and the agent shows available slots for that doctor at that location." },
+      { q: "Can it manage waitlists?", a: "Yes. If no slots are available, the agent offers to add the caller to a waitlist and auto-calls them when a slot opens." },
+      { q: "What if the caller speaks only Tamil?", a: "The agent detects language in the first 2 seconds and continues the conversation entirely in Tamil. No menu selection needed." }
+    ]
+  },
+  {
+    slug: "outbound-follow-up",
+    title: "Outbound AI Follow-Up Agent — Call Leads Within Minutes | Amoris",
+    description: "An AI voice agent that calls new leads within 5 minutes of inquiry, qualifies them, and books meetings — so your sales team only talks to people who are ready.",
+    name: "Outbound Follow-Up Agent",
+    answer: "An Outbound Follow-Up Agent calls every new lead within 5 minutes of form submission, qualifies them with 3–4 questions, and books meetings only for leads who are ready to buy. Your sales team stops wasting time on cold discovery.",
+    setupINR: "₹2L–4L", retainerINR: "₹30k/mo",
+    setupUSD: "$4k–8k", retainerUSD: "$600/mo",
+    builtFor: ["Real estate", "EdTech", "B2B SaaS", "Financial services", "Coaching & consulting"],
+    languages: ["Hindi", "English", "Tamil", "Telugu"],
+    integrations: ["Zoho CRM", "HubSpot", "Salesforce", "Google Calendar", "WhatsApp Business API"],
+    howItWorks: [
+      { step: "Lead submits a form", detail: "Website, Facebook Lead Ads, IndiaMart, JustDial — any source with a webhook." },
+      { step: "Agent calls within 5 minutes", detail: "'Hi, this is Aria from [Company]. You just enquired about [product] — got 2 minutes?'" },
+      { step: "Qualification", detail: "3–4 questions covering budget, timeline, situation, authority. Logged in CRM in real time." },
+      { step: "Outcome", detail: "Hot lead → calendar booked. Not ready → nurture sequence. No answer → 3 retries + WhatsApp." }
+    ],
+    roi: { before: "BDE doing follow-up: 30–40 calls/day, 30–40% connect rate, 4–8 hour response time.", after: "Outbound Agent: 300+ calls/day, calls within 5 minutes, consistent qualification messaging.", outcome: "78% of deals go to the vendor who responds first. This agent always responds first." },
+    faqs: [
+      { q: "How fast does the agent call after a lead fills a form?", a: "Under 5 minutes. The agent triggers on a webhook from your lead source and calls within minutes of form submission. Most competitors take 4–8 hours. Speed-to-lead is the single biggest factor in conversion." },
+      { q: "What does the agent say on the call?", a: "It introduces itself as an AI assistant for your company, references what the lead enquired about, asks 3–4 qualification questions, and either books a meeting or marks the lead as unqualified. The script is written with you during setup." },
+      { q: "What if the lead doesn't pick up?", a: "The agent retries 3 times over 90 minutes (5 min, 30 min, 90 min), then sends a WhatsApp message, then marks for manual follow-up." },
+      { q: "Will leads know they're talking to AI?", a: "The agent discloses it's an AI assistant for your company. Leads who proceed past disclosure are higher quality." },
+      { q: "What CRM does it push data to?", a: "Zoho CRM, HubSpot, Salesforce, or a Google Sheet. Every call logged with duration, qualification status, and a call summary." }
+    ]
+  },
+  {
+    slug: "payment-reminders",
+    title: "AI Payment Reminder & Renewal Call Agent | Amoris",
+    description: "An AI voice agent that makes EMI reminder calls, renewal nudges, and feedback calls at scale — so collections and retention happen without adding staff.",
+    name: "Payment & Reminder Agent",
+    answer: "A Payment & Reminder Agent makes pre-due, same-day, and early overdue calls to your customers at scale — in their language, at the right time, every time. Collections and renewal rates improve without adding collections staff.",
+    setupINR: "₹2L–3.5L", retainerINR: "₹30k/mo",
+    setupUSD: "$4k–7k", retainerUSD: "$600/mo",
+    builtFor: ["NBFCs & lending", "EdTech & coaching", "Subscription businesses", "Real estate developers", "Insurance"],
+    languages: ["Hindi", "English", "Tamil", "Telugu", "Kannada", "Marathi"],
+    integrations: ["Zoho CRM", "HubSpot", "Google Sheets", "WhatsApp Business API", "Razorpay"],
+    howItWorks: [
+      { step: "Agent reads your contact list", detail: "Customer name, due date, amount, phone number, language preference from CRM or Google Sheet." },
+      { step: "Scheduled calls", detail: "Calls at your configured times — 3 days before, on the day, 1 day after. 200 calls in 2 hours." },
+      { step: "Conversation", detail: "'Hi Ramesh ji, your EMI of ₹4,200 is due Thursday. Sending the payment link to WhatsApp now.'" },
+      { step: "Outcomes logged", detail: "Paid → logged. Promise to pay → flagged with date. Dispute → escalated to human." }
+    ],
+    roi: { before: "Manual collections team: 40 reminder calls/day, inconsistent language coverage, misses pre-due window.", after: "Reminder Agent: 200+ calls/day, 6 languages, pre-due reminders hit every customer on time.", outcome: "Timely pre-due reminders convert 40–60% before the payment lapses." },
+    faqs: [
+      { q: "Is this legal? Can an AI make collection calls in India?", a: "Yes, within RBI guidelines for pre-due and early-stage reminders. The agent handles: pre-due reminders (3 days before), same-day payment nudges, and friendly overdue nudges (1–7 days). Anything past 7 days goes to your human collections team." },
+      { q: "How does the agent know who to call and when?", a: "It reads from your CRM or a Google Sheet with customer name, due date, amount, and contact number. You control the timing rules." },
+      { q: "What if the customer says they already paid?", a: "The agent asks them to confirm the UTR/reference number, logs it, and flags for reconciliation. It doesn't argue — it escalates ambiguous cases to your team." },
+      { q: "Can it handle renewal calls too?", a: "Yes. For subscription businesses, it calls customers 14 days before renewal, explains the terms, and sends a payment link via WhatsApp." },
+      { q: "What languages does it call in?", a: "Hindi, English, Tamil, Telugu, Kannada, Marathi. Language is set per customer in your contact list, or auto-detected from their first response." }
+    ]
+  }
+];
+  return agents.map(a => ({ params: { slug: a.slug }, props: { agent: a } }));
+}
+
+const { agent } = Astro.props;
+---
+<Base title={agent.title} description={agent.description}>
+<article>
+<section style="padding-bottom:40px;">
+  <Breadcrumbs crumbs={[{label:"Home",href:"/"},{label:"Agents",href:"/agents"},{label:"Voice AI",href:"/agents/voice"},{label:agent.name}]} />
+  <div class="section-label reveal">Voice AI Agent</div>
+  <h1 class="reveal" style="margin-bottom:20px;">{agent.name}</h1>
+  <div class="card reveal" style="background:var(--surface2); border-color:rgba(200,240,58,0.15); margin-bottom:32px;">
+    <p style="font-size:1.05rem; color:var(--text); margin-bottom:16px;">{agent.answer}</p>
+    <div style="display:flex; gap:32px; flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Starting at</div>
+        <span class="price-inr"><span class="price-amount">{agent.setupINR}</span> <span class="price-recur">setup + {agent.retainerINR}</span></span>
+        <span class="price-usd"><span class="price-amount">{agent.setupUSD}</span> <span class="price-recur">setup + {agent.retainerUSD}</span></span>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Languages</div>
+        <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim);">{agent.languages.join(' · ')}</div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal" style="margin-bottom:48px;">
+    <div class="section-label">Built For</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+      {agent.builtFor.map((ind: string) => <span style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border2); padding:4px 14px; border-radius:4px;">{ind}</span>)}
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <h2 class="reveal" style="margin-bottom:32px;">How it works.</h2>
+  <div style="display:flex; flex-direction:column; gap:0;">
+    {agent.howItWorks.map((step: any, i: number) => (
+      <div class="reveal" style="display:flex; gap:24px; padding:24px 0; border-bottom:1px solid var(--border);">
+        <div style="font-family:'DM Mono',monospace; font-size:13px; color:var(--accent); min-width:28px; flex-shrink:0; padding-top:2px;">0{i+1}</div>
+        <div>
+          <h3 style="margin-bottom:4px;">{step.step}</h3>
+          <p style="font-size:14px; margin:0;">{step.detail}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section style="padding-top:48px;">
+  <ROIBlock before={agent.roi.before} after={agent.roi.after} outcome={agent.roi.outcome} />
+</section>
+
+<section style="padding-top:48px; padding-bottom:48px;">
+  <div class="section-label reveal">Integrations</div>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {agent.integrations.map((int: string) => <span style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border); padding:4px 14px; border-radius:4px;">{int}</span>)}
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <PricingCard setupINR={agent.setupINR} retainerINR={agent.retainerINR} setupUSD={agent.setupUSD} retainerUSD={agent.retainerUSD} note="Scoped quote on call. Starting prices shown above." />
+</section>
+
+<section>
+  <div class="section-label reveal">FAQ</div>
+  <h2 class="reveal" style="margin-bottom:32px;">Common questions about {agent.name}.</h2>
+  <FAQ items={agent.faqs} />
+</section>
+
+<section style="text-align:center; border-top:1px solid var(--border); background: radial-gradient(ellipse at 50% 100%, var(--accent-dim) 0%, transparent 70%);">
+  <h2 style="margin-bottom:16px;">Ready to deploy {agent.name}?</h2>
+  <p style="margin:0 auto 32px; max-width:44ch;">Book a 30-minute discovery call. We'll scope your use case and give you a cost on the call.</p>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="/contact" class="btn btn-primary">Book a Call →</a>
+    <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
+</section>
+</article>
+</Base>

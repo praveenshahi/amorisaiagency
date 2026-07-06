@@ -1,0 +1,141 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import PricingCard from '../../../components/PricingCard.astro';
+import FAQ from '../../../components/FAQ.astro';
+
+export function getStaticPaths() {
+  const agents = [
+  {
+    slug: "internal-knowledge",
+    title: "Internal AI Knowledge Agent — Company Brain for Your Team | Amoris",
+    description: "An AI agent trained on your SOPs, HR policies, and product docs. Staff ask in plain language, get accurate answers with source citations.",
+    name: "Internal Knowledge Agent",
+    answer: "An Internal Knowledge Agent is your company's searchable brain. Staff ask questions in plain language — 'what's the process for client onboarding?', 'how many leaves for marriage?' — and get accurate answers from your actual documents, with the source cited. Starting at ₹2L setup + ₹25k/month.",
+    setupINR: "₹2L–4L", retainerINR: "₹25k/mo",
+    setupUSD: "$4k–8k", retainerUSD: "$500/mo",
+    builtFor: ["Companies 20+ employees", "Distributed teams", "Finance, healthcare, real estate", "Agencies onboarding frequently"],
+    languages: ["Hindi", "English"],
+    integrations: ["Notion", "Confluence", "Google Drive", "SharePoint", "Slack", "Microsoft Teams"],
+    faqs: [
+      { q: "What documents can the agent be trained on?", a: "PDFs, Word docs, Google Docs, Notion pages, Confluence pages, and structured spreadsheets. SOPs, HR policies, product docs, onboarding guides, pricing sheets." },
+      { q: "How does it handle confidential information?", a: "Role-based access. HR policy content only accessible to HR queries. Financial data only to finance team. You define which documents are accessible to which roles." },
+      { q: "Does it hallucinate?", a: "No. It only answers from the documents in the knowledge base. If the answer isn't there, it says 'I don't have that information' and cites the source for everything it does answer." },
+      { q: "How is it better than just searching Google Drive?", a: "Drive search finds documents. This agent reads them and gives you the answer. 'What's the leave encashment policy?' gets you the specific rule, not a link to a 40-page handbook." },
+      { q: "What happens when a document changes?", a: "We run weekly syncs (or on-demand). When you update a policy document, the agent's answers update automatically." }
+    ]
+  },
+  {
+    slug: "document-intelligence",
+    title: "Document Intelligence Agent — Extract, Compare & Summarise at Scale | Amoris",
+    description: "An AI agent that reads contracts, invoices, and reports — extracts key data, flags anomalies, and answers questions across hundreds of files.",
+    name: "Document Intelligence Agent",
+    answer: "A Document Intelligence Agent reads your contracts, invoices, and reports — extracts key fields, answers questions across document sets, flags anomalies, and compares documents against templates. What takes a paralegal 3 hours takes this agent 3 minutes.",
+    setupINR: "₹2.5L–4.5L", retainerINR: "₹30k/mo",
+    setupUSD: "$5k–9k", retainerUSD: "$600/mo",
+    builtFor: ["Legal & CA firms", "Finance teams", "Real estate", "Procurement", "Healthcare admin"],
+    languages: ["Hindi", "English"],
+    integrations: ["Google Drive", "SharePoint", "Zoho Books", "Tally", "Salesforce"],
+    faqs: [
+      { q: "What types of documents can it process?", a: "Contracts (NDAs, service agreements, vendor contracts), invoices, POs, financial reports, insurance policies, property documents, lab reports. PDFs, Word docs, and scanned documents with OCR." },
+      { q: "Can it compare documents?", a: "Yes. 'Compare this NDA with our standard template and highlight deviations' is a typical use case. Outputs a list of differences with section references." },
+      { q: "How accurate is the data extraction?", a: "95–98% for clean digital invoices. 85–92% for unstructured documents. Low-confidence fields are flagged for human review, not entered automatically." },
+      { q: "Can it flag unusual clauses in contracts?", a: "Yes. You define what 'unusual' means for your business — non-standard payment terms, liability caps below a threshold, IP assignment clauses. The agent flags any section matching your risk criteria." },
+      { q: "What about data security?", a: "Documents are processed in your cloud environment. Nothing leaves your infrastructure. We set up the system on your GCP, AWS, or Azure account — you own the data." }
+    ]
+  },
+  {
+    slug: "customer-docs",
+    title: "Customer-Facing AI Docs Agent — Help Desk Without the Help Desk | Amoris",
+    description: "A public-facing AI agent trained on your help documentation. Customers ask in plain language and get accurate answers — deflecting 60–80% of support tickets.",
+    name: "Customer Docs Agent",
+    answer: "A Customer Docs Agent sits on your help centre and answers customer questions from your documentation. Customers stop waiting for a human to answer common questions — and your support team focuses on the questions that actually need judgment.",
+    setupINR: "₹1.75L–3L", retainerINR: "₹20k/mo",
+    setupUSD: "$3.5k–6k", retainerUSD: "$400/mo",
+    builtFor: ["SaaS products", "E-commerce", "EdTech platforms", "Fintech", "Healthcare apps"],
+    languages: ["Hindi", "English"],
+    integrations: ["Freshdesk", "Zendesk", "Intercom", "Notion", "Confluence"],
+    faqs: [
+      { q: "How is this different from a standard FAQ page?", a: "A FAQ page requires the user to find the right question. This agent understands the user's actual question — typed in their own words — and finds the right answer from your docs." },
+      { q: "What's the ticket deflection rate?", a: "60–80% for products with well-maintained help documentation. The agent handles the common questions. Humans get the complex, nuanced ones." },
+      { q: "Can it create a support ticket when it can't answer?", a: "Yes. When the agent can't resolve an issue, it creates a Freshdesk/Zendesk ticket with the conversation context attached. The human agent picks up with full history." },
+      { q: "What if customers give negative feedback?", a: "Every answer has a thumbs up/down. Bad ratings are flagged for your team to improve the documentation." },
+      { q: "Does it work on mobile?", a: "Yes. Fully responsive chat widget." }
+    ]
+  },
+  {
+    slug: "compliance",
+    title: "Compliance & Policy AI Agent for Regulated Industries | Amoris",
+    description: "An AI agent trained strictly on approved policy text. Answers regulatory and compliance questions with source citations and a full audit log.",
+    name: "Compliance & Policy Agent",
+    answer: "A Compliance & Policy Agent answers regulatory, policy, and protocol questions strictly from approved documentation — with source citations, confidence scores, and a full audit log. It never interpolates or guesses outside its approved document set.",
+    setupINR: "₹3L–5L", retainerINR: "₹35k/mo",
+    setupUSD: "$6k–10k", retainerUSD: "$700/mo",
+    builtFor: ["NBFCs & banks", "Insurance companies", "Hospitals & clinics", "Legal firms", "DPDP compliance"],
+    languages: ["Hindi", "English"],
+    integrations: ["SharePoint", "Confluence", "Google Drive", "Freshdesk", "ServiceNow"],
+    faqs: [
+      { q: "What regulated industries does this serve?", a: "BFSI (NBFCs, insurance, brokerages under SEBI/IRDAI/RBI), healthcare (NABH, clinical protocols), legal (firm policies), and businesses building DPDP compliance." },
+      { q: "Will the agent answer questions outside its approved documents?", a: "Never. The compliance agent is configured to refuse answers on topics not covered by approved documentation. It explicitly flags 'this is not covered' rather than inferring." },
+      { q: "How is the approved document set controlled?", a: "Only designated admins can add or remove documents. Every change is logged with timestamp and approver. The agent version is locked to a specific document set version." },
+      { q: "Can it be used for customer-facing compliance queries?", a: "Yes. An NBFC deploying this for customer queries on loan terms, foreclosure rules, or EMI calculations — all grounded strictly in their approved loan product documentation." },
+      { q: "What audit trail does it provide?", a: "Every query and response is logged with timestamp, user/session ID, documents cited, and confidence score. Exportable for regulatory audit purposes." }
+    ]
+  }
+];
+  return agents.map(a => ({ params: { slug: a.slug }, props: { agent: a } }));
+}
+
+const { agent } = Astro.props;
+---
+<Base title={agent.title} description={agent.description}>
+<article>
+<section style="padding-bottom:40px;">
+  <Breadcrumbs crumbs={[{label:"Home",href:"/"},{label:"Agents",href:"/agents"},{label:"Knowledge Agents",href:"/agents/knowledge"},{label:agent.name}]} />
+  <div class="section-label reveal">Knowledge Agent</div>
+  <h1 class="reveal" style="margin-bottom:20px;">{agent.name}</h1>
+  <div class="card reveal" style="background:var(--surface2); border-color:rgba(200,240,58,0.15); margin-bottom:32px;">
+    <p style="font-size:1.05rem; color:var(--text); margin-bottom:16px;">{agent.answer}</p>
+    <div style="display:flex; gap:32px; flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Starting at</div>
+        <span class="price-inr"><span class="price-amount">{agent.setupINR}</span> <span class="price-recur">setup + {agent.retainerINR}</span></span>
+        <span class="price-usd"><span class="price-amount">{agent.setupUSD}</span> <span class="price-recur">setup + {agent.retainerUSD}</span></span>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Languages</div>
+        <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim);">{agent.languages.join(' · ')}</div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal" style="margin-bottom:48px;">
+    <div class="section-label">Built For</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+      {agent.builtFor.map((ind: string) => <span style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border2); padding:4px 14px; border-radius:4px;">{ind}</span>)}
+    </div>
+  </div>
+</section>
+<section style="padding-top:0; padding-bottom:48px;">
+  <div class="section-label reveal">Integrations</div>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {agent.integrations.map((int: string) => <span style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border); padding:4px 14px; border-radius:4px;">{int}</span>)}
+  </div>
+</section>
+<section style="padding-top:0;">
+  <PricingCard setupINR={agent.setupINR} retainerINR={agent.retainerINR} setupUSD={agent.setupUSD} retainerUSD={agent.retainerUSD} />
+</section>
+<section>
+  <div class="section-label reveal">FAQ</div>
+  <h2 class="reveal" style="margin-bottom:32px;">Common questions about {agent.name}.</h2>
+  <FAQ items={agent.faqs} />
+</section>
+<section style="text-align:center; border-top:1px solid var(--border); background: radial-gradient(ellipse at 50% 100%, var(--accent-dim) 0%, transparent 70%);">
+  <h2 style="margin-bottom:16px;">Ready to deploy {agent.name}?</h2>
+  <p style="margin:0 auto 32px; max-width:44ch;">Book a 30-minute discovery call.</p>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="/contact" class="btn btn-primary">Book a Call →</a>
+    <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
+</section>
+</article>
+</Base>

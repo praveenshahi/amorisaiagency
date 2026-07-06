@@ -1,0 +1,26 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AgentCard from '../../../components/AgentCard.astro';
+
+const agents = [
+  { name: "AI Receptionist", description: "Answers every inbound call 24/7, routes, books appointments, takes messages.", setupINR: "₹1.5L", setupUSD: "$3k", href: "/agents/voice/ai-receptionist" },
+  { name: "Appointment Booking Agent", description: "Books, reschedules, and confirms appointments over the phone — synced live to your calendar.", setupINR: "₹1.5L", setupUSD: "$3.5k", href: "/agents/voice/appointment-booking" },
+  { name: "Outbound Follow-Up Agent", description: "Calls leads within 5 minutes of inquiry, qualifies them, books meetings.", setupINR: "₹2L", setupUSD: "$4k", href: "/agents/voice/outbound-follow-up" },
+  { name: "Payment & Reminder Agent", description: "EMI reminders, renewal calls, and feedback calls at scale in 6 languages.", setupINR: "₹2L", setupUSD: "$4k", href: "/agents/voice/payment-reminders" },
+];
+---
+<Base title="Voice AI Agents — Inbound, Outbound & Booking in 6 Languages | Amoris" description="4 voice AI agent types that handle inbound calls, appointment booking, outbound follow-up, and payment reminders — in Hindi, English, Tamil, Telugu, Kannada, and Marathi.">
+  <section>
+    <Breadcrumbs crumbs={[{label:"Home",href:"/"},{label:"Agents",href:"/agents"},{label:"Voice AI Agents"}]} />
+    <div class="section-label reveal">Voice AI · 4 Agent Types</div>
+    <h1 class="reveal">Phone calls handled by AI.</h1>
+    <p class="reveal" style="margin:16px 0 16px; font-size:1.1rem; max-width:56ch;">Inbound and outbound, human-sounding, in Hindi and 5 regional languages. India differentiator: almost no one does multilingual voice AI well. We do.</p>
+    <div class="reveal" style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-muted); margin-bottom:48px;">
+      Languages: Hindi · English · Tamil · Telugu · Kannada · Marathi
+    </div>
+    <div class="grid-2">
+      {agents.map(agent => <AgentCard {...agent} category="Voice" />)}
+    </div>
+  </section>
+</Base>

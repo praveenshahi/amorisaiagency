@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="About Amoris — AI Agency Built by a Sales & GTM Operator | Amoris" description="Amoris is built by Praveen Shahi, a 10-year sales and GTM operator who now ships AI systems. Not a tech agency that learned sales — a sales operator who learned to build with AI.">
+<section>
+  <div class="section-label reveal">About</div>
+  <h1 class="reveal" style="margin-bottom:24px;">Not a tech agency that learned sales.<br/>A sales operator who learned to build with AI.</h1>
+  <p class="reveal" style="font-size:1.1rem; max-width:58ch; margin-bottom:48px;">
+    Amoris was started by Praveen Shahi after 10 years in sales and GTM roles — building and leading revenue functions, not just advising on them.
+  </p>
+</section>
+
+<section style="border-top:1px solid var(--border); padding-top:64px;">
+  <div class="grid-2" style="gap:64px; align-items:start;">
+    <div>
+      <div class="section-label reveal">Praveen Shahi</div>
+      <h2 class="reveal" style="margin-bottom:20px;">Founder</h2>
+      <div class="reveal">
+        <p style="margin-bottom:20px;">10 years building and running revenue and GTM systems. The last 2, building AI systems that do what sales teams used to need 10 people for.</p>
+        <p style="margin-bottom:20px;">Not a developer who added "AI" to their website. Not a consultant with a slide deck. The agents Amoris sells are running in real businesses, handling real calls, right now.</p>
+      </div>
+      <div class="reveal" style="margin-top:32px;">
+        <div class="section-label">Verified experience</div>
+        <div style="display:flex; flex-direction:column; gap:0; margin-top:16px;">
+          {[
+            { co: "MsgKart (SaaS GTM)", detail: "Built GTM from zero — product, pricing, sales motion, first 50 customers." },
+            { co: "Great Learning", detail: "Led a 150+ person sales organisation. Revenue targets in the hundreds of crores." },
+            { co: "CrunchPrep", detail: "Took the business from seed to ₹3.5Cr ARR as head of growth." },
+            { co: "Clawbot (Voice AI SDR)", detail: "Built an AI voice sales development rep that calls, qualifies, and books meetings." },
+          ].map(exp => (
+            <div style="padding:16px 0; border-bottom:1px solid var(--border);">
+              <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--accent); margin-bottom:4px;">{exp.co}</div>
+              <p style="font-size:14px; margin:0;">{exp.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="card" style="padding:36px;">
+        <div class="section-label">Why Amoris exists</div>
+        <p style="margin-bottom:20px;">Indian SMBs — and increasingly global companies — have the same problem: too much operational overhead, not enough leverage. They're hiring humans to do things AI can now do reliably.</p>
+        <p style="margin-bottom:20px;">Most AI agencies are either too technical (they build infrastructure, not business systems) or too vague (they "implement AI" without naming exactly what they're building).</p>
+        <p>Amoris names the system, scopes the job, and ships it. No vague deliverables. No "AI transformation journeys."</p>
+      </div>
+      <div class="card" style="margin-top:20px; padding:36px;">
+        <div class="section-label">For international clients</div>
+        <p style="margin-bottom:16px;">India-built doesn't mean India-only. Our pricing at USD rates is 60–70% less than comparable US agencies — not because we cut corners, but because our cost structure is different.</p>
+        <p style="margin-bottom:16px;">What we commit to for international clients:</p>
+        <ul style="list-style:none; margin:0;">
+          {["Async-first communication with same-day responses", "Documentation-heavy delivery — everything is recorded", "Timezone overlap: IST covers morning US EST and evening APAC", "Data handling per DPDP (India) and GDPR principles on request"].map(pt => (
+            <li style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); padding:6px 0; border-bottom:1px solid var(--border); display:flex; gap:10px;">
+              <span style="color:var(--accent);">✓</span> {pt}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="text-align:center; border-top:1px solid var(--border); background: radial-gradient(ellipse at 50% 100%, var(--accent-dim) 0%, transparent 70%);">
+  <h2 style="margin-bottom:16px;">Work with us.</h2>
+  <p style="margin:0 auto 32px; max-width:44ch;">30-minute discovery call. No deck. We'll ask about your operations and tell you what we'd build.</p>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="/contact" class="btn btn-primary">Book a Call →</a>
+    <a href="/agents" class="btn btn-outline">Browse Agents</a>
+  </div>
+</section>
+</Base>

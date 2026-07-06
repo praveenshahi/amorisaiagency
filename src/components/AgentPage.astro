@@ -1,0 +1,136 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import PricingCard from './PricingCard.astro';
+import FAQ from './FAQ.astro';
+import ROIBlock from './ROIBlock.astro';
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    name: string;
+    slug: string;
+    category: string;
+    setupINR: string;
+    retainerINR: string;
+    setupUSD: string;
+    retainerUSD: string;
+    builtFor: string[];
+    languages: string[];
+    integrations: string[];
+    faqs: { q: string; a: string }[];
+  };
+  content: string;
+  categoryLabel: string;
+  categoryHref: string;
+  roi?: { before: string; after: string; outcome: string };
+}
+
+const { frontmatter, categoryLabel, categoryHref, roi } = Astro.props;
+const fm = frontmatter;
+---
+<Base title={fm.title} description={fm.description}>
+  <article>
+    <section style="padding-bottom:40px;">
+      <Breadcrumbs crumbs={[
+        {label:"Home",href:"/"},
+        {label:"Agents",href:"/agents"},
+        {label:categoryLabel,href:categoryHref},
+        {label:fm.name}
+      ]} />
+
+      <!-- DIRECT ANSWER BLOCK (AEO) -->
+      <div class="section-label reveal">{categoryLabel}</div>
+      <h1 class="reveal" style="margin-bottom:20px;">{fm.name}</h1>
+      <div class="answer-block reveal card" style="background:var(--surface2); border-color:var(--accent-dim); margin-bottom:32px;">
+        <slot name="answer" />
+        <div style="margin-top:16px; display:flex; gap:32px; flex-wrap:wrap;">
+          <div>
+            <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Starting at</div>
+            <span class="price-inr"><span class="price-amount">{fm.setupINR}</span> <span class="price-recur">setup + {fm.retainerINR}</span></span>
+            <span class="price-usd"><span class="price-amount">{fm.setupUSD}</span> <span class="price-recur">setup + {fm.retainerUSD}</span></span>
+          </div>
+          <div>
+            <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Languages</div>
+            <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim);">{fm.languages.join(' · ')}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUILT FOR -->
+      <div class="reveal" style="margin-bottom:48px;">
+        <div class="section-label">Built For</div>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+          {fm.builtFor.map(industry => (
+            <span style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border2); padding:4px 14px; border-radius:4px;">{industry}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section style="padding-top:0;">
+      <div class="agent-content reveal">
+        <slot />
+      </div>
+    </section>
+
+    <!-- ROI BLOCK -->
+    {roi && (
+      <section style="padding-top:0;">
+        <ROIBlock before={roi.before} after={roi.after} outcome={roi.outcome} />
+      </section>
+    )}
+
+    <!-- INTEGRATIONS -->
+    <section style="padding-top:0; padding-bottom:48px;">
+      <div class="section-label reveal">Integrations</div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+        {fm.integrations.map(int => (
+          <span style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border); padding:4px 14px; border-radius:4px;">{int}</span>
+        ))}
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section style="padding-top:0;">
+      <PricingCard
+        setupINR={fm.setupINR}
+        retainerINR={fm.retainerINR}
+        setupUSD={fm.setupUSD}
+        retainerUSD={fm.retainerUSD}
+        note="Fee is credited if you proceed to AIOS. Scoped quote on call — starting prices shown above."
+      />
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <div class="section-label reveal">FAQ</div>
+      <h2 class="reveal" style="margin-bottom:32px;">Common questions about {fm.name}.</h2>
+      <FAQ items={fm.faqs} />
+    </section>
+
+    <!-- CTA -->
+    <section style="text-align:center; border-top:1px solid var(--border); background: radial-gradient(ellipse at 50% 100%, var(--accent-dim) 0%, transparent 70%);">
+      <h2 style="margin-bottom:16px;">Ready to deploy {fm.name}?</h2>
+      <p style="margin:0 auto 32px; max-width:44ch;">Book a 30-minute discovery call. We'll scope your use case and give you a ballpark cost on the call.</p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a href="/contact" class="btn btn-primary">Book a Call →</a>
+        <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
+      </div>
+    </section>
+  </article>
+</Base>
+
+<style>
+.agent-content h2 { font-size:1.4rem; margin:48px 0 16px; }
+.agent-content h2:first-child { margin-top:0; }
+.agent-content p { margin-bottom:16px; }
+.agent-content ul { color:var(--text-dim); margin:0 0 16px 24px; line-height:1.8; }
+.agent-content ul li { margin-bottom:4px; }
+.agent-content table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; }
+.agent-content th { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.08em; color:var(--text-muted); text-transform:uppercase; padding:8px 12px; border-bottom:1px solid var(--border2); text-align:left; }
+.agent-content td { padding:10px 12px; border-bottom:1px solid var(--border); color:var(--text-dim); vertical-align:top; }
+.agent-content strong { color:var(--text); font-weight:600; }
+</style>

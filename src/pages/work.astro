@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Client Work — AI Agent Deployments | Amoris" description="Real AI agent deployments by Amoris. Case studies from marketing agencies, sales teams, and service businesses.">
+<section>
+  <div class="section-label reveal">Work</div>
+  <h1 class="reveal" style="margin-bottom:20px;">Deployments that ship.</h1>
+  <p class="reveal" style="font-size:1.1rem; max-width:52ch; margin-bottom:48px;">
+    Numbers over case study theater. Specific outcomes, specific problems, specific systems.
+  </p>
+
+  <div style="display:flex; flex-direction:column; gap:32px;">
+    <div class="card reveal" style="padding:40px;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
+        <div>
+          <div class="card-label">Marketing Agency · Bangalore</div>
+          <h3 style="font-size:1.25rem;">BD and reporting running on AIOS Core</h3>
+        </div>
+        <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-muted);">3 agents deployed</div>
+      </div>
+      <p style="margin-bottom:20px;">Agency founder spending 3 hours/day on business development emails, lead follow-up, and compiling weekly performance reports for clients. Two BDEs who were mostly doing research and first-draft outreach.</p>
+      <p style="margin-bottom:24px;"><strong>Deployed:</strong> Lead Research Agent + Outreach Agent + Reporting Agent. Weekly client reports now generated in 10 minutes. Outreach personalised to each prospect. Two BDEs now focused on relationships and closures only.</p>
+      <div class="grid-3" style="gap:16px;">
+        {[
+          { metric: "10 min", label: "Client report generation (was 3 hrs)" },
+          { metric: "8–12%", label: "Outreach reply rate (was 2–3%)" },
+          { metric: "14 hrs/wk", label: "BDE time freed from research & drafting" },
+        ].map(m => (
+          <div style="background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:16px;">
+            <div style="font-family:'DM Mono',monospace; font-size:1.2rem; color:var(--accent);">{m.metric}</div>
+            <div style="font-family:'DM Mono',monospace; font-size:11px; color:var(--text-muted); margin-top:4px;">{m.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="card reveal" style="padding:40px;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; margin-bottom:24px;">
+        <div>
+          <div class="card-label">EdTech Platform · Hyderabad</div>
+          <h3 style="font-size:1.25rem;">Outbound follow-up and lead qualification</h3>
+        </div>
+        <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-muted);">2 agents deployed</div>
+      </div>
+      <p style="margin-bottom:20px;">500+ leads/week from Facebook and Google campaigns. Sales team of 8 calling every lead manually — response time averaging 4–6 hours. 40% of leads never contacted before they cooled.</p>
+      <p style="margin-bottom:24px;"><strong>Deployed:</strong> Outbound Follow-Up Agent (calls within 5 minutes of form submit) + Lead Qualification Agent (website chat for after-hours traffic). Sales team now only calls leads that have already been qualified and shown interest.</p>
+      <div class="grid-3" style="gap:16px;">
+        {[
+          { metric: "<5 min", label: "Response time (was 4–6 hours)" },
+          { metric: "68%", label: "Qualified leads booked for demo call" },
+          { metric: "22%", label: "Increase in demo-to-close rate" },
+        ].map(m => (
+          <div style="background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius); padding:16px;">
+            <div style="font-family:'DM Mono',monospace; font-size:1.2rem; color:var(--accent);">{m.metric}</div>
+            <div style="font-family:'DM Mono',monospace; font-size:11px; color:var(--text-muted); margin-top:4px;">{m.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="card reveal" style="padding:40px; border-color:var(--border2);">
+      <div class="card-label">Working on case study documentation</div>
+      <h3 style="font-size:1.1rem; margin-bottom:8px;">More deployments in progress.</h3>
+      <p style="font-size:14px; margin-bottom:20px;">Three active deployments in progress — a clinic network (AI Receptionist), a real estate firm (WhatsApp Agent + Appointment Booking), and a financial services company (Compliance Agent). Case studies will be published as systems go live.</p>
+      <a href="/contact" class="btn btn-outline">Ask about references →</a>
+    </div>
+  </div>
+</section>
+</Base>

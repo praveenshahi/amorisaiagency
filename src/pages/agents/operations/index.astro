@@ -1,0 +1,21 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AgentCard from '../../../components/AgentCard.astro';
+const agents = [
+  { name: "Reporting Agent", description: "Daily/weekly business reports generated from live data and delivered automatically — no spreadsheet opens.", setupINR: "₹1L", setupUSD: "$2k", href: "/agents/operations/reporting-agent" },
+  { name: "Invoice & Data Entry Agent", description: "Reads invoices and forms, extracts GST-compliant data, enters into your accounting system automatically.", setupINR: "₹1.5L", setupUSD: "$3k", href: "/agents/operations/invoice-data-entry" },
+  { name: "Recruiting Agent", description: "Screens resumes against your JD, ranks candidates, sends first-round questions, schedules interviews.", setupINR: "₹1.5L", setupUSD: "$3k", href: "/agents/operations/recruiting-agent" },
+];
+---
+<Base title="Operations AI Agents — Reporting, Invoices & Recruiting | Amoris" description="3 operations AI agents that automate reporting, invoice processing, and candidate screening — the work that has to happen but doesn't need a human.">
+  <section>
+    <Breadcrumbs crumbs={[{label:"Home",href:"/"},{label:"Agents",href:"/agents"},{label:"Operations Agents"}]} />
+    <div class="section-label reveal">Operations · 3 Agent Types</div>
+    <h1 class="reveal">The work that runs in the background.</h1>
+    <p class="reveal" style="margin:16px 0 48px; font-size:1.1rem; max-width:56ch;">Reports, invoices, candidates — work that has to happen but doesn't need a human decision at every step. These agents do it overnight.</p>
+    <div class="grid-3">
+      {agents.map(agent => <AgentCard {...agent} category="Operations" />)}
+    </div>
+  </section>
+</Base>

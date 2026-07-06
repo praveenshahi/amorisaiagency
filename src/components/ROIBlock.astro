@@ -1,0 +1,45 @@
+---
+export interface Props {
+  before: string;
+  after: string;
+  outcome: string;
+}
+const { before, after, outcome } = Astro.props;
+---
+<div class="roi-block card" style="border-color:var(--accent-dim); background:var(--surface2);">
+  <div class="section-label">ROI Math</div>
+  <div class="roi-compare">
+    <div class="roi-side before">
+      <div class="roi-badge">Without</div>
+      <p>{before}</p>
+    </div>
+    <div class="roi-arrow">→</div>
+    <div class="roi-side after">
+      <div class="roi-badge" style="background:var(--accent); color:#0c0b09;">With Amoris</div>
+      <p>{after}</p>
+    </div>
+  </div>
+  <div class="roi-outcome">
+    <span class="price-amount" style="font-size:1rem;">{outcome}</span>
+  </div>
+</div>
+
+<style>
+.roi-compare { display: flex; gap: 24px; align-items: center; margin-top: 16px; flex-wrap: wrap; }
+.roi-side { flex: 1; min-width: 200px; }
+.roi-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  padding: 2px 8px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--text-dim);
+}
+.roi-arrow { font-size: 24px; color: var(--accent); }
+.roi-outcome { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+</style>

@@ -1,0 +1,22 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AgentCard from '../../../components/AgentCard.astro';
+const agents = [
+  { name: "Internal Knowledge Agent", description: "Company brain: SOPs, HR policies, product docs — staff ask, it answers with sources.", setupINR: "₹2L", setupUSD: "$4k", href: "/agents/knowledge/internal-knowledge" },
+  { name: "Document Intelligence Agent", description: "Contracts, invoices, reports — extract, compare, summarise at scale.", setupINR: "₹2.5L", setupUSD: "$5k", href: "/agents/knowledge/document-intelligence" },
+  { name: "Customer Docs Agent", description: "Public-facing help docs answered conversationally. Deflects 60–80% of support tickets.", setupINR: "₹1.75L", setupUSD: "$3.5k", href: "/agents/knowledge/customer-docs" },
+  { name: "Compliance & Policy Agent", description: "Regulated sectors: answers grounded strictly in approved policy text with full audit trail.", setupINR: "₹3L", setupUSD: "$6k", href: "/agents/knowledge/compliance" },
+];
+---
+<Base title="Knowledge (RAG) AI Agents — Documents, Policy & Help Docs | Amoris" description="4 RAG-based knowledge agents that answer from your specific documents — with citations, not guesses. For internal teams, customers, and compliance.">
+  <section>
+    <Breadcrumbs crumbs={[{label:"Home",href:"/"},{label:"Agents",href:"/agents"},{label:"Knowledge Agents"}]} />
+    <div class="section-label reveal">Knowledge (RAG) · 4 Agent Types</div>
+    <h1 class="reveal">Agents that know your documents.</h1>
+    <p class="reveal" style="margin:16px 0 48px; font-size:1.1rem; max-width:56ch;">RAG-based agents that only answer from what you've approved. No hallucinations. Every answer cites the source document and section.</p>
+    <div class="grid-2">
+      {agents.map(agent => <AgentCard {...agent} category="Knowledge" />)}
+    </div>
+  </section>
+</Base>

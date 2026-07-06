@@ -1,0 +1,113 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import PricingCard from '../../../components/PricingCard.astro';
+import FAQ from '../../../components/FAQ.astro';
+
+export function getStaticPaths() {
+  const agents = [
+  {
+    slug: "reporting-agent",
+    title: "AI Reporting Agent — Automated Business Reports Delivered Daily | Amoris",
+    description: "An AI agent that pulls data from your tools, generates daily and weekly business reports, and delivers them — without anyone touching a spreadsheet.",
+    name: "Reporting Agent",
+    answer: "A Reporting Agent connects to your CRM, ad platforms, analytics tools, and spreadsheets — generates daily and weekly business reports with written commentary — and delivers them on schedule. No one opens a spreadsheet.",
+    setupINR: "₹1L–2L", retainerINR: "₹15k/mo", setupUSD: "$2k–4k", retainerUSD: "$300/mo",
+    builtFor: ["Marketing agencies", "E-commerce", "Sales teams", "Operations teams", "Founders"],
+    languages: ["Hindi", "English"],
+    integrations: ["Google Sheets", "Google Analytics", "Meta Ads", "HubSpot", "Zoho CRM", "Slack"],
+    faqs: [
+      { q: "What reports can it generate?", a: "Daily: sales pipeline, ad spend, website traffic. Weekly: performance vs targets, team activity, client reports. Monthly: revenue report, channel performance, board prep decks." },
+      { q: "Where does it pull data from?", a: "Google Sheets, Google Analytics, Meta/Google Ads, HubSpot, Zoho CRM, Shopify. Pulls live data at report time — no manual exports." },
+      { q: "What format are reports delivered in?", a: "Email with inline summary + PDF. Or pushed to a Slack channel. Or written to a Google Slide deck for client reports." },
+      { q: "Can it include written commentary?", a: "Yes. For each metric, the agent writes a 1-sentence interpretation: 'Ad spend was ₹85k this week, down 12% vs last week, but CPL improved from ₹320 to ₹290 — lower budget, higher efficiency.'" },
+      { q: "What if data is missing or a source is down?", a: "The report is generated with available data and a note is added. You're never left with a blank report." }
+    ]
+  },
+  {
+    slug: "invoice-data-entry",
+    title: "AI Invoice & Data Entry Agent — Read Documents, Enter Systems | Amoris",
+    description: "An AI agent that reads invoices, POs, and forms — extracts structured data — and enters it into your accounting or ERP system automatically.",
+    name: "Invoice & Data Entry Agent",
+    answer: "An Invoice & Data Entry Agent reads your invoices, receipts, and forms — extracts vendor name, amounts, dates, GST details, and all structured fields — and enters them into Zoho Books, Tally, or your accounting system automatically.",
+    setupINR: "₹1.5L–3L", retainerINR: "₹20k/mo", setupUSD: "$3k–6k", retainerUSD: "$400/mo",
+    builtFor: ["Finance & accounts teams", "Procurement", "CA & accounting firms", "Retail & e-commerce", "Manufacturing"],
+    languages: ["Hindi", "English"],
+    integrations: ["Zoho Books", "QuickBooks", "Tally Prime", "SAP Business One", "Google Sheets", "Gmail"],
+    faqs: [
+      { q: "What types of documents can it process?", a: "Invoices, purchase orders, expense receipts, delivery challans, bank statements. PDFs, Word docs, and scanned documents with OCR." },
+      { q: "How accurate is the extraction?", a: "95–98% for clean digital invoices. 88–94% for scanned documents. Low-confidence fields are flagged for human review rather than entered automatically." },
+      { q: "Does it integrate with Tally?", a: "Yes. We integrate via Tally's import/export format. Invoices processed → Tally entries created without manual typing." },
+      { q: "What's the volume capacity?", a: "200–300 invoices/day on standard setup. Higher volumes available on request." },
+      { q: "What about GST fields?", a: "For Indian invoices: vendor GSTIN, buyer GSTIN, invoice number, date, taxable amount, CGST, SGST, IGST, and total — all captured and mapped to your system." }
+    ]
+  },
+  {
+    slug: "recruiting-agent",
+    title: "AI Recruiting Agent — Screen Resumes, Rank & Schedule Interviews | Amoris",
+    description: "An AI recruiting agent that screens resumes against your JD, ranks candidates, sends screening questions, and schedules interviews automatically.",
+    name: "Recruiting Agent",
+    answer: "A Recruiting Agent screens every application against your job description, scores and ranks candidates, sends first-round questions to shortlisted applicants, and books interview slots — so your HR team reviews only the best fits.",
+    setupINR: "₹1.5L–2.5L", retainerINR: "₹20k/mo", setupUSD: "$3k–5k", retainerUSD: "$400/mo",
+    builtFor: ["HR teams hiring 5+ roles/year", "Staffing agencies", "Fast-growth startups", "BPOs"],
+    languages: ["Hindi", "English"],
+    integrations: ["Gmail", "LinkedIn", "Naukri", "Internshala", "Google Calendar", "Google Sheets"],
+    faqs: [
+      { q: "What's the screening criteria?", a: "You define it: required skills, minimum experience, education, preferred companies, red flags. The agent scores each resume 1–100 against your criteria." },
+      { q: "Does it contact candidates directly?", a: "Yes. Once a candidate passes screening, the agent sends a personalised email with 3–4 screening questions or schedules a first-round call." },
+      { q: "Can it handle the screening call?", a: "Yes, via structured voice or chat screening. Agent asks your first-round questions, records answers, scores responses. HR team reviews summaries, not raw calls." },
+      { q: "What about bias?", a: "The agent screens on criteria you define — skills, experience, answers. It doesn't factor in name, gender, address, or photos." },
+      { q: "How many applications can it handle?", a: "200–500 per role without slowing down. Volume hiring setups available for higher capacity." }
+    ]
+  }
+];
+  return agents.map(a => ({ params: { slug: a.slug }, props: { agent: a } }));
+}
+
+const { agent } = Astro.props;
+---
+<Base title={agent.title} description={agent.description}>
+<article>
+<section style="padding-bottom:40px;">
+  <Breadcrumbs crumbs={[{label:"Home",href:"/"},{label:"Agents",href:"/agents"},{label:"Operations",href:"/agents/operations"},{label:agent.name}]} />
+  <div class="section-label reveal">Operations Agent</div>
+  <h1 class="reveal" style="margin-bottom:20px;">{agent.name}</h1>
+  <div class="card reveal" style="background:var(--surface2); border-color:rgba(200,240,58,0.15); margin-bottom:32px;">
+    <p style="font-size:1.05rem; color:var(--text); margin-bottom:16px;">{agent.answer}</p>
+    <div>
+      <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Starting at</div>
+      <span class="price-inr"><span class="price-amount">{agent.setupINR}</span> <span class="price-recur">setup + {agent.retainerINR}</span></span>
+      <span class="price-usd"><span class="price-amount">{agent.setupUSD}</span> <span class="price-recur">setup + {agent.retainerUSD}</span></span>
+    </div>
+  </div>
+  <div class="reveal" style="margin-bottom:48px;">
+    <div class="section-label">Built For</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+      {agent.builtFor.map((ind: string) => <span style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border2); padding:4px 14px; border-radius:4px;">{ind}</span>)}
+    </div>
+  </div>
+</section>
+<section style="padding-top:0; padding-bottom:48px;">
+  <div class="section-label reveal">Integrations</div>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {agent.integrations.map((int: string) => <span style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border); padding:4px 14px; border-radius:4px;">{int}</span>)}
+  </div>
+</section>
+<section style="padding-top:0;">
+  <PricingCard setupINR={agent.setupINR} retainerINR={agent.retainerINR} setupUSD={agent.setupUSD} retainerUSD={agent.retainerUSD} />
+</section>
+<section>
+  <div class="section-label reveal">FAQ</div>
+  <h2 class="reveal" style="margin-bottom:32px;">Common questions about {agent.name}.</h2>
+  <FAQ items={agent.faqs} />
+</section>
+<section style="text-align:center; border-top:1px solid var(--border); background: radial-gradient(ellipse at 50% 100%, var(--accent-dim) 0%, transparent 70%);">
+  <h2 style="margin-bottom:16px;">Deploy {agent.name} for your team.</h2>
+  <p style="margin:0 auto 32px; max-width:44ch;">Book a 30-minute discovery call.</p>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="/contact" class="btn btn-primary">Book a Call →</a>
+    <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
+</section>
+</article>
+</Base>

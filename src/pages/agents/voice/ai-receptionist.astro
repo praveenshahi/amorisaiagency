@@ -1,0 +1,130 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import PricingCard from '../../../components/PricingCard.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ROIBlock from '../../../components/ROIBlock.astro';
+
+const fm = {
+  title: "AI Receptionist for Clinics & Service Businesses | Amoris",
+  description: "An AI voice agent that answers every inbound call 24/7, routes to the right person, books appointments, and takes messages — in Hindi, English, and regional languages.",
+  name: "AI Receptionist",
+  setupINR: "₹1.5L–2.5L", retainerINR: "₹20k/mo",
+  setupUSD: "$3k–5k", retainerUSD: "$400/mo",
+  builtFor: ["Clinics & hospitals", "Real estate offices", "Salons & spas", "CA & legal firms", "Service businesses"],
+  languages: ["Hindi", "English", "Tamil", "Telugu", "Kannada", "Marathi"],
+  integrations: ["Google Calendar", "Zoho CRM", "Freshdesk", "WhatsApp Business API"],
+  faqs: [
+    { q: "How much does an AI receptionist cost in India?", a: "Setup ranges from ₹1.5L to ₹2.5L depending on call volume and integrations. Monthly retainer is ₹20k, which covers hosting, monitoring, and up to 2,000 calls/month. Compare that to a human receptionist at ₹20–25k/month who works 8 hours a day, 5 days a week." },
+    { q: "Can the AI receptionist speak Hindi and regional languages?", a: "Yes. The agent handles Hindi, English, Tamil, Telugu, Kannada, and Marathi out of the box. It detects the caller's language in the first 2 seconds and switches automatically. More languages available on request." },
+    { q: "What happens when a caller needs a human?", a: "The agent handles routine queries and bookings. When someone is distressed, confused, or explicitly asks for a human, it transfers the call immediately and sends a context summary via WhatsApp to the team." },
+    { q: "How long does setup take?", a: "3–4 weeks from signed agreement to live calls. Week 1: call flow mapping and script writing. Week 2: voice training and calendar integration. Week 3: testing with real call samples. Week 4: go live with monitoring." },
+    { q: "What if call volume spikes?", a: "The agent handles unlimited parallel calls — 5 callers at once or 500, same response time. You pay per minute of call handled, so cost scales with usage, not headcount." }
+  ]
+};
+---
+<Base title={fm.title} description={fm.description}>
+<article>
+<section style="padding-bottom:40px;">
+  <Breadcrumbs crumbs={[{label:"Home",href:"/"},{label:"Agents",href:"/agents"},{label:"Voice AI",href:"/agents/voice"},{label:"AI Receptionist"}]} />
+  <div class="section-label reveal">Voice AI Agent</div>
+  <h1 class="reveal" style="margin-bottom:20px;">AI Receptionist</h1>
+  <div class="card reveal" style="background:var(--surface2); border-color:rgba(200,240,58,0.15); margin-bottom:32px;">
+    <p style="font-size:1.05rem; color:var(--text); margin-bottom:16px;">An AI Receptionist answers every inbound call to your business, 24 hours a day, 7 days a week. It greets callers in their language, routes them correctly, books appointments into your calendar, and sends your team a WhatsApp summary of every call.</p>
+    <div style="display:flex; gap:32px; flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Starting at</div>
+        <span class="price-inr"><span class="price-amount">₹1.5L</span> <span class="price-recur">setup + ₹20k/mo</span></span>
+        <span class="price-usd"><span class="price-amount">$3k</span> <span class="price-recur">setup + $400/mo</span></span>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Languages</div>
+        <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim);">Hindi · English · Tamil · Telugu · Kannada · Marathi</div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal" style="margin-bottom:48px;">
+    <div class="section-label">Built For</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+      {fm.builtFor.map(ind => <span style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border2); padding:4px 14px; border-radius:4px;">{ind}</span>)}
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="prose reveal">
+    <h2>What it does</h2>
+    <p>A missed call is a missed patient, missed lead, missed booking. Most service businesses miss 30–40% of inbound calls because phones ring during appointments, after hours, or when the front desk is occupied.</p>
+    <p>This agent:</p>
+    <ul>
+      <li>Answers every call within 2 rings</li>
+      <li>Introduces itself naturally and identifies caller intent</li>
+      <li>Books, reschedules, or cancels appointments directly into your calendar</li>
+      <li>Routes urgent calls to your mobile immediately</li>
+      <li>Sends every call summary to your team via WhatsApp</li>
+    </ul>
+
+    <h2>How it works</h2>
+    <p><strong>Step 1 — Call arrives.</strong> Caller dials your existing number. No number change needed. The agent picks up in under 2 seconds.</p>
+    <p><strong>Step 2 — Intent detection.</strong> In the first exchange, the agent identifies: appointment booking, query, directions/hours, complaint, or other.</p>
+    <p><strong>Step 3 — Resolution.</strong> Booking requests go to your calendar in real time. Queries are answered from your knowledge base. Complaints are escalated to a human.</p>
+    <p><strong>Step 4 — Post-call summary.</strong> Every call → 3-line WhatsApp summary to your team: who called, what they wanted, what was done.</p>
+
+    <h2>What it replaces</h2>
+    <table>
+      <tr><th></th><th>Human receptionist</th><th>AI Receptionist</th></tr>
+      <tr><td>Cost</td><td>₹20–25k/month</td><td>₹20k/month</td></tr>
+      <tr><td>Hours</td><td>8am–6pm, Mon–Sat</td><td>24/7/365</td></tr>
+      <tr><td>Parallel calls</td><td>1</td><td>Unlimited</td></tr>
+      <tr><td>Languages</td><td>Usually 2–3</td><td>6+</td></tr>
+      <tr><td>Sick days</td><td>Yes</td><td>No</td></tr>
+    </table>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <ROIBlock
+    before="Human receptionist: ₹20–25k/month. Works 8am–6pm, 5 days/week. 1 call at a time. Misses calls during appointments."
+    after="AI Receptionist: ₹20k/month. 24/7. Unlimited parallel calls. Zero missed calls."
+    outcome="Same monthly cost. 3× coverage. 100% answer rate."
+  />
+</section>
+
+<section style="padding-top:0; padding-bottom:48px;">
+  <div class="section-label reveal">Integrations</div>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {fm.integrations.map(int => <span style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--surface); border:1px solid var(--border); padding:4px 14px; border-radius:4px;">{int}</span>)}
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <PricingCard setupINR={fm.setupINR} retainerINR={fm.retainerINR} setupUSD={fm.setupUSD} retainerUSD={fm.retainerUSD} note="Scoped quote on call. Starting prices shown above. Setup fee credited if you upgrade to AIOS." />
+</section>
+
+<section>
+  <div class="section-label reveal">FAQ</div>
+  <h2 class="reveal" style="margin-bottom:32px;">Common questions about AI Receptionist.</h2>
+  <FAQ items={fm.faqs} />
+</section>
+
+<section style="text-align:center; border-top:1px solid var(--border); background: radial-gradient(ellipse at 50% 100%, var(--accent-dim) 0%, transparent 70%);">
+  <h2 style="margin-bottom:16px;">Ready to deploy AI Receptionist?</h2>
+  <p style="margin:0 auto 32px; max-width:44ch;">Book a 30-minute call. We'll scope your call flows and give you a cost on the call.</p>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="/contact" class="btn btn-primary">Book a Call →</a>
+    <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
+</section>
+</article>
+</Base>
+
+<style>
+.prose h2 { font-family:'Instrument Serif',serif; font-size:1.4rem; margin:48px 0 16px; font-weight:400; }
+.prose h2:first-child { margin-top:0; }
+.prose p { margin-bottom:16px; }
+.prose ul { color:var(--text-dim); margin:0 0 16px 24px; line-height:1.8; }
+.prose table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; }
+.prose th { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.08em; color:var(--text-muted); text-transform:uppercase; padding:8px 12px; border-bottom:1px solid var(--border2); text-align:left; }
+.prose td { padding:10px 12px; border-bottom:1px solid var(--border); color:var(--text-dim); }
+.prose strong { color:var(--text); font-weight:600; }
+</style>
