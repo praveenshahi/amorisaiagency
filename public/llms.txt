@@ -1,64 +1,89 @@
-# Amoris — AI Agency
+# Amoris
 
-## Who we are
-Amoris is an AI agency based in India that builds and deploys AI agents, automation workflows, and AI operating systems for businesses. Founded by Praveen Shahi, a 10-year sales and GTM operator.
+> Amoris is an Indian AI agency that builds and deploys named AI employees — voice agents, chat assistants, knowledge workers, and operating systems — for businesses across India and Southeast Asia.
 
-## What we build
+## What Amoris does
 
-### AI Agents (18 named systems)
+Amoris builds custom AI agents scoped to specific business roles. Each agent has a defined job, a deployment timeline of 3–4 weeks, and operates 24/7. Not generic "AI consulting" — specific, named employees with bounded scope.
 
-**Voice AI Agents** — AI phone agents that handle inbound and outbound calls in Hindi, English, Tamil, Telugu, Kannada, and Marathi:
-- AI Receptionist: answers inbound calls 24/7, books appointments, routes to humans. Setup ₹1.5L–2.5L + ₹20k/month ($3k–5k + $400/month)
-- Appointment Booking Agent: books/reschedules appointments over phone, synced to calendar. Setup ₹1.5L–3L + ₹25k/month
-- Outbound Follow-Up Agent: calls leads within 5 minutes of form submit, qualifies, books meetings. Setup ₹2L–4L + ₹30k/month
-- Payment & Reminder Agent: EMI reminders, renewal calls, feedback calls at scale. Setup ₹2L–3.5L + ₹30k/month
+## AI Employees (18 total, across 5 divisions)
 
-**Chat & Support Agents** — WhatsApp, website, and Instagram agents:
-- WhatsApp Business Agent: full commerce on WhatsApp (orders, payments, support). Setup ₹1.25L–2.5L + ₹15k/month
-- Website Support Agent: trained on your docs, answers, qualifies, hands off. Setup ₹1L–2L + ₹15k/month
-- Lead Qualification Agent: engages every lead, scores vs ICP, routes hot ones. Setup ₹1.5L–2.5L + ₹20k/month
-- Instagram DM Agent: responds to DMs/comments, converts followers to leads. Setup ₹1L–1.75L + ₹15k/month
+### Voice Employees
+- AI Receptionist: answers inbound calls 24/7 in 6 languages, books appointments, never misses a call
+- AI Booking Assistant: inbound scheduling and confirmations via voice
+- AI Voice Sales Agent: outbound lead calling, qualification, and meeting booking
+- AI Collections Caller: automated payment reminders and follow-up calls
 
-**Knowledge (RAG) Agents** — agents that answer from your specific documents:
-- Internal Knowledge Agent: company brain for staff. Setup ₹2L–4L + ₹25k/month
-- Document Intelligence Agent: contracts, invoices, reports — extract and compare. Setup ₹2.5L–4.5L + ₹30k/month
-- Customer Docs Agent: help docs answered conversationally. Setup ₹1.75L–3L + ₹20k/month
-- Compliance & Policy Agent: regulated sectors, answers strictly from approved policy. Setup ₹3L–5L + ₹35k/month
+### Chat Employees
+- AI WhatsApp Assistant: handles orders, support, payments on WhatsApp — resolves 80% of queries without a human
+- AI Support Assistant: website and chat support automation
+- AI Lead Qualifier: scores and qualifies every inbound lead instantly
+- AI Social Responder: Instagram DM and social inbox automation
 
-**Sales & Growth Agents**:
-- Lead Research Agent: enriched prospect lists daily, pushed to CRM. Setup ₹1.5L–2.5L + ₹20k/month
-- Outreach Agent: personalised email + LinkedIn sequences, replies triaged. Setup ₹2L–3.5L + ₹25k/month
-- CRM Copilot: auto-updates CRM after calls, drafts follow-ups. Setup ₹1.75L–3L + ₹20k/month
+### Knowledge Employees
+- AI Company Brain: all company knowledge (SOPs, policies, docs) searchable by any employee instantly
+- AI Document Analyst: contract and document intelligence
+- AI Help Desk: internal IT and HR helpdesk automation
+- AI Compliance Assistant: regulatory and compliance Q&A
 
-**Operations Agents**:
-- Reporting Agent: daily/weekly reports generated from live data. Setup ₹1L–2L + ₹15k/month
-- Invoice & Data Entry Agent: reads invoices, enters into Tally/Zoho Books. Setup ₹1.5L–3L + ₹20k/month
-- Recruiting Agent: screens resumes, ranks candidates, schedules interviews. Setup ₹1.5L–2.5L + ₹20k/month
+### Sales Employees
+- AI Prospector: lead research and list building
+- AI Outreach Rep: personalised outreach sequences
+- AI Sales Coordinator: CRM updates and pipeline management
 
-### AI Automation & Integration
-- Workflow Automation (CRM ↔ email ↔ Sheets ↔ WhatsApp pipelines): ₹75k–2.5L per workflow
-- AI Content Engine (research → draft → publish): ₹1.5L–3L setup
-- Custom Integrations: ₹50k–1.5L
+### Operations Employees
+- AI Business Analyst: reporting and data analysis automation
+- AI Back-Office Clerk: invoice data entry and document processing
+- AI Recruiter: JD writing, candidate screening, interview scheduling
 
-### Amoris AIOS (Flagship)
-Not one agent — an operating system. Multiple agents, shared memory, one command centre.
-- AIOS Core (one department, 3–5 agents): ₹3.5L–6L setup + ₹40k/month ($7k–12k + $800/month)
-- AIOS Company (multi-department): ₹8L–15L setup + ₹75k–1.25L/month ($15k–30k + $1.5k–2.5k/month)
+## AIOS — AI Operating System
 
-### Strategy & Enablement
-- AI Opportunity Audit (2 weeks, roadmap + ROI, fee credited to any build): ₹49k–1.25L ($1k–2.5k)
-- AI Team Workshop (half/full day): ₹50k–1L ($1k–2k)
-- Fractional AI Team (monthly retainer): ₹1L–3L/month ($2k–6k/month)
+All 18 AI employees deployed together with shared memory, cross-agent workflows, and one command centre. Scoped per company size.
 
-## Contact
-- Website: https://amoris.in
-- WhatsApp: +91 91009 33191
-- Email: amorisprana@gmail.com
-- Location: India (serving global clients)
+## Pricing
+
+- Simple chat agents: ₹20,000–₹50,000 setup
+- Voice, knowledge, sales, operations agents: custom pricing (scoped on audit call)
+- AIOS: custom pricing
+- Clear quote given before any commitment. No "contact for pricing" black holes.
+
+## How to hire an AI employee
+
+1. Book a free 30-minute audit call at https://amoris.in/contact
+2. Amoris scopes the right agent and gives a price on the call
+3. Build and deployment: 3–4 weeks
+4. Agent operates 24/7 after go-live
+
+## Languages supported
+
+Hindi, English, Tamil, Telugu, Kannada, Marathi (voice agents)
 
 ## Key differentiators
-- Public pricing (INR and USD)
-- Hindi + regional language voice agents (Tamil, Telugu, Kannada, Marathi)
-- Named systems with specific scopes — not vague "AI solutions"
-- 3–4 week deployment timeline for individual agents
+
+- Named agents with specific scopes — not vague "AI solutions"
+- 6 Indian languages for voice agents
+- 3–4 week deployment timeline
 - India-built, globally deployable
+- Clear pricing before commitment
+
+## Contact
+
+- Website: https://amoris.in
+- WhatsApp: https://wa.me/919100933191
+- Audit booking: https://amoris.in/contact
+- Email: amorisprana@gmail.com
+
+## Key pages
+
+- All AI employees: https://amoris.in/ai-employees
+- Voice: https://amoris.in/ai-employees/voice
+- Chat: https://amoris.in/ai-employees/chat
+- Knowledge: https://amoris.in/ai-employees/knowledge
+- Sales: https://amoris.in/ai-employees/sales
+- Operations: https://amoris.in/ai-employees/operations
+- AIOS: https://amoris.in/aios
+- Pricing: https://amoris.in/pricing
+- How it works: https://amoris.in/how-it-works
+- Case studies: https://amoris.in/work
+- About: https://amoris.in/about
+- Contact: https://amoris.in/contact
