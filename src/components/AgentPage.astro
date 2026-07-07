@@ -1,9 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
-import PricingCard from './PricingCard.astro';
 import FAQ from './FAQ.astro';
 import ROIBlock from './ROIBlock.astro';
+import BookAuditCTA from './BookAuditCTA.astro';
 
 export interface Props {
   frontmatter: {
@@ -47,11 +47,6 @@ const fm = frontmatter;
         <slot name="answer" />
         <div style="margin-top:16px; display:flex; gap:32px; flex-wrap:wrap;">
           <div>
-            <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Starting at</div>
-            <span class="price-inr"><span class="price-amount">{fm.setupINR}</span> <span class="price-recur">setup + {fm.retainerINR}</span></span>
-            <span class="price-usd"><span class="price-amount">{fm.setupUSD}</span> <span class="price-recur">setup + {fm.retainerUSD}</span></span>
-          </div>
-          <div>
             <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Languages</div>
             <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-dim);">{fm.languages.join(' · ')}</div>
           </div>
@@ -93,17 +88,6 @@ const fm = frontmatter;
       </div>
     </section>
 
-    <!-- PRICING -->
-    <section style="padding-top:0;">
-      <PricingCard
-        setupINR={fm.setupINR}
-        retainerINR={fm.retainerINR}
-        setupUSD={fm.setupUSD}
-        retainerUSD={fm.retainerUSD}
-        note="Fee is credited if you proceed to AIOS. Scoped quote on call — starting prices shown above."
-      />
-    </section>
-
     <!-- FAQ -->
     <section>
       <div class="section-label reveal">FAQ</div>
@@ -112,14 +96,7 @@ const fm = frontmatter;
     </section>
 
     <!-- CTA -->
-    <section style="text-align:center; border-top:1px solid var(--border); background: radial-gradient(ellipse at 50% 100%, var(--accent-dim) 0%, transparent 70%);">
-      <h2 style="margin-bottom:16px;">Ready to deploy {fm.name}?</h2>
-      <p style="margin:0 auto 32px; max-width:44ch;">Book a 30-minute discovery call. We'll scope your use case and give you a ballpark cost on the call.</p>
-      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-        <a href="/contact" class="btn btn-primary">Book a Call →</a>
-        <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
-      </div>
-    </section>
+    <BookAuditCTA heading={`Ready to deploy ${fm.name}?`} sub="Book a free audit. We'll scope your use case and give you a realistic timeline and approach on the call." />
   </article>
 </Base>
 

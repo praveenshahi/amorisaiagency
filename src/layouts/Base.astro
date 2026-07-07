@@ -23,10 +23,12 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:site_name" content="Amoris" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Fonts -->
+  <!-- Fonts — non-blocking load, Inter removed -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles/tokens.css" />
@@ -68,7 +70,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       <li><a href="/work">Case Studies</a></li>
       <li><a href="/about">About</a></li>
     </ul>
-    <a href="/contact" class="nav-cta">Book a Demo →</a>
+    <a href="/contact" class="nav-cta">Book a Free Audit →</a>
   </nav>
 
   <main>
