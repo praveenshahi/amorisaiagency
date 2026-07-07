@@ -52,16 +52,40 @@ body {
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
-/* ─── Aurora canvas ─── */
-#auroraCanvas {
+/* ─── Aurora background — CSS gradient blobs on html pseudo-elements ─── */
+/* Lives on html, naturally behind all body content. No z-index needed. */
+html::before,
+html::after {
+  content: '';
   position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  inset: -30%;
   pointer-events: none;
-  opacity: 0.55;
-  mix-blend-mode: screen;
+  will-change: transform;
+}
+html::before {
+  background:
+    radial-gradient(ellipse 55% 42% at 22% 44%, rgba(0,255,198,0.13) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 52% at 68% 72%, rgba(124,58,237,0.09) 0%, transparent 55%);
+  filter: blur(48px);
+  animation: aurora-a 22s ease-in-out infinite alternate;
+}
+html::after {
+  background:
+    radial-gradient(ellipse 48% 38% at 76% 28%, rgba(240,168,36,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 36% 44% at 38% 82%, rgba(0,255,198,0.07) 0%, transparent 50%);
+  filter: blur(56px);
+  animation: aurora-b 28s ease-in-out infinite alternate-reverse;
+}
+@keyframes aurora-a {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(8%, -6%) scale(1.06); }
+  66%  { transform: translate(-4%, 9%) scale(0.96); }
+  100% { transform: translate(11%, 4%) scale(1.09); }
+}
+@keyframes aurora-b {
+  0%   { transform: translate(0, 0) scale(1); }
+  40%  { transform: translate(-9%, 7%) scale(1.08); }
+  100% { transform: translate(6%, -9%) scale(0.95); }
 }
 
 /* ─── Spotlight cursor glow ─── */
