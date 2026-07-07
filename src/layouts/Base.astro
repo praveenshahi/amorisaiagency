@@ -5,11 +5,11 @@ export interface Props {
   ogTitle?: string;
   schema?: string;
 }
-const { title, description = "Amoris — AI agents, automation, and operating systems for businesses that want to move faster.", ogTitle, schema } = Astro.props;
+const { title, description = "Amoris — AI employees for your business. Voice agents, chat assistants, knowledge workers and more. Hire your AI team today.", ogTitle, schema } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 <!DOCTYPE html>
-<html lang="en" data-currency="inr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,19 +22,23 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Amoris" />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles/tokens.css" />
+
   {schema && <Fragment set:html={`<script type="application/ld+json">${schema}</script>`} />}
-  <!-- Organization schema -->
+
   <script type="application/ld+json">{JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Amoris",
     "url": "https://amoris.in",
-    "description": "AI agents, automation, and operating systems for businesses",
+    "description": "AI employees — voice agents, chat assistants, knowledge workers, and operating systems for businesses.",
     "address": { "@type": "PostalAddress", "addressCountry": "IN" },
     "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "availableLanguage": ["English", "Hindi"] }
   })}</script>
@@ -57,18 +61,14 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   <nav class="site-nav">
     <a href="/" class="nav-logo">Amor<span>.</span>is</a>
     <ul class="nav-links">
-      <li><a href="/agents">Agents</a></li>
-      <li><a href="/automation">Automation</a></li>
+      <li><a href="/ai-employees">AI Employees</a></li>
       <li><a href="/aios">AIOS</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
       <li><a href="/pricing">Pricing</a></li>
-      <li><a href="/work">Work</a></li>
+      <li><a href="/work">Case Studies</a></li>
       <li><a href="/about">About</a></li>
     </ul>
-    <div class="currency-toggle" id="currencyToggle">
-      <button id="btnINR" class="active">₹ INR</button>
-      <button id="btnUSD">$ USD</button>
-    </div>
-    <a href="/contact" class="nav-cta">Book a Call →</a>
+    <a href="/contact" class="nav-cta">Book a Demo →</a>
   </nav>
 
   <main>
@@ -82,61 +82,155 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     </svg>
   </a>
 
-  <footer>
+  <!-- FOOTER -->
+  <div class="footer-main">
     <div>
       <div class="footer-logo">Amor<span>.</span>is</div>
-      <p style="margin-top:8px;">AI agency. India-built, globally deployable.</p>
+      <p style="margin-top:12px; font-size:13px; max-width:26ch;">AI employees that work while you grow. India-built, globally deployable.</p>
     </div>
-    <nav class="footer-links">
-      <a href="/agents">Agents</a>
-      <a href="/automation">Automation</a>
-      <a href="/aios">AIOS</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/work">Work</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-    </nav>
-    <p style="font-size:12px; color:var(--text-muted);">© 2026 Amoris. All rights reserved.</p>
-  </footer>
+    <div>
+      <div class="footer-col-title">AI Employees</div>
+      <nav class="footer-col-links">
+        <a href="/ai-employees/voice">Voice Employees</a>
+        <a href="/ai-employees/chat">Chat Employees</a>
+        <a href="/ai-employees/knowledge">Knowledge Employees</a>
+        <a href="/ai-employees/sales">Sales Employees</a>
+        <a href="/ai-employees/operations">Operations Employees</a>
+      </nav>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <nav class="footer-col-links">
+        <a href="/aios">AIOS</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/work">Case Studies</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+    <div>
+      <div class="footer-col-title">Products</div>
+      <nav class="footer-col-links">
+        <a href="/intel-echo/">Intel Echo</a>
+        <a href="/intel-echo-gtm/">Intel Echo GTM</a>
+      </nav>
+      <div style="margin-top:24px;">
+        <div class="footer-col-title">Contact</div>
+        <a href="https://wa.me/919100933191" style="font-size:13px; color:var(--success);">WhatsApp us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-bar">
+    <span>© 2026 Amoris. All rights reserved.</span>
+    <span>India-built · Globally deployable</span>
+  </div>
 
   <script>
     // Custom cursor
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursorRing');
+    const cursor = document.getElementById('cursor') as HTMLElement;
+    const ring = document.getElementById('cursorRing') as HTMLElement;
     let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
-    function animateRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animateRing); }
-    animateRing();
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    });
+    function animRing() {
+      rx += (mx - rx) * 0.1; ry += (my - ry) * 0.1;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
+    }
+    animRing();
     document.querySelectorAll('a, button').forEach(el => {
       el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
       el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
     });
 
-    // Currency toggle
-    const html = document.documentElement;
-    const btnINR = document.getElementById('btnINR');
-    const btnUSD = document.getElementById('btnUSD');
-    const saved = localStorage.getItem('currency') || 'inr';
-    html.dataset.currency = saved;
-    if (saved === 'usd') { btnINR.classList.remove('active'); btnUSD.classList.add('active'); }
-    btnINR.addEventListener('click', () => { html.dataset.currency = 'inr'; localStorage.setItem('currency','inr'); btnINR.classList.add('active'); btnUSD.classList.remove('active'); });
-    btnUSD.addEventListener('click', () => { html.dataset.currency = 'usd'; localStorage.setItem('currency','usd'); btnUSD.classList.add('active'); btnINR.classList.remove('active'); });
-
-    // Reveal on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }), { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    // Scroll reveal (lightweight IntersectionObserver)
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
     // FAQ accordion
     document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => { q.closest('.faq-item').classList.toggle('open'); });
+      q.addEventListener('click', () => q.closest('.faq-item')?.classList.toggle('open'));
     });
 
-    // Active nav
+    // Active nav link
     const path = window.location.pathname;
     document.querySelectorAll('.nav-links a').forEach(a => {
-      if (path.startsWith(a.getAttribute('href')) && a.getAttribute('href') !== '/') a.classList.add('active');
+      const href = a.getAttribute('href') || '';
+      if (href !== '/' && path.startsWith(href)) a.classList.add('active');
     });
+
+    // GSAP scroll animations (loaded async to not block render)
+    const gsapScript = document.createElement('script');
+    gsapScript.src = 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js';
+    gsapScript.onload = () => {
+      const stScript = document.createElement('script');
+      stScript.src = 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js';
+      stScript.onload = () => {
+        // @ts-ignore
+        const { gsap, ScrollTrigger } = window as any;
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Stagger cards on scroll
+        document.querySelectorAll('.stagger-cards').forEach(group => {
+          const cards = group.querySelectorAll(':scope > *');
+          gsap.fromTo(cards,
+            { y: 40, opacity: 0 },
+            {
+              y: 0, opacity: 1,
+              stagger: 0.1,
+              duration: 0.7,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: group,
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+              }
+            }
+          );
+        });
+
+        // Stats count-up
+        document.querySelectorAll('.count-up').forEach(el => {
+          const target = parseFloat(el.getAttribute('data-target') || '0');
+          const suffix = el.getAttribute('data-suffix') || '';
+          const isDecimal = target % 1 !== 0;
+          ScrollTrigger.create({
+            trigger: el,
+            start: 'top 80%',
+            once: true,
+            onEnter: () => {
+              gsap.fromTo({ val: 0 }, { val: target }, {
+                duration: 1.8,
+                ease: 'power2.out',
+                onUpdate: function() {
+                  // @ts-ignore
+                  el.textContent = (isDecimal ? this.targets()[0].val.toFixed(1) : Math.round(this.targets()[0].val)) + suffix;
+                }
+              });
+            }
+          });
+        });
+
+        // Hero employees float
+        gsap.to('.emp-float', {
+          y: -10,
+          duration: 2.5,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: -1,
+          stagger: 0.4
+        });
+      };
+      document.head.appendChild(stScript);
+    };
+    document.head.appendChild(gsapScript);
   </script>
 </body>
 </html>

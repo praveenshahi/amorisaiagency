@@ -1,0 +1,177 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+export function getStaticPaths() {
+  const employees = [
+    {
+      slug: 'ai-whatsapp-assistant',
+      name: 'AI WhatsApp Assistant',
+      icon: '💬',
+      title: 'AI WhatsApp Assistant — Full Business Automation on WhatsApp | Amoris',
+      description: 'An AI agent that handles orders, support, and payments on WhatsApp. 80% of queries resolved without a human. Deployed in 3–4 weeks.',
+      answer: 'An AI WhatsApp Assistant handles your entire WhatsApp inbox — product queries, order updates, payment links, support tickets, and FAQs. 80% of conversations are resolved without a human. Your team only sees the 20% that need judgment.',
+      price: 'From ₹75k',
+      priceType: 'range',
+      builtFor: ['E-commerce', 'Restaurants & food delivery', 'Retail', 'Healthcare', 'Education'],
+      integrations: ['WhatsApp Business API', 'Shopify', 'WooCommerce', 'Razorpay', 'Zoho CRM', 'Google Sheets'],
+      faqs: [
+        { q: 'How much does a WhatsApp AI chatbot cost in India?', a: 'Amoris AI WhatsApp Assistants start from ₹75k for setup. This covers integration, training on your product/service data, and initial testing. Book a demo for exact pricing.' },
+        { q: 'Does it work with WhatsApp Business API?', a: 'Yes. We set up the WhatsApp Business API (via approved BSPs) and connect it to your AI assistant. You get a verified business number and green tick eligibility.' },
+        { q: 'Can it handle payments on WhatsApp?', a: 'Yes. It generates and sends Razorpay or PayU payment links in the chat. Customers pay directly in WhatsApp.' },
+        { q: 'What about order tracking?', a: 'For Shopify and WooCommerce stores, it connects to your order system and provides live order status when customers ask.' },
+        { q: 'What happens when the AI can\'t answer?', a: 'It escalates to a human agent on your team, with full conversation context attached. Your team picks up exactly where the AI left off.' },
+      ],
+    },
+    {
+      slug: 'ai-support-assistant',
+      name: 'AI Support Assistant',
+      icon: '🖥️',
+      title: 'AI Support Assistant — Website Chat Agent Trained on Your Docs | Amoris',
+      description: 'A website chat agent trained on your help documentation. Deflects 60–80% of support tickets. Customers get instant answers, anytime.',
+      answer: 'An AI Support Assistant sits on your website or help centre and answers customer questions from your documentation — pricing, how-to, troubleshooting. 60–80% of common support queries are deflected instantly, without a ticket or a wait.',
+      price: 'From ₹75k',
+      priceType: 'range',
+      builtFor: ['SaaS products', 'E-commerce', 'EdTech platforms', 'Fintech', 'Healthcare apps'],
+      integrations: ['Freshdesk', 'Zendesk', 'Intercom', 'Notion', 'Confluence', 'Google Drive'],
+      faqs: [
+        { q: 'How is this different from a FAQ page?', a: 'A FAQ page requires users to find the right question. This agent understands what the customer is asking — in their own words — and finds the answer from your docs.' },
+        { q: 'What deflection rate can I expect?', a: '60–80% for products with well-maintained help documentation. The agent handles common questions; humans get complex, nuanced ones.' },
+        { q: 'Can it create a support ticket when it can\'t answer?', a: 'Yes. When it can\'t resolve an issue, it creates a Freshdesk/Zendesk ticket with the full conversation context attached.' },
+        { q: 'What documents can it be trained on?', a: 'Notion pages, Confluence, Google Docs, PDFs, and HTML help centres. We train it on your actual help content during setup.' },
+        { q: 'Does it improve over time?', a: 'Every unanswered question is logged. We review them monthly and update the knowledge base — improving coverage over time.' },
+      ],
+    },
+    {
+      slug: 'ai-lead-qualifier',
+      name: 'AI Lead Qualifier',
+      icon: '⚡',
+      title: 'AI Lead Qualifier — Qualify Every Inbound Lead Instantly | Amoris',
+      description: 'An AI agent that qualifies every inbound lead via chat or WhatsApp before it reaches your sales team. No more unqualified calls.',
+      answer: 'An AI Lead Qualifier engages every inbound lead the moment they fill a form or send a message — asks your qualification questions, scores them against your ICP, and routes qualified leads to your sales team with a summary. Unqualified leads are nurtured or rejected automatically.',
+      price: 'From ₹1L',
+      priceType: 'range',
+      builtFor: ['B2B SaaS', 'Real estate', 'EdTech', 'Financial services', 'Agencies'],
+      integrations: ['WhatsApp', 'Website chat', 'HubSpot', 'Zoho CRM', 'Salesforce', 'Google Sheets'],
+      faqs: [
+        { q: 'What qualification criteria can it use?', a: 'You define it: company size, budget, use case, timeline, decision-maker role, industry. The agent scores every lead 1–100 against your criteria.' },
+        { q: 'How fast does it respond to a new lead?', a: 'Under 60 seconds from form submission or WhatsApp message. Speed-to-lead is a major conversion factor — most sales teams respond in hours.' },
+        { q: 'What happens to unqualified leads?', a: 'You decide: nurture sequence, politely decline, or mark as future pipeline. Qualified leads get routed to your team with a full summary.' },
+        { q: 'Can it book a call for qualified leads?', a: 'Yes. Once a lead is qualified, it can book directly into your sales team\'s calendar or send a Calendly link.' },
+        { q: 'Does it work on WhatsApp and website?', a: 'Both. A lead from a website form gets an instant WhatsApp message or email. Website chat leads are handled in the chat widget.' },
+      ],
+    },
+    {
+      slug: 'ai-social-responder',
+      name: 'AI Social Responder',
+      icon: '📸',
+      title: 'AI Social Responder — Instagram DM Agent for Sales & Support | Amoris',
+      description: 'An AI agent that replies to Instagram DMs, qualifies interested followers, and books calls — turning DMs into sales pipeline.',
+      answer: 'An AI Social Responder manages your Instagram DMs — responding to product questions, qualifying interested followers, sending price lists, and booking calls. Your page runs sales on autopilot while you create content.',
+      price: 'From ₹60k',
+      priceType: 'range',
+      builtFor: ['DTC brands', 'Coaches & creators', 'Salons & services', 'Restaurants', 'Fashion & lifestyle'],
+      integrations: ['Instagram Business API', 'WhatsApp', 'Google Calendar', 'Sheets', 'Zoho CRM'],
+      faqs: [
+        { q: 'Does it work with Instagram Business API?', a: 'Yes. We connect via the official Instagram Messaging API. No third-party tools that violate Instagram\'s terms.' },
+        { q: 'Can it send product catalogues?', a: 'Yes. It can share product images, price lists, and links when a customer asks about a product.' },
+        { q: 'What about story replies and comment DMs?', a: 'Story reply DMs and comment-triggered DMs are both supported. When someone replies to your story or comments, the agent can DM them automatically.' },
+        { q: 'Can it qualify leads for coaching or service businesses?', a: 'Yes. Ask your qualification questions (budget, timeline, problem) in the DM and route qualified leads to a discovery call booking.' },
+        { q: 'What\'s the response time?', a: 'Under 60 seconds from received DM to first response — 24 hours a day, including weekends.' },
+      ],
+    },
+  ];
+  return employees.map(e => ({ params: { slug: e.slug }, props: { emp: e } }));
+}
+
+const { emp } = Astro.props;
+
+const faqSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: emp.faqs.map((f: {q:string,a:string}) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+});
+---
+<Base title={emp.title} description={emp.description} schema={faqSchema}>
+
+<section style="padding-bottom:40px;">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a><span>/</span>
+    <a href="/ai-employees">AI Employees</a><span>/</span>
+    <a href="/ai-employees/chat">Chat</a><span>/</span>
+    <span style="color:var(--text-dim);">{emp.name}</span>
+  </nav>
+  <div class="emp-hero">
+    <div class="emp-hero-icon" style="background:rgba(34,197,94,0.12); font-size:36px;">{emp.icon}</div>
+    <div>
+      <span class="section-eyebrow">Chat Employee</span>
+      <h1 style="margin-bottom:0;">{emp.name}</h1>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0; padding-bottom:48px;">
+  <div class="answer-block">
+    <p style="font-size:1.05rem; color:var(--text); line-height:1.75; margin-bottom:24px;">{emp.answer}</p>
+    <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+      {emp.priceType === 'range' ? (
+        <div>
+          <div style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Starting from</div>
+          <span class="price-range">{emp.price}</span>
+        </div>
+      ) : (
+        <span class="price-custom">Custom pricing — request a quote</span>
+      )}
+      <a href="/contact" class="btn btn-primary">Book a Demo →</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0; padding-bottom:48px;">
+  <span class="section-eyebrow">Built For</span>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {emp.builtFor.map((ind: string) => <span class="tag">{ind}</span>)}
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border); padding-bottom:48px;">
+  <span class="section-eyebrow reveal">Integrations</span>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {emp.integrations.map((int: string) => <span class="tag">{int}</span>)}
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border);">
+  <span class="section-eyebrow reveal">FAQ</span>
+  <h2 class="reveal" style="margin-bottom:32px;">Common questions about {emp.name}.</h2>
+  <div>
+    {emp.faqs.map((faq: {q:string,a:string}) => (
+      <div class="faq-item">
+        <button class="faq-q">{faq.q}</button>
+        <div class="faq-a">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border); text-align:center; position:relative; overflow:hidden;">
+  <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:500px; height:200px; background:radial-gradient(ellipse, rgba(240,168,36,0.07) 0%, transparent 70%); pointer-events:none;"></div>
+  <div style="position:relative; z-index:1;">
+    <h2 style="margin-bottom:12px;">Deploy {emp.name} for your business.</h2>
+    <p style="max-width:40ch; margin:0 auto 32px;">Book a 30-minute call. Get a scope and ballpark cost on the call.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="/contact" class="btn btn-primary">Book a Demo →</a>
+      <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.emp-hero { display:flex; align-items:center; gap:24px; margin-bottom:8px; flex-wrap:wrap; }
+.emp-hero-icon { width:72px; height:72px; border-radius:18px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.answer-block { background:var(--bg-raised); border:1px solid rgba(240,168,36,0.15); border-radius:var(--radius); padding:32px; }
+</style>
+</Base>

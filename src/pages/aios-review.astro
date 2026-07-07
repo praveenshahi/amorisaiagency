@@ -1,0 +1,784 @@
+﻿---
+import Base from '../layouts/Base.astro';
+import FAQ from '../components/FAQ.astro';
+
+const proofPoints = ['3-5 agents to start', 'Shared memory vault', 'Slack command centre', '6-8 week core rollout'];
+
+const systemSteps = [
+  { label: 'Voice Agent', detail: 'Books the call', metric: '24/7' },
+  { label: 'CRM Copilot', detail: 'Updates the lead', metric: '0 lag' },
+  { label: 'Shared Memory', detail: 'Stores context', metric: '1 vault' },
+  { label: 'Dashboard', detail: 'Shows work live', metric: '1 view' },
+  { label: 'Daily Brief', detail: 'Reports what changed', metric: 'AM' }
+];
+
+const capabilities = [
+  { eyebrow: 'Shared Memory', title: 'Every agent works from the same context.', body: 'Calls, chats, CRM updates, documents and reports all write back into one approved memory layer, so agents stop behaving like isolated tools.' },
+  { eyebrow: 'Command Centre', title: 'One place to see, pause and steer the AI team.', body: 'Track what was handled, what needs review, which workflows are live, and where the system is saving time or creating risk.' },
+  { eyebrow: 'Vault', title: 'Business knowledge updates once, everywhere.', body: 'Pricing, SOPs, policies, scripts and playbooks live in one controlled vault. Update the source and every agent follows the latest version.' }
+];
+
+const useCases = [
+  'Inbound call to booked appointment',
+  'WhatsApp lead to CRM-qualified opportunity',
+  'Support ticket to knowledge-base answer',
+  'Invoice document to operations report',
+  'Daily business brief from live workflows',
+  'Recruiting pipeline to candidate shortlist'
+];
+
+const packages = [
+  {
+    name: 'AIOS Core',
+    fit: 'Best for one department',
+    title: 'One team, 3-5 agents, one workflow system.',
+    body: 'A focused operating layer for sales, support or operations when you want the first AI team working together instead of scattered across tools.',
+    priceInr: 'INR 3.5L-6L setup + INR 40k/mo',
+    priceUsd: '$7k-12k setup + $800/mo',
+    features: ['3-5 custom agents', 'Shared memory vault', 'Workflow automations', '1 integration stack', 'Monthly reporting', 'Slack-based command centre'],
+    cta: 'Start with AIOS Core'
+  },
+  {
+    name: 'AIOS Company',
+    fit: 'Best for multi-team scale',
+    title: 'Multiple departments, custom agents per team.',
+    body: 'A company-wide AI operating system for teams that need cross-department context, governance, training and an expansion roadmap.',
+    priceInr: 'INR 8L-15L setup + INR 75k-1.25L/mo',
+    priceUsd: '$15k-30k setup + $1.5k-2.5k/mo',
+    features: ['Unlimited agents across departments', 'Cross-department shared memory', 'Custom workflows per team', 'Full integration stack', 'Team training and documentation', 'Dedicated expansion roadmap'],
+    cta: 'Explore AIOS Company',
+    featured: true
+  }
+];
+
+const faqs = [
+  { q: "What's the difference between individual agents and AIOS?", a: 'An individual agent does one job. AIOS connects agents through shared memory, one dashboard and workflows that let them hand work to each other.' },
+  { q: 'How long does AIOS take to deploy?', a: 'AIOS Core usually takes 6-8 weeks. AIOS Company usually takes 10-14 weeks, depending on integrations and how ready your data and documents are.' },
+  { q: 'Do I need to start with AIOS?', a: 'No. Most clients start with one or two agents, prove the value, then graduate to AIOS when they need system-level control and cross-agent context.' },
+  { q: 'What does shared memory mean?', a: 'It means agents can use the same approved business context. If one agent books a call or flags an issue, the next agent can act with that context instead of starting from zero.' }
+];
+---
+<Base title="Amoris AIOS Review - AI Operating System for Your Business | Amoris" description="Review concept for the Amoris AIOS page: a premium AI operating system page with dashboard mockup, shared memory flow, clearer packages and stronger conversion path.">
+  <section class="aios-hero">
+    <div class="hero-copy reveal">
+      <div class="section-eyebrow">Flagship Product</div>
+      <h1>Your AI team, controlled from one operating system.</h1>
+      <p class="hero-lede">AIOS connects your voice agents, chat agents, knowledge workers and business workflows through shared memory, one dashboard and a command centre your team can actually run.</p>
+      <div class="hero-actions">
+        <a href="/contact" class="btn btn-primary">Book a Discovery Call</a>
+        <a href="/pricing" class="btn btn-outline">See Packages</a>
+      </div>
+      <div class="proof-strip" aria-label="AIOS proof points">
+        {proofPoints.map(point => <span>{point}</span>)}
+      </div>
+    </div>
+
+    <div class="robot-hero-panel reveal reveal-d2" aria-label="Interactive AIOS robot preview">
+      <div class="robot-wordmark" aria-hidden="true">AIOS</div>
+      <div id="aiosRobotCanvas" class="robot-canvas" aria-label="Interactive AI robot. Move your pointer to make it look around. Tap to trigger heart eyes."></div>
+      <div class="robot-hint">Move pointer. Tap robot.</div>
+      <div class="robot-dashboard">
+        <div class="dash-topbar">
+          <div>
+            <span class="dash-kicker">AIOS Command Centre</span>
+            <strong>Live Operations</strong>
+          </div>
+          <span class="status-pill"><span class="live-dot"></span> Online</span>
+        </div>
+        <div class="mini-metrics">
+          <span><b>18</b> calls</span>
+          <span><b>42</b> chats</span>
+          <span><b>13</b> CRM updates</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="flow-section">
+    <div class="section-heading reveal">
+      <span class="section-eyebrow">How AIOS Thinks</span>
+      <h2>One workflow, five connected layers.</h2>
+      <p>Instead of separate agents producing separate outputs, AIOS lets each step hand useful context to the next one.</p>
+    </div>
+    <div class="system-flow reveal reveal-d2">
+      {systemSteps.map((step, index) => (
+        <div class="flow-node">
+          <span class="flow-index">0{index + 1}</span>
+          <strong>{step.label}</strong>
+          <p>{step.detail}</p>
+          <em>{step.metric}</em>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="capability-section">
+    <div class="section-heading reveal">
+      <span class="section-eyebrow">The AIOS Difference</span>
+      <h2>Agents working together, not in silos.</h2>
+    </div>
+    <div class="capability-grid">
+      {capabilities.map(item => (
+        <article class="capability-card reveal">
+          <span>{item.eyebrow}</span>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="bridge-section">
+    <div class="bridge-copy reveal">
+      <span class="section-eyebrow">Expansion Path</span>
+      <h2>Start with one agent. Graduate when the system needs a brain.</h2>
+      <p>AIOS does not force a giant first step. It gives clients a clean path from one useful AI employee to a managed operating layer across departments.</p>
+    </div>
+    <div class="bridge-ladder reveal reveal-d2">
+      <div><span>01</span><strong>Deploy one agent</strong><p>Fix a single workflow with a narrow, measurable outcome.</p></div>
+      <div><span>02</span><strong>Add shared memory</strong><p>Connect the agent to CRM, docs, calendars and approved business knowledge.</p></div>
+      <div><span>03</span><strong>Operate AIOS</strong><p>Run multiple agents from one command centre with reporting and governance.</p></div>
+    </div>
+  </section>
+
+  <section class="usecase-section">
+    <div class="section-heading reveal">
+      <span class="section-eyebrow">Use Cases</span>
+      <h2>Where the operating system pays for itself.</h2>
+    </div>
+    <div class="usecase-grid reveal reveal-d2">
+      {useCases.map(item => <div>{item}</div>)}
+    </div>
+  </section>
+
+  <section class="packages-section">
+    <div class="section-heading reveal">
+      <span class="section-eyebrow">Packages</span>
+      <h2>Two ways to start.</h2>
+      <p>Clear entry points for teams that want a focused first deployment or a broader company-wide AI layer.</p>
+    </div>
+    <div class="package-grid">
+      {packages.map(pkg => (
+        <article class={`package-card reveal ${pkg.featured ? 'featured' : ''}`}>
+          <div class="package-fit">{pkg.fit}</div>
+          <h3>{pkg.name}</h3>
+          <h4>{pkg.title}</h4>
+          <p>{pkg.body}</p>
+          <ul>
+            {pkg.features.map(feature => <li><span>&#10003;</span>{feature}</li>)}
+          </ul>
+          <div class="investment">
+            <span>Investment</span>
+            <strong>{pkg.priceInr}</strong>
+            <em>{pkg.priceUsd}</em>
+          </div>
+          <a href="/contact" class="btn btn-primary">{pkg.cta}</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="section-heading reveal">
+      <span class="section-eyebrow">FAQ</span>
+      <h2>Questions about AIOS.</h2>
+    </div>
+    <FAQ items={faqs} />
+  </section>
+
+  <section class="final-cta reveal">
+    <span class="section-eyebrow">Next Step</span>
+    <h2>Not sure whether to start with one agent or AIOS?</h2>
+    <p>Book a discovery call. We will map the first workflow, recommend the smallest sensible starting point and show when AIOS becomes useful.</p>
+    <div class="hero-actions center">
+      <a href="/contact" class="btn btn-primary">Book a Discovery Call</a>
+      <a href="/agents" class="btn btn-outline">Browse Individual Agents</a>
+    </div>
+  </section>
+
+  <style>
+    .aios-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+      gap: 52px;
+      align-items: center;
+      padding-top: 86px;
+      padding-bottom: 76px;
+    }
+
+    .hero-copy h1 {
+      max-width: 11ch;
+      margin-bottom: 22px;
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      line-height: 0.96;
+    }
+
+    .hero-lede {
+      max-width: 58ch;
+      font-size: 1.08rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions.center { justify-content: center; margin-bottom: 0; }
+
+    .proof-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 620px;
+    }
+
+    .proof-strip span,
+    .status-pill,
+    .package-fit {
+      border: 1px solid var(--border);
+      background: var(--bg-inset);
+      border-radius: var(--radius-pill);
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 7px 12px;
+    }
+
+    .robot-hero-panel {
+      min-height: clamp(430px, 54vw, 620px);
+      border: 1px solid rgba(240,168,36,0.24);
+      border-radius: 18px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 52% 36%, rgba(0,255,198,0.18), transparent 18%),
+        radial-gradient(circle at 80% 0%, rgba(240,168,36,0.18), transparent 34%),
+        linear-gradient(180deg, #d5d2ce 0%, #9a9691 68%, #c0bab3 100%);
+      box-shadow: 0 26px 90px rgba(0,0,0,0.52), inset 0 1px 0 rgba(255,255,255,0.18);
+      isolation: isolate;
+    }
+
+    .robot-wordmark {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(0,0,0,0.13);
+      font-family: var(--font-display);
+      font-size: clamp(4.8rem, 14vw, 11rem);
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1;
+      z-index: 0;
+      transform: translateY(28px);
+      user-select: none;
+    }
+
+    .robot-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .robot-canvas canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .robot-hint {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      z-index: 3;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(10,10,11,0.32);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius-pill);
+      color: rgba(255,255,255,0.86);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      padding: 7px 11px;
+      text-transform: uppercase;
+    }
+
+    .robot-dashboard {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 3;
+      border: 1px solid rgba(240,168,36,0.24);
+      border-radius: 18px;
+      padding: 14px;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(240,168,36,0.14), transparent 32%),
+        linear-gradient(145deg, rgba(28,28,31,0.98), rgba(12,12,14,0.98));
+      box-shadow: 0 18px 54px rgba(0,0,0,0.36), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .dash-topbar,
+    .memory-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .dash-topbar strong,
+    .memory-head b {
+      display: block;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+
+    .dash-kicker,
+    .memory-head span,
+    .investment span,
+    .flow-index {
+      display: block;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .mini-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .mini-metrics span {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 9px;
+      text-align: center;
+    }
+
+    .mini-metrics b {
+      color: var(--gold);
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .flow-node,
+    .capability-card,
+    .package-card,
+    .bridge-ladder > div,
+    .usecase-grid > div {
+      border: 1px solid var(--border);
+      background: rgba(20,20,22,0.76);
+      border-radius: var(--radius-sm);
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 36px;
+    }
+    .section-heading h2 { margin-bottom: 12px; }
+
+    .system-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      position: relative;
+    }
+
+    .flow-node {
+      padding: 18px;
+      min-height: 170px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .flow-node::after {
+      content: '';
+      position: absolute;
+      right: -8px;
+      top: 50%;
+      width: 16px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .flow-node:last-child::after { display: none; }
+    .flow-node strong { display: block; color: var(--text); font-family: var(--font-display); margin: 18px 0 6px; }
+    .flow-node p { font-size: 13px; }
+    .flow-node em { position: absolute; bottom: 14px; left: 18px; color: var(--gold); font-style: normal; font-family: var(--font-mono); font-size: 12px; }
+
+    .capability-grid,
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .capability-card { padding: 26px; }
+    .capability-card span { color: var(--gold); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+    .capability-card h3 { margin: 22px 0 12px; }
+
+    .bridge-section {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 52px;
+      align-items: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .bridge-copy h2 { margin-bottom: 16px; }
+    .bridge-ladder { display: grid; gap: 12px; }
+    .bridge-ladder > div { padding: 22px; display: grid; grid-template-columns: 48px 1fr; column-gap: 14px; align-items: start; }
+    .bridge-ladder span { grid-row: span 2; color: var(--gold); font-family: var(--font-mono); font-size: 12px; border: 1px solid rgba(240,168,36,0.3); border-radius: 50%; width: 36px; height: 36px; display: grid; place-items: center; }
+    .bridge-ladder strong { color: var(--text); font-family: var(--font-display); }
+    .bridge-ladder p { font-size: 13px; }
+
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .usecase-grid > div { padding: 18px; color: var(--text); font-family: var(--font-display); font-weight: 600; }
+
+    .packages-section { border-top: 1px solid var(--border); }
+    .package-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .package-card { padding: 34px; display: flex; flex-direction: column; align-items: flex-start; }
+    .package-card.featured { border-color: rgba(240,168,36,0.48); box-shadow: 0 18px 70px rgba(240,168,36,0.08); }
+    .package-card h3 { margin: 18px 0 8px; font-size: 1.7rem; }
+    .package-card h4 { margin-bottom: 14px; font-size: 1.1rem; color: var(--gold-bright); }
+    .package-card ul { list-style: none; width: 100%; margin: 26px 0; }
+    .package-card li { display: flex; align-items: center; gap: 10px; color: var(--text-dim); padding: 9px 0; border-top: 1px solid var(--border); font-size: 14px; }
+    .package-card li span { color: var(--gold); }
+    .investment { margin-top: auto; margin-bottom: 24px; }
+    .investment strong { display: block; color: var(--text); font-family: var(--font-display); font-size: 1.15rem; margin-top: 6px; }
+    .investment em { display: block; color: var(--text-dim); font-family: var(--font-mono); font-size: 12px; font-style: normal; margin-top: 4px; }
+
+    .faq-section { border-top: 1px solid var(--border); }
+
+    .final-cta {
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: radial-gradient(ellipse at 50% 100%, rgba(240,168,36,0.13), transparent 70%);
+    }
+    .final-cta h2 { max-width: 760px; margin: 0 auto 16px; }
+    .final-cta p { max-width: 58ch; margin: 0 auto 30px; }
+
+    @media (max-width: 980px) {
+      .aios-hero,
+      .bridge-section { grid-template-columns: 1fr; }
+      .robot-hero-panel { order: -1; min-height: 460px; }
+      .system-flow,
+      .capability-grid,
+      .usecase-grid { grid-template-columns: 1fr; }
+      .flow-node { min-height: auto; padding-bottom: 52px; }
+      .flow-node::after { left: 30px; right: auto; top: auto; bottom: -7px; width: 1px; height: 14px; }
+    }
+
+    @media (max-width: 760px) {
+      .aios-hero { padding-top: 54px; }
+      .hero-copy h1 { max-width: 12ch; }
+      .package-grid { grid-template-columns: 1fr; }
+      .robot-hero-panel {
+        min-height: 390px;
+        border-radius: 14px;
+        margin-inline: -6px;
+      }
+      .robot-dashboard {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        border-radius: 12px;
+      }
+      .robot-hint { left: 12px; top: 12px; }
+      .mini-metrics { grid-template-columns: repeat(3, 1fr); }
+      .mini-metrics span { font-size: 10px; padding: 8px 5px; }
+      .proof-strip span { flex: 1 1 calc(50% - 8px); text-align: center; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .package-card { padding: 26px; }
+    }
+  </style>
+  <script>
+    const mount = document.getElementById('aiosRobotCanvas');
+
+    if (mount) {
+      const THREE = await import('three');
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+      camera.position.set(0, 0.15, 5.4);
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.6));
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      mount.appendChild(renderer.domElement);
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isMobile = window.matchMedia('(max-width: 760px)').matches;
+      const segmentCount = isMobile ? 32 : 56;
+
+      const ambient = new THREE.AmbientLight(0xffffff, 1.15);
+      scene.add(ambient);
+
+      const keyLight = new THREE.DirectionalLight(0xffffff, 1.5);
+      keyLight.position.set(2.5, 5, 4);
+      keyLight.castShadow = true;
+      scene.add(keyLight);
+
+      const tealLight = new THREE.PointLight(0x00ffc6, 2.1, 4);
+      tealLight.position.set(0, 1.25, 1.2);
+      scene.add(tealLight);
+
+      const group = new THREE.Group();
+      group.position.y = -0.62;
+      scene.add(group);
+
+      const bodyGroup = new THREE.Group();
+      group.add(bodyGroup);
+
+      const shellTexture = (() => {
+        const size = 256;
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.fillStyle = '#d8d6d2';
+          ctx.fillRect(0, 0, size, size);
+          for (let i = 0; i < 2200; i++) {
+            const shade = Math.random() > 0.18 ? '#333333' : '#eeeeee';
+            ctx.fillStyle = shade;
+            ctx.globalAlpha = Math.random() > 0.18 ? 0.12 : 0.18;
+            ctx.beginPath();
+            ctx.arc(Math.random() * size, Math.random() * size, Math.random() * 1.4 + 0.3, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          ctx.globalAlpha = 1;
+        }
+        const texture = new THREE.CanvasTexture(canvas);
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(4, 2);
+        return texture;
+      })();
+
+      const shellMaterial = new THREE.MeshStandardMaterial({
+        color: '#c9c7c2',
+        map: shellTexture,
+        roughness: 0.92,
+        metalness: 0.02
+      });
+
+      const body = new THREE.Mesh(
+        new THREE.SphereGeometry(0.82, segmentCount, segmentCount, 0, Math.PI * 2, Math.PI * 0.12, Math.PI * 0.72),
+        shellMaterial
+      );
+      body.castShadow = true;
+      body.receiveShadow = true;
+      bodyGroup.add(body);
+
+      const bodyRing = new THREE.Mesh(
+        new THREE.TorusGeometry(0.44, 0.04, 20, segmentCount),
+        shellMaterial
+      );
+      bodyRing.position.y = 0.62;
+      bodyRing.rotation.x = Math.PI / 2;
+      bodyRing.castShadow = true;
+      bodyGroup.add(bodyRing);
+
+      const neck = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.2, 0.33, 0.22, segmentCount),
+        shellMaterial
+      );
+      neck.position.y = 0.74;
+      neck.castShadow = true;
+      bodyGroup.add(neck);
+
+      const headGroup = new THREE.Group();
+      headGroup.position.y = 1.18;
+      bodyGroup.add(headGroup);
+
+      const head = new THREE.Mesh(
+        new THREE.SphereGeometry(0.52, segmentCount, segmentCount, 0, Math.PI * 2, 0, Math.PI),
+        new THREE.MeshStandardMaterial({ color: '#111113', roughness: 0.62, metalness: 0.05 })
+      );
+      head.castShadow = true;
+      head.receiveShadow = true;
+      headGroup.add(head);
+
+      const glass = new THREE.Mesh(
+        new THREE.SphereGeometry(0.535, segmentCount, segmentCount, 0, Math.PI * 2, 0, Math.PI),
+        new THREE.MeshBasicMaterial({
+          color: '#00ffc6',
+          transparent: true,
+          opacity: 0.18,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        })
+      );
+      headGroup.add(glass);
+
+      const eyeMaterial = new THREE.MeshBasicMaterial({ color: '#f8fffb', toneMapped: false });
+      const heartMaterial = new THREE.MeshBasicMaterial({ color: '#ff3366', toneMapped: false });
+      const eyeMeshes = [];
+      const heartMeshes = [];
+
+      function makeEye(x) {
+        const eyeGroup = new THREE.Group();
+        eyeGroup.position.set(x, -0.04, 0.505);
+        eyeGroup.rotation.y = x < 0 ? -0.15 : 0.15;
+
+        const normalEye = new THREE.Mesh(new THREE.TorusGeometry(0.06, 0.006, 8, 28), eyeMaterial);
+        normalEye.scale.y = 0.58;
+        eyeGroup.add(normalEye);
+
+        const heartShape = new THREE.Shape();
+        heartShape.moveTo(0, -0.035);
+        heartShape.bezierCurveTo(-0.07, -0.09, -0.12, -0.005, -0.06, 0.045);
+        heartShape.bezierCurveTo(-0.03, 0.075, 0, 0.055, 0, 0.025);
+        heartShape.bezierCurveTo(0, 0.055, 0.03, 0.075, 0.06, 0.045);
+        heartShape.bezierCurveTo(0.12, -0.005, 0.07, -0.09, 0, -0.035);
+        const heart = new THREE.Mesh(new THREE.ShapeGeometry(heartShape), heartMaterial);
+        heart.visible = false;
+        eyeGroup.add(heart);
+
+        eyeMeshes.push(normalEye);
+        heartMeshes.push(heart);
+        headGroup.add(eyeGroup);
+      }
+
+      makeEye(-0.13);
+      makeEye(0.13);
+
+      function makeEar(x) {
+        const ear = new THREE.Group();
+        ear.position.set(x, 0.02, 0);
+        const direction = Math.sign(x);
+        const ring = new THREE.Mesh(new THREE.TorusGeometry(0.075, 0.018, 12, 32), shellMaterial);
+        ring.rotation.y = Math.PI / 2;
+        ear.add(ring);
+        const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.056, 0.056, 0.018, 24), new THREE.MeshStandardMaterial({ color: '#f0eeee', roughness: 0.45 }));
+        cap.rotation.z = Math.PI / 2;
+        cap.position.x = direction * 0.015;
+        ear.add(cap);
+        const antenna = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.17, 8), new THREE.MeshStandardMaterial({ color: '#dedbd6', roughness: 0.4 }));
+        antenna.position.set(direction * 0.03, 0.12, 0);
+        antenna.rotation.z = -direction * 0.18;
+        ear.add(antenna);
+        const dot = new THREE.Mesh(new THREE.SphereGeometry(0.017, 12, 12), new THREE.MeshBasicMaterial({ color: '#ff3366', toneMapped: false }));
+        dot.position.set(direction * 0.048, 0.205, 0);
+        ear.add(dot);
+        headGroup.add(ear);
+      }
+
+      makeEar(-0.54);
+      makeEar(0.54);
+
+      const shadow = new THREE.Mesh(
+        new THREE.CircleGeometry(1.1, 40),
+        new THREE.MeshBasicMaterial({ color: '#000000', transparent: true, opacity: 0.22 })
+      );
+      shadow.position.y = -0.86;
+      shadow.rotation.x = -Math.PI / 2;
+      shadow.scale.y = 0.32;
+      group.add(shadow);
+
+      const pointer = { x: 0, y: 0 };
+      let lovedUntil = 0;
+      let active = true;
+
+      function updatePointer(clientX, clientY) {
+        const rect = mount.getBoundingClientRect();
+        pointer.x = ((clientX - rect.left) / rect.width) * 2 - 1;
+        pointer.y = -(((clientY - rect.top) / rect.height) * 2 - 1);
+      }
+
+      mount.addEventListener('pointermove', (event) => updatePointer(event.clientX, event.clientY), { passive: true });
+      mount.addEventListener('pointerdown', (event) => {
+        updatePointer(event.clientX, event.clientY);
+        lovedUntil = performance.now() + 1800;
+      });
+
+      function resize() {
+        const rect = mount.getBoundingClientRect();
+        const width = Math.max(1, rect.width);
+        const height = Math.max(1, rect.height);
+        camera.aspect = width / height;
+        camera.position.z = width < 520 ? 5.9 : 5.25;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height, false);
+      }
+
+      const resizeObserver = new ResizeObserver(resize);
+      resizeObserver.observe(mount);
+      resize();
+
+      document.addEventListener('visibilitychange', () => {
+        active = document.visibilityState === 'visible';
+      });
+
+      let last = performance.now();
+      function animate(now) {
+        requestAnimationFrame(animate);
+        if (!active) return;
+
+        const delta = Math.min((now - last) / 1000, 0.08);
+        last = now;
+
+        const heartMode = now < lovedUntil;
+        eyeMeshes.forEach((eye) => {
+          eye.visible = !heartMode;
+          if (!heartMode && !prefersReduced) {
+            const blink = (now / 1000) % 3.2;
+            eye.scale.y = blink < 0.16 ? Math.max(0.08, 0.58 - Math.sin((blink / 0.16) * Math.PI) * 0.52) : 0.58;
+          }
+        });
+        heartMeshes.forEach((heart) => {
+          heart.visible = heartMode;
+          heart.scale.setScalar(heartMode ? 1 + Math.sin(now / 120) * 0.08 : 1);
+        });
+
+        const targetBodyY = -pointer.x * 0.36;
+        const targetBodyX = -pointer.y * 0.1;
+        const targetHeadY = pointer.x * 0.72;
+        const targetHeadX = pointer.y * 0.22;
+        const drift = prefersReduced ? 0 : Math.sin(now / 900) * 0.025;
+
+        bodyGroup.rotation.y += (targetBodyY - bodyGroup.rotation.y) * Math.min(1, delta * 7);
+        bodyGroup.rotation.x += (targetBodyX + drift - bodyGroup.rotation.x) * Math.min(1, delta * 7);
+        bodyGroup.rotation.z += (-pointer.x * 0.08 - bodyGroup.rotation.z) * Math.min(1, delta * 7);
+        headGroup.rotation.y += (targetHeadY - headGroup.rotation.y) * Math.min(1, delta * 10);
+        headGroup.rotation.x += (targetHeadX - headGroup.rotation.x) * Math.min(1, delta * 10);
+        group.position.x += (pointer.x * 0.36 - group.position.x) * Math.min(1, delta * 3);
+
+        renderer.render(scene, camera);
+      }
+
+      requestAnimationFrame(animate);
+    }
+  </script>
+</Base>
+

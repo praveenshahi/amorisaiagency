@@ -1,0 +1,46 @@
+---
+import Base from '../../../layouts/Base.astro';
+const employees = [
+  { name: 'AI Receptionist', slug: 'ai-receptionist', icon: '📞', job: 'Answers calls 24/7, books appointments, routes queries in 6 languages.', price: 'From ₹1.5L' },
+  { name: 'AI Booking Assistant', slug: 'ai-booking-assistant', icon: '📅', job: 'Books, reschedules and confirms appointments via call, WhatsApp, or chat.', price: 'From ₹1L' },
+  { name: 'AI Voice Sales Agent', slug: 'ai-voice-sales-agent', icon: '🎯', job: 'Calls leads, qualifies them, and books meetings for your sales team.', price: 'From ₹2L' },
+  { name: 'AI Collections Caller', slug: 'ai-collections-caller', icon: '💰', job: 'Makes polite payment reminder calls. Persistent. Compliant. 24/7.', price: 'From ₹1.25L' },
+];
+---
+<Base title="Voice AI Employees — Receptionists, Sales Agents & More | Amoris" description="AI voice employees for your business. Receptionists, booking assistants, sales agents, and collections callers. Hindi, English and regional Indian languages.">
+<section>
+  <nav class="breadcrumbs"><a href="/">Home</a><span>/</span><a href="/ai-employees">AI Employees</a><span>/</span><span style="color:var(--text-dim);">Voice</span></nav>
+  <span class="section-eyebrow">Voice Employees</span>
+  <h1 class="reveal" style="margin-bottom:16px;">AI employees that handle your calls.</h1>
+  <p class="reveal" style="max-width:52ch; font-size:1.05rem; margin-bottom:48px;">Available 24/7. Hindi, English, Tamil, Telugu, Kannada, Marathi. Never misses a call, never goes on leave.</p>
+  <div class="grid-2 stagger-cards">
+    {employees.map(emp => (
+      <a href={`/ai-employees/voice/${emp.slug}`} class="emp-hub-card">
+        <div class="emp-hub-icon" style="background:rgba(124,58,237,0.12);">{emp.icon}</div>
+        <div class="emp-hub-content">
+          <div class="emp-hub-name">{emp.name}</div>
+          <div class="emp-hub-job">{emp.job}</div>
+          <div class="emp-hub-price">{emp.price}</div>
+        </div>
+        <span class="emp-hub-arrow">→</span>
+      </a>
+    ))}
+  </div>
+</section>
+<section style="border-top:1px solid var(--border); text-align:center;">
+  <h2 style="margin-bottom:12px;" class="reveal">Not sure which voice employee fits?</h2>
+  <p class="reveal" style="max-width:44ch; margin:0 auto 28px;">Book a call. We'll map your inbound/outbound problem to the right AI employee.</p>
+  <div class="reveal" style="display:flex; gap:14px; justify-content:center;"><a href="/contact" class="btn btn-primary">Book a Demo →</a></div>
+</section>
+<style>
+.emp-hub-card { display:flex; align-items:center; gap:20px; background:var(--bg-raised); border:1px solid var(--border); border-radius:var(--radius); padding:24px; transition:all 0.22s; cursor:pointer; }
+.emp-hub-card:hover { border-color:rgba(124,58,237,0.5); transform:translateY(-3px); box-shadow:0 16px 40px rgba(0,0,0,0.4); }
+.emp-hub-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0; }
+.emp-hub-content { flex:1; }
+.emp-hub-name { font-family:var(--font-display); font-weight:700; font-size:1.05rem; color:var(--text); margin-bottom:4px; }
+.emp-hub-job { font-size:13px; color:var(--text-dim); line-height:1.5; margin-bottom:8px; }
+.emp-hub-price { font-family:var(--font-mono); font-size:11px; color:#7C3AED; }
+.emp-hub-arrow { font-size:18px; color:var(--text-muted); transition:color 0.2s, transform 0.2s; }
+.emp-hub-card:hover .emp-hub-arrow { color:var(--gold); transform:translateX(4px); }
+</style>
+</Base>

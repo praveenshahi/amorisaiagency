@@ -1,0 +1,178 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+export function getStaticPaths() {
+  const employees = [
+    {
+      slug: 'ai-company-brain',
+      name: 'AI Company Brain',
+      icon: '🧠',
+      title: 'AI Company Brain — Searchable Company Knowledge for Your Team | Amoris',
+      description: 'An AI agent trained on your SOPs, policies, and product docs. Staff ask in plain language, get accurate answers with source citations.',
+      answer: 'An AI Company Brain is your company\'s searchable memory. Staff ask questions in plain language — "what\'s the onboarding process?", "how many days for marriage leave?" — and get accurate answers from your actual documents, with the source cited. No more hunting through Google Drive.',
+      price: 'Custom pricing',
+      priceType: 'custom',
+      builtFor: ['Companies with 20+ employees', 'Distributed teams', 'Finance, healthcare, real estate', 'Agencies onboarding frequently'],
+      integrations: ['Notion', 'Confluence', 'Google Drive', 'SharePoint', 'Slack', 'Microsoft Teams'],
+      faqs: [
+        { q: 'What documents can the AI Company Brain be trained on?', a: 'PDFs, Word docs, Google Docs, Notion pages, Confluence, and spreadsheets. SOPs, HR policies, product docs, onboarding guides, and pricing sheets.' },
+        { q: 'How does it handle confidential information?', a: 'Role-based access. HR content only accessible to HR queries. Financial data only to finance roles. You define which documents each role can access.' },
+        { q: 'Does it hallucinate or make up answers?', a: 'No. It only answers from documents in the knowledge base. If the answer isn\'t there, it says so explicitly and cites the source for everything it does answer.' },
+        { q: 'What happens when a document changes?', a: 'Weekly syncs keep the knowledge base current. When you update a policy, the agent\'s answers update automatically in the next sync.' },
+        { q: 'How is this different from searching Google Drive?', a: 'Drive search finds documents. This agent reads them and gives you the answer. "What\'s the leave encashment policy?" gets the specific rule, not a link to a 40-page handbook.' },
+      ],
+    },
+    {
+      slug: 'ai-document-analyst',
+      name: 'AI Document Analyst',
+      icon: '📄',
+      title: 'AI Document Analyst — Extract, Compare & Analyse Contracts at Scale | Amoris',
+      description: 'An AI agent that reads contracts, invoices, and reports — extracts key data, flags anomalies, and answers questions across hundreds of files.',
+      answer: 'An AI Document Analyst reads your contracts, invoices, and reports — extracts key fields, answers questions across document sets, flags unusual clauses, and compares documents against your templates. What takes a paralegal 3 hours takes this agent 3 minutes.',
+      price: 'Custom pricing',
+      priceType: 'custom',
+      builtFor: ['Legal & CA firms', 'Finance teams', 'Real estate', 'Procurement', 'Healthcare admin'],
+      integrations: ['Google Drive', 'SharePoint', 'Zoho Books', 'Tally', 'Salesforce'],
+      faqs: [
+        { q: 'What types of documents can it process?', a: 'Contracts, NDAs, service agreements, invoices, POs, financial reports, insurance policies, property documents, and lab reports. PDFs, Word docs, and scanned documents with OCR.' },
+        { q: 'Can it compare documents?', a: '"Compare this NDA with our standard template and highlight deviations" — yes, this is a core use case. Outputs a list of differences with section references.' },
+        { q: 'How accurate is the data extraction?', a: '95–98% for clean digital invoices. 85–92% for unstructured documents. Low-confidence fields are flagged for human review, never entered automatically.' },
+        { q: 'Can it flag unusual clauses in contracts?', a: 'Yes. You define risk criteria — non-standard payment terms, IP assignment clauses, liability caps below a threshold. The agent flags any matching section.' },
+        { q: 'What about data security?', a: 'Documents are processed in your cloud environment. Nothing leaves your infrastructure. We set up the system on your GCP, AWS, or Azure account.' },
+      ],
+    },
+    {
+      slug: 'ai-help-desk',
+      name: 'AI Help Desk',
+      icon: '🎧',
+      title: 'AI Help Desk — Customer Support Agent Trained on Your Documentation | Amoris',
+      description: 'A public-facing AI agent trained on your help documentation. Deflects 60–80% of support tickets with instant, accurate answers.',
+      answer: 'An AI Help Desk sits on your help centre and answers customer questions from your documentation. Common queries get instant answers 24/7 — your support team focuses on the questions that actually need human judgment.',
+      price: 'Custom pricing',
+      priceType: 'custom',
+      builtFor: ['SaaS products', 'E-commerce', 'EdTech platforms', 'Fintech', 'Healthcare apps'],
+      integrations: ['Freshdesk', 'Zendesk', 'Intercom', 'Notion', 'Confluence'],
+      faqs: [
+        { q: 'What ticket deflection rate is realistic?', a: '60–80% for products with well-maintained help documentation. The agent handles the common questions; humans get the complex ones.' },
+        { q: 'Can it create a support ticket when it can\'t answer?', a: 'Yes. When it can\'t resolve an issue, it creates a Freshdesk/Zendesk ticket with the full conversation context attached. The human agent picks up with full history.' },
+        { q: 'Does it work across multiple languages?', a: 'English and Hindi are standard. Additional languages available depending on your customer base.' },
+        { q: 'What if customers give negative feedback on an answer?', a: 'Every answer has a thumbs up/down. Bad ratings are flagged for your team to improve the documentation.' },
+        { q: 'Can it be deployed on mobile apps?', a: 'Yes. Fully responsive widget for web and SDK integration for mobile apps on request.' },
+      ],
+    },
+    {
+      slug: 'ai-compliance-assistant',
+      name: 'AI Compliance Assistant',
+      icon: '⚖️',
+      title: 'AI Compliance Assistant — Policy & Regulatory Q&A with Audit Trail | Amoris',
+      description: 'An AI agent trained strictly on approved policy text. Answers compliance questions with source citations and a full audit log. Never guesses.',
+      answer: 'An AI Compliance Assistant answers regulatory, policy, and protocol questions strictly from approved documentation — with source citations, confidence scores, and a full audit log. It never interpolates or answers outside its approved document set.',
+      price: 'Custom pricing',
+      priceType: 'custom',
+      builtFor: ['NBFCs & banks', 'Insurance companies', 'Hospitals & clinics', 'Legal firms', 'DPDP compliance'],
+      integrations: ['SharePoint', 'Confluence', 'Google Drive', 'Freshdesk', 'ServiceNow'],
+      faqs: [
+        { q: 'What regulated industries does this serve?', a: 'BFSI (NBFCs, insurance, brokerages under SEBI/IRDAI/RBI), healthcare (NABH, clinical protocols), legal firms, and businesses building DPDP compliance.' },
+        { q: 'Will the agent answer outside its approved documents?', a: 'Never. It is configured to refuse answers on topics not covered by approved documentation. It explicitly says "not covered" rather than inferring.' },
+        { q: 'How is the approved document set controlled?', a: 'Only designated admins can add or remove documents. Every change is logged with timestamp and approver. The agent is locked to a specific document version.' },
+        { q: 'What audit trail does it provide?', a: 'Every query and response is logged with timestamp, user/session ID, documents cited, and confidence score. Exportable for regulatory audit purposes.' },
+        { q: 'Can it be used for customer-facing compliance queries?', a: 'Yes. An NBFC can deploy it for customer queries on loan terms, foreclosure rules, or EMI calculations — all grounded strictly in approved product documentation.' },
+      ],
+    },
+  ];
+  return employees.map(e => ({ params: { slug: e.slug }, props: { emp: e } }));
+}
+
+const { emp } = Astro.props;
+
+const faqSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: emp.faqs.map((f: {q:string,a:string}) => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+});
+---
+<Base title={emp.title} description={emp.description} schema={faqSchema}>
+
+<section style="padding-bottom:40px;">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a><span>/</span>
+    <a href="/ai-employees">AI Employees</a><span>/</span>
+    <a href="/ai-employees/knowledge">Knowledge</a><span>/</span>
+    <span style="color:var(--text-dim);">{emp.name}</span>
+  </nav>
+  <div class="emp-hero">
+    <div class="emp-hero-icon" style="background:rgba(6,182,212,0.12); font-size:36px;">{emp.icon}</div>
+    <div>
+      <span class="section-eyebrow">Knowledge Employee</span>
+      <h1 style="margin-bottom:0;">{emp.name}</h1>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0; padding-bottom:48px;">
+  <div class="answer-block">
+    <p style="font-size:1.05rem; color:var(--text); line-height:1.75; margin-bottom:24px;">{emp.answer}</p>
+    <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+      {emp.priceType === 'range' ? (
+        <div>
+          <div style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Starting from</div>
+          <span class="price-range">{emp.price}</span>
+        </div>
+      ) : (
+        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+          <span class="price-custom">Custom pricing — scope-based</span>
+          <a href="/contact" class="btn btn-primary">Request a Quote →</a>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0; padding-bottom:48px;">
+  <span class="section-eyebrow">Built For</span>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {emp.builtFor.map((ind: string) => <span class="tag">{ind}</span>)}
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border); padding-bottom:48px;">
+  <span class="section-eyebrow reveal">Integrations</span>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {emp.integrations.map((int: string) => <span class="tag">{int}</span>)}
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border);">
+  <span class="section-eyebrow reveal">FAQ</span>
+  <h2 class="reveal" style="margin-bottom:32px;">Common questions about {emp.name}.</h2>
+  <div>
+    {emp.faqs.map((faq: {q:string,a:string}) => (
+      <div class="faq-item">
+        <button class="faq-q">{faq.q}</button>
+        <div class="faq-a">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border); text-align:center; position:relative; overflow:hidden;">
+  <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:500px; height:200px; background:radial-gradient(ellipse, rgba(240,168,36,0.07) 0%, transparent 70%); pointer-events:none;"></div>
+  <div style="position:relative; z-index:1;">
+    <h2 style="margin-bottom:12px;">Deploy {emp.name} in your organisation.</h2>
+    <p style="max-width:40ch; margin:0 auto 32px;">Book a call to discuss scope, data requirements, and access control.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="/contact" class="btn btn-primary">Book a Demo →</a>
+      <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.emp-hero { display:flex; align-items:center; gap:24px; margin-bottom:8px; flex-wrap:wrap; }
+.emp-hero-icon { width:72px; height:72px; border-radius:18px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.answer-block { background:var(--bg-raised); border:1px solid rgba(240,168,36,0.15); border-radius:var(--radius); padding:32px; }
+</style>
+</Base>

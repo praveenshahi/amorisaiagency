@@ -1,0 +1,152 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const categories = [
+  {
+    id: 'voice',
+    name: 'Voice Employees',
+    icon: '🎙️',
+    color: '#7C3AED',
+    bg: 'rgba(124,58,237,0.1)',
+    desc: 'Agents that handle inbound calls, make outbound calls, book appointments, and follow up — in 6 Indian languages.',
+    employees: [
+      { name: 'AI Receptionist', slug: 'ai-receptionist', job: 'Answers calls 24/7, books appointments, routes queries.', price: 'From ₹1.5L' },
+      { name: 'AI Booking Assistant', slug: 'ai-booking-assistant', job: 'Books, reschedules and confirms appointments automatically.', price: 'From ₹1L' },
+      { name: 'AI Voice Sales Agent', slug: 'ai-voice-sales-agent', job: 'Calls leads, qualifies them, books meetings for your team.', price: 'From ₹2L' },
+      { name: 'AI Collections Caller', slug: 'ai-collections-caller', job: 'Makes payment reminder calls. Polite. Persistent. 24/7.', price: 'From ₹1.25L' },
+    ],
+  },
+  {
+    id: 'chat',
+    name: 'Chat Employees',
+    icon: '💬',
+    color: '#22C55E',
+    bg: 'rgba(34,197,94,0.1)',
+    desc: 'Agents that handle WhatsApp, website chat, Instagram DMs, and support tickets — without a human for 80% of queries.',
+    employees: [
+      { name: 'AI WhatsApp Assistant', slug: 'ai-whatsapp-assistant', job: 'Orders, payments, support on WhatsApp. 80% query deflection.', price: 'From ₹75k' },
+      { name: 'AI Support Assistant', slug: 'ai-support-assistant', job: 'Answers customer questions from your help docs on your website.', price: 'From ₹75k' },
+      { name: 'AI Lead Qualifier', slug: 'ai-lead-qualifier', job: 'Qualifies every inbound lead before it hits your calendar.', price: 'From ₹1L' },
+      { name: 'AI Social Responder', slug: 'ai-social-responder', job: 'Replies to Instagram DMs, qualifies leads, books calls.', price: 'From ₹60k' },
+    ],
+  },
+  {
+    id: 'knowledge',
+    name: 'Knowledge Employees',
+    icon: '🧠',
+    color: '#06B6D4',
+    bg: 'rgba(6,182,212,0.1)',
+    desc: 'RAG-powered agents trained on your documents — SOPs, contracts, policies, product docs. Answers with source citations.',
+    employees: [
+      { name: 'AI Company Brain', slug: 'ai-company-brain', job: 'Your entire company knowledge, searchable by anyone on your team.', price: 'Custom pricing' },
+      { name: 'AI Document Analyst', slug: 'ai-document-analyst', job: 'Reads contracts and invoices, extracts data, flags anomalies.', price: 'Custom pricing' },
+      { name: 'AI Help Desk', slug: 'ai-help-desk', job: 'Customer-facing agent trained on your help docs. 60–80% deflection.', price: 'Custom pricing' },
+      { name: 'AI Compliance Assistant', slug: 'ai-compliance-assistant', job: 'Answers regulatory queries strictly from approved documents only.', price: 'Custom pricing' },
+    ],
+  },
+  {
+    id: 'sales',
+    name: 'Sales Employees',
+    icon: '🎯',
+    color: '#F0A824',
+    bg: 'rgba(240,168,36,0.1)',
+    desc: 'Agents that research prospects, send personalised outreach, and keep your CRM updated automatically.',
+    employees: [
+      { name: 'AI Prospector', slug: 'ai-prospector', job: 'Builds fresh, enriched B2B prospect lists daily matching your ICP.', price: 'Custom pricing' },
+      { name: 'AI Outreach Rep', slug: 'ai-outreach-rep', job: 'Sends personalised email and LinkedIn sequences at scale.', price: 'Custom pricing' },
+      { name: 'AI Sales Coordinator', slug: 'ai-sales-coordinator', job: 'Joins your calls, updates CRM, drafts follow-up emails automatically.', price: 'Custom pricing' },
+    ],
+  },
+  {
+    id: 'operations',
+    name: 'Operations Employees',
+    icon: '⚙️',
+    color: '#8B5CF6',
+    bg: 'rgba(139,92,246,0.1)',
+    desc: 'Agents that generate reports, process invoices, and handle recruiting admin — removing the repetitive ops work.',
+    employees: [
+      { name: 'AI Business Analyst', slug: 'ai-business-analyst', job: 'Pulls data from your tools, generates daily and weekly reports.', price: 'Custom pricing' },
+      { name: 'AI Back-Office Clerk', slug: 'ai-back-office-clerk', job: 'Reads invoices, extracts data, enters it into your accounting system.', price: 'Custom pricing' },
+      { name: 'AI Recruiter', slug: 'ai-recruiter', job: 'Screens resumes, ranks candidates, books interview slots.', price: 'Custom pricing' },
+    ],
+  },
+];
+---
+<Base
+  title="AI Employees for Your Business — 18 Named AI Workers | Amoris"
+  description="18 named AI employees across voice, chat, knowledge, sales and operations. Each one does a specific job. Deployed in 3–4 weeks. India-built."
+>
+
+<section style="padding-bottom:32px;">
+  <span class="section-eyebrow reveal">AI Employees</span>
+  <h1 class="reveal" style="margin-bottom:16px; max-width:20ch;">
+    18 AI employees.<br/>One for every job.
+  </h1>
+  <p class="reveal" style="max-width:52ch; font-size:1.05rem;">
+    Each one has a name, a defined scope, and clear pricing. Not "AI solutions" — specific workers that do specific jobs.
+  </p>
+</section>
+
+{categories.map(cat => (
+  <section style="border-top:1px solid var(--border); padding-top:60px; padding-bottom:60px;">
+    <div class="cat-header reveal">
+      <div class="cat-header-left">
+        <div class="cat-icon-big" style={`background:${cat.bg}; color:${cat.color};`}>{cat.icon}</div>
+        <div>
+          <a href={`/ai-employees/${cat.id}`} class="cat-title">{cat.name}</a>
+          <p style="font-size:14px; max-width:48ch; margin-top:6px;">{cat.desc}</p>
+        </div>
+      </div>
+      <a href={`/ai-employees/${cat.id}`} class="btn btn-outline" style="flex-shrink:0;">View all →</a>
+    </div>
+    <div class="emp-row stagger-cards">
+      {cat.employees.map(emp => (
+        <a href={`/ai-employees/${cat.id}/${emp.slug}`} class="emp-row-card" style={`--emp-color: ${cat.color}; --emp-bg: ${cat.bg};`}>
+          <div class="emp-row-icon">{cat.icon}</div>
+          <div class="emp-row-body">
+            <div class="emp-row-name">{emp.name}</div>
+            <div class="emp-row-job">{emp.job}</div>
+          </div>
+          <div class="emp-row-price">{emp.price}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+))}
+
+<section style="border-top:1px solid var(--border); text-align:center;">
+  <h2 class="reveal" style="margin-bottom:12px;">Not sure which employee to hire first?</h2>
+  <p class="reveal" style="max-width:44ch; margin:0 auto 32px;">Book a 30-minute call. We'll map your biggest problem to the right AI employee.</p>
+  <div class="reveal" style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+    <a href="/contact" class="btn btn-primary">Book a Demo →</a>
+    <a href="/aios" class="btn btn-outline">Hire the whole team →</a>
+  </div>
+</section>
+
+<style>
+.cat-header { display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin-bottom:28px; flex-wrap:wrap; }
+.cat-header-left { display:flex; align-items:flex-start; gap:20px; }
+.cat-icon-big { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0; }
+.cat-title { font-family:var(--font-display); font-size:1.4rem; font-weight:700; color:var(--text); transition:color 0.2s; }
+.cat-title:hover { color:var(--gold); }
+.emp-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+@media (max-width:900px) { .emp-row { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:600px) { .emp-row { grid-template-columns:1fr; } }
+.emp-row-card {
+  background:var(--bg-raised);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:all 0.22s;
+  cursor:pointer;
+}
+.emp-row-card:hover { border-color:var(--emp-color, var(--border-bright)); transform:translateY(-3px); box-shadow:0 16px 40px rgba(0,0,0,0.4); }
+.emp-row-icon { font-size:20px; width:40px; height:40px; background:var(--emp-bg); border-radius:10px; display:flex; align-items:center; justify-content:center; }
+.emp-row-name { font-family:var(--font-display); font-size:0.95rem; font-weight:700; color:var(--text); }
+.emp-row-job { font-size:12px; color:var(--text-dim); line-height:1.5; }
+.emp-row-price { font-family:var(--font-mono); font-size:11px; color:var(--emp-color, var(--gold)); margin-top:auto; }
+</style>
+</Base>

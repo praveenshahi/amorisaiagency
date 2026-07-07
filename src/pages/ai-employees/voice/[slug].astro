@@ -1,0 +1,187 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+export function getStaticPaths() {
+  const employees = [
+    {
+      slug: 'ai-receptionist',
+      name: 'AI Receptionist',
+      icon: '📞',
+      color: '#7C3AED',
+      title: 'AI Receptionist — Hire an AI Employee That Answers Every Call | Amoris',
+      description: 'An AI receptionist that answers calls 24/7 in 6 Indian languages, books appointments, and routes queries. Never misses a call.',
+      answer: 'An AI Receptionist answers every inbound call to your business 24/7 — in Hindi, English, Tamil, Telugu, Kannada, and Marathi. It books appointments, routes queries to the right person, and handles FAQs. Your callers never hear a voicemail.',
+      price: 'From ₹1.5L',
+      priceType: 'range',
+      builtFor: ['Clinics & hospitals', 'Real estate offices', 'Salons & spas', 'Service businesses', 'Education institutes'],
+      integrations: ['Google Calendar', 'Calendly', 'WhatsApp', 'CRM', 'Zoho', 'HubSpot'],
+      faqs: [
+        { q: 'How much does an AI receptionist cost in India?', a: 'Amoris AI Receptionists start from ₹1.5L for setup. Monthly support is billed separately based on call volume and features. Book a demo for an exact scope.' },
+        { q: 'Which languages does the AI receptionist support?', a: 'Hindi, English, Tamil, Telugu, Kannada, and Marathi. The agent auto-detects the caller\'s language within the first few seconds.' },
+        { q: 'Can it book appointments into my calendar?', a: 'Yes. It integrates with Google Calendar, Calendly, or your existing booking system. It checks availability in real time and sends confirmation messages.' },
+        { q: 'What happens when it can\'t answer a query?', a: 'It transfers the call to a human, leaves a callback request, or sends a WhatsApp message — whatever you configure for escalation.' },
+        { q: 'How long does deployment take?', a: '3–4 weeks from signed agreement to your AI receptionist handling live calls.' },
+      ],
+    },
+    {
+      slug: 'ai-booking-assistant',
+      name: 'AI Booking Assistant',
+      icon: '📅',
+      color: '#7C3AED',
+      title: 'AI Booking Assistant — Automated Appointment Scheduling Agent | Amoris',
+      description: 'An AI agent that books, reschedules, and confirms appointments automatically via call, WhatsApp, or chat — no human scheduler needed.',
+      answer: 'An AI Booking Assistant handles all appointment scheduling automatically — incoming booking requests via call, WhatsApp, or chat; sends confirmations; handles reschedules; and sends reminders before appointments. No scheduling coordinator needed.',
+      price: 'From ₹1L',
+      priceType: 'range',
+      builtFor: ['Clinics', 'Salons & spas', 'Consulting firms', 'Service businesses', 'Education'],
+      integrations: ['Google Calendar', 'Calendly', 'WhatsApp', 'SMS', 'Zoho CRM'],
+      faqs: [
+        { q: 'What channels can it accept bookings from?', a: 'Inbound calls, WhatsApp messages, website chat, and SMS. All bookings flow into one calendar.' },
+        { q: 'Does it send reminders?', a: 'Yes. Configurable reminders via WhatsApp, SMS, or call — 24 hours before, 2 hours before, or any interval you set.' },
+        { q: 'Can it handle reschedule requests?', a: 'Yes. Customers can reschedule via WhatsApp or call. The agent checks availability and confirms the new slot.' },
+        { q: 'What if a slot is unavailable?', a: 'The agent offers the next 3 available slots and books whichever the customer chooses.' },
+        { q: 'Does it work with my existing booking software?', a: 'We integrate with Google Calendar, Calendly, and most clinic/salon management software. Custom integrations available.' },
+      ],
+    },
+    {
+      slug: 'ai-voice-sales-agent',
+      name: 'AI Voice Sales Agent',
+      icon: '🎯',
+      color: '#7C3AED',
+      title: 'AI Voice Sales Agent — Outbound Lead Qualification at Scale | Amoris',
+      description: 'An AI agent that calls your leads, qualifies them against your criteria, and books meetings for your sales team. Works 24/7 without a quota.',
+      answer: 'An AI Voice Sales Agent calls every lead in your pipeline, asks your qualification questions, scores them against your criteria, and books meetings directly into your sales team\'s calendar. Your reps spend time closing, not cold calling.',
+      price: 'From ₹2L',
+      priceType: 'range',
+      builtFor: ['B2B sales teams', 'Real estate', 'EdTech', 'Insurance', 'SaaS companies'],
+      integrations: ['HubSpot', 'Salesforce', 'Zoho CRM', 'Google Calendar', 'WhatsApp'],
+      faqs: [
+        { q: 'What does AI outbound calling cost in India?', a: 'AI Voice Sales Agents from Amoris start from ₹2L setup. Call volume, CRM integrations, and custom scripts affect final pricing — book a demo for a scope.' },
+        { q: 'Can it call in Hindi?', a: 'Yes. Hindi, English, and regional Indian languages. The script adapts based on the prospect\'s preferred language.' },
+        { q: 'What\'s the call-to-meeting conversion rate?', a: 'Depends on your ICP and list quality. Typical range: 8–18% of qualified leads book a meeting. The agent improves coverage — it calls every lead, not just the ones your reps have time for.' },
+        { q: 'Does it record and transcribe calls?', a: 'Yes. Full recordings and transcripts are available. Call summaries and lead scores push to your CRM automatically.' },
+        { q: 'Is outbound AI calling legal in India?', a: 'DND (Do Not Disturb) compliance is built in. The agent only calls numbers that have opted in or consented per TRAI regulations.' },
+      ],
+    },
+    {
+      slug: 'ai-collections-caller',
+      name: 'AI Collections Caller',
+      icon: '💰',
+      color: '#7C3AED',
+      title: 'AI Collections Caller — Automated Payment Reminder Calls | Amoris',
+      description: 'An AI agent that makes polite payment reminder calls and sends follow-ups — recovering overdue payments without a collections team.',
+      answer: 'An AI Collections Caller makes payment reminder calls to overdue accounts, sends WhatsApp follow-ups, and escalates to a human only when needed. Polite, persistent, and available 24/7 — without the cost of a collections team.',
+      price: 'From ₹1.25L',
+      priceType: 'range',
+      builtFor: ['NBFCs', 'SaaS businesses', 'Clinics', 'Ed-tech', 'Subscription businesses'],
+      integrations: ['Zoho CRM', 'HubSpot', 'WhatsApp', 'SMS', 'Tally', 'Razorpay'],
+      faqs: [
+        { q: 'Is automated collections calling compliant in India?', a: 'Built-in DND compliance and TRAI-compliant call windows. All calls are disclosed as automated.' },
+        { q: 'What recovery rate can I expect?', a: 'Early-stage reminders (1–7 days overdue) see 30–45% resolution rates. Rates drop for older debt — works best for recent dues.' },
+        { q: 'Can it accept payment on the call?', a: 'It can generate and send a Razorpay or payment link via WhatsApp during or after the call. Payment is completed by the customer, not over-call.' },
+        { q: 'What if the customer disputes the amount?', a: 'The agent escalates disputed calls immediately to a human agent and logs the dispute reason in your CRM.' },
+        { q: 'How does it handle payment promises?', a: 'If a customer commits to a date, the agent creates a follow-up reminder automatically for that date.' },
+      ],
+    },
+  ];
+  return employees.map(e => ({ params: { slug: e.slug }, props: { emp: e } }));
+}
+
+const { emp } = Astro.props;
+
+const faqSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: emp.faqs.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+});
+---
+<Base title={emp.title} description={emp.description} schema={faqSchema}>
+
+<section style="padding-bottom:40px;">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a><span>/</span>
+    <a href="/ai-employees">AI Employees</a><span>/</span>
+    <a href="/ai-employees/voice">Voice</a><span>/</span>
+    <span style="color:var(--text-dim);">{emp.name}</span>
+  </nav>
+
+  <div class="emp-hero">
+    <div class="emp-hero-icon" style={`background:rgba(124,58,237,0.12); font-size:36px;`}>{emp.icon}</div>
+    <div>
+      <span class="section-eyebrow">Voice Employee</span>
+      <h1 style="margin-bottom:0;">{emp.name}</h1>
+    </div>
+  </div>
+</section>
+
+<!-- Answer block (AEO target) -->
+<section style="padding-top:0; padding-bottom:48px;">
+  <div class="answer-block">
+    <p style="font-size:1.05rem; color:var(--text); line-height:1.75; margin-bottom:24px;">{emp.answer}</p>
+    <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+      {emp.priceType === 'range' ? (
+        <div>
+          <div style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px;">Starting from</div>
+          <span class="price-range">{emp.price}</span>
+        </div>
+      ) : (
+        <span class="price-custom">Custom pricing — request a quote</span>
+      )}
+      <a href="/contact" class="btn btn-primary">Book a Demo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Built for -->
+<section style="padding-top:0; padding-bottom:48px;">
+  <span class="section-eyebrow">Built For</span>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {emp.builtFor.map((ind: string) => <span class="tag">{ind}</span>)}
+  </div>
+</section>
+
+<!-- Integrations -->
+<section style="border-top:1px solid var(--border); padding-bottom:48px;">
+  <span class="section-eyebrow reveal">Integrations</span>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {emp.integrations.map((int: string) => <span class="tag">{int}</span>)}
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="border-top:1px solid var(--border);">
+  <span class="section-eyebrow reveal">FAQ</span>
+  <h2 class="reveal" style="margin-bottom:32px;">Common questions about {emp.name}.</h2>
+  <div>
+    {emp.faqs.map(faq => (
+      <div class="faq-item">
+        <button class="faq-q">{faq.q}</button>
+        <div class="faq-a">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="border-top:1px solid var(--border); text-align:center; position:relative; overflow:hidden;">
+  <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:500px; height:200px; background:radial-gradient(ellipse, rgba(240,168,36,0.07) 0%, transparent 70%); pointer-events:none;"></div>
+  <div style="position:relative; z-index:1;">
+    <h2 style="margin-bottom:12px;">Deploy {emp.name} for your business.</h2>
+    <p style="max-width:40ch; margin:0 auto 32px;">Book a 30-minute discovery call. Get a clear scope and cost on the call.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="/contact" class="btn btn-primary">Book a Demo →</a>
+      <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.emp-hero { display:flex; align-items:center; gap:24px; margin-bottom:8px; flex-wrap:wrap; }
+.emp-hero-icon { width:72px; height:72px; border-radius:18px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.answer-block { background:var(--bg-raised); border:1px solid rgba(240,168,36,0.15); border-radius:var(--radius); padding:32px; }
+</style>
+</Base>

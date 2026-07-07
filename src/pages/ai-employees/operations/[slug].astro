@@ -1,0 +1,150 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+export function getStaticPaths() {
+  const employees = [
+    {
+      slug: 'ai-business-analyst',
+      name: 'AI Business Analyst',
+      icon: '📊',
+      title: 'AI Business Analyst — Automated Reports Delivered Daily | Amoris',
+      description: 'An AI agent that pulls data from your tools, generates daily and weekly business reports, and delivers them. No spreadsheets.',
+      answer: 'An AI Business Analyst connects to your CRM, ad platforms, analytics tools, and spreadsheets — generates daily and weekly reports with written commentary — and delivers them on schedule. No one opens a spreadsheet or a dashboard. The report arrives.',
+      price: 'Custom pricing',
+      priceType: 'custom',
+      builtFor: ['Marketing agencies', 'E-commerce', 'Sales teams', 'Operations teams', 'Founders'],
+      integrations: ['Google Sheets', 'Google Analytics', 'Meta Ads', 'HubSpot', 'Zoho CRM', 'Slack'],
+      faqs: [
+        { q: 'What reports can it generate?', a: 'Daily: sales pipeline, ad spend, website traffic. Weekly: performance vs targets, team activity, client reports. Monthly: revenue report, channel performance.' },
+        { q: 'Where does it pull data from?', a: 'Google Sheets, Google Analytics, Meta/Google Ads, HubSpot, Zoho CRM, Shopify. Pulls live data at report time — no manual exports.' },
+        { q: 'What format are reports delivered in?', a: 'Email with inline summary + PDF attachment. Or pushed to a Slack channel. Or written to Google Slides for client reports.' },
+        { q: 'Can it include written commentary?', a: 'Yes. For each metric, the agent writes a 1-sentence interpretation: "Ad spend was ₹85k this week, down 12% vs last, but CPL improved from ₹320 to ₹290."' },
+        { q: 'What if a data source is down?', a: 'The report is generated with available data and a note is added. You\'re never left with a blank report.' },
+      ],
+    },
+    {
+      slug: 'ai-back-office-clerk',
+      name: 'AI Back-Office Clerk',
+      icon: '🗄️',
+      title: 'AI Back-Office Clerk — Invoice Processing & Data Entry Automation | Amoris',
+      description: 'An AI agent that reads invoices, POs, and forms — extracts structured data — and enters it into your accounting or ERP system automatically.',
+      answer: 'An AI Back-Office Clerk reads your invoices, receipts, and forms — extracts vendor name, amounts, dates, GST details, and all structured fields — and enters them into Zoho Books, Tally, or your accounting system. No manual data entry.',
+      price: 'Custom pricing',
+      priceType: 'custom',
+      builtFor: ['Finance & accounts teams', 'Procurement', 'CA & accounting firms', 'Retail & e-commerce', 'Manufacturing'],
+      integrations: ['Zoho Books', 'QuickBooks', 'Tally Prime', 'SAP Business One', 'Google Sheets', 'Gmail'],
+      faqs: [
+        { q: 'What types of documents can it process?', a: 'Invoices, purchase orders, expense receipts, delivery challans, bank statements. PDFs, Word docs, and scanned documents with OCR.' },
+        { q: 'How accurate is the extraction?', a: '95–98% for clean digital invoices. 88–94% for scanned documents. Low-confidence fields are flagged for human review rather than entered automatically.' },
+        { q: 'Does it integrate with Tally?', a: 'Yes. Integration via Tally\'s import/export format. Invoices processed → Tally entries created without manual typing.' },
+        { q: 'What about GST fields for Indian invoices?', a: 'Vendor GSTIN, buyer GSTIN, invoice number, date, taxable amount, CGST, SGST, IGST, and total — all captured and mapped to your system.' },
+        { q: 'What\'s the volume capacity?', a: '200–300 invoices per day on standard setup. Higher volumes available on request.' },
+      ],
+    },
+    {
+      slug: 'ai-recruiter',
+      name: 'AI Recruiter',
+      icon: '👥',
+      title: 'AI Recruiter — Resume Screening & Interview Scheduling at Scale | Amoris',
+      description: 'An AI recruiting agent that screens resumes against your JD, ranks candidates, sends screening questions, and schedules interviews automatically.',
+      answer: 'An AI Recruiter screens every application against your job description, scores and ranks candidates, sends first-round questions to shortlisted applicants, and books interview slots — so your HR team only reviews the best fits.',
+      price: 'Custom pricing',
+      priceType: 'custom',
+      builtFor: ['HR teams hiring 5+ roles/year', 'Staffing agencies', 'Fast-growth startups', 'BPOs'],
+      integrations: ['Gmail', 'LinkedIn', 'Naukri', 'Internshala', 'Google Calendar', 'Google Sheets'],
+      faqs: [
+        { q: 'What screening criteria can it use?', a: 'Required skills, minimum experience, education, preferred companies, red flags. The agent scores each resume 1–100 against your criteria.' },
+        { q: 'Does it contact candidates directly?', a: 'Yes. Once shortlisted, the agent sends a personalised email with 3–4 screening questions or schedules a first-round call.' },
+        { q: 'Can it handle the screening call?', a: 'Yes. Via structured voice or chat screening. Agent asks your questions, records answers, scores responses. HR team reviews summaries.' },
+        { q: 'What about unconscious bias?', a: 'The agent screens on criteria you define — skills, experience, answers. It doesn\'t factor in name, gender, address, or photos.' },
+        { q: 'How many applications can it handle?', a: '200–500 per role without slowing down. Volume hiring setups available for higher capacity.' },
+      ],
+    },
+  ];
+  return employees.map(e => ({ params: { slug: e.slug }, props: { emp: e } }));
+}
+
+const { emp } = Astro.props;
+
+const faqSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: emp.faqs.map((f: {q:string,a:string}) => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+});
+---
+<Base title={emp.title} description={emp.description} schema={faqSchema}>
+
+<section style="padding-bottom:40px;">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a><span>/</span>
+    <a href="/ai-employees">AI Employees</a><span>/</span>
+    <a href="/ai-employees/operations">Operations</a><span>/</span>
+    <span style="color:var(--text-dim);">{emp.name}</span>
+  </nav>
+  <div class="emp-hero">
+    <div class="emp-hero-icon" style="background:rgba(139,92,246,0.12); font-size:36px;">{emp.icon}</div>
+    <div>
+      <span class="section-eyebrow">Operations Employee</span>
+      <h1 style="margin-bottom:0;">{emp.name}</h1>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0; padding-bottom:48px;">
+  <div class="answer-block">
+    <p style="font-size:1.05rem; color:var(--text); line-height:1.75; margin-bottom:24px;">{emp.answer}</p>
+    <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+      <span class="price-custom">Custom pricing — scope-based</span>
+      <a href="/contact" class="btn btn-primary">Request a Quote →</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0; padding-bottom:48px;">
+  <span class="section-eyebrow">Built For</span>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {emp.builtFor.map((ind: string) => <span class="tag">{ind}</span>)}
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border); padding-bottom:48px;">
+  <span class="section-eyebrow reveal">Integrations</span>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {emp.integrations.map((int: string) => <span class="tag">{int}</span>)}
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border);">
+  <span class="section-eyebrow reveal">FAQ</span>
+  <h2 class="reveal" style="margin-bottom:32px;">Common questions about {emp.name}.</h2>
+  <div>
+    {emp.faqs.map((faq: {q:string,a:string}) => (
+      <div class="faq-item">
+        <button class="faq-q">{faq.q}</button>
+        <div class="faq-a">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border); text-align:center; position:relative; overflow:hidden;">
+  <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:500px; height:200px; background:radial-gradient(ellipse, rgba(240,168,36,0.07) 0%, transparent 70%); pointer-events:none;"></div>
+  <div style="position:relative; z-index:1;">
+    <h2 style="margin-bottom:12px;">Deploy {emp.name} for your operations.</h2>
+    <p style="max-width:40ch; margin:0 auto 32px;">Book a call to scope this for your workflow and tools.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="/contact" class="btn btn-primary">Book a Demo →</a>
+      <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.emp-hero { display:flex; align-items:center; gap:24px; margin-bottom:8px; flex-wrap:wrap; }
+.emp-hero-icon { width:72px; height:72px; border-radius:18px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.answer-block { background:var(--bg-raised); border:1px solid rgba(240,168,36,0.15); border-radius:var(--radius); padding:32px; }
+</style>
+</Base>

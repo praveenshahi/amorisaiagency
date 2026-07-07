@@ -1,0 +1,150 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+export function getStaticPaths() {
+  const employees = [
+    {
+      slug: 'ai-prospector',
+      name: 'AI Prospector',
+      icon: '🔍',
+      title: 'AI Prospector — Enriched B2B Lead Lists Built Daily | Amoris',
+      description: 'An AI agent that builds fresh, enriched prospect lists matching your ICP every day and pushes them to your CRM automatically.',
+      answer: 'An AI Prospector builds a fresh list of enriched prospects matching your ICP every day — company data, decision-maker contacts, recent signals — and pushes them to your CRM. Your team starts each day with researched leads instead of spending hours on manual prospecting.',
+      price: 'Custom pricing',
+      priceType: 'custom',
+      builtFor: ['B2B SaaS', 'Consulting & agencies', 'IT services', 'Staffing', 'Financial services'],
+      integrations: ['LinkedIn Sales Navigator', 'Apollo.io', 'HubSpot', 'Zoho CRM', 'Salesforce', 'Slack'],
+      faqs: [
+        { q: 'Where does the lead data come from?', a: 'LinkedIn (via your Sales Navigator account), Apollo.io, Crunchbase, company websites, and public databases. All data is aggregated and deduplicated.' },
+        { q: 'How many leads does it produce per day?', a: 'Configurable. Typical: 20–50 net-new enriched leads per day matching your ICP. You define the criteria: industry, company size, geography, tech stack, signals.' },
+        { q: 'What does enriched mean?', a: 'Beyond name and email: company size, funding status, recent news, tech stack, decision-maker contact details, LinkedIn links, and intent signals.' },
+        { q: 'Can it monitor existing prospects for trigger events?', a: 'Yes. Set triggers: alert when any of your target accounts raises funding, posts a hiring surge, or mentions a keyword in news.' },
+        { q: 'Does it deduplicate against my existing CRM contacts?', a: 'Yes. Deduplication against existing contacts runs before every push. No duplicates in your CRM.' },
+      ],
+    },
+    {
+      slug: 'ai-outreach-rep',
+      name: 'AI Outreach Rep',
+      icon: '✉️',
+      title: 'AI Outreach Rep — Personalised Email & LinkedIn Sequences at Scale | Amoris',
+      description: 'An AI agent that writes and sends personalised outreach sequences on email and LinkedIn — tailored to each prospect, triaging replies for your team.',
+      answer: 'An AI Outreach Rep writes a personalised first-line for every prospect based on their company context, sends sequenced emails and LinkedIn messages at the right intervals, and triages replies — so your sales team spends time on conversations, not sending.',
+      price: 'Custom pricing',
+      priceType: 'custom',
+      builtFor: ['B2B SaaS', 'IT services & consulting', 'Staffing', 'Agencies', 'Financial services'],
+      integrations: ['Gmail', 'Outlook', 'LinkedIn', 'HubSpot', 'Zoho CRM', 'Salesforce'],
+      faqs: [
+        { q: 'How personalised is the outreach?', a: 'Each message is personalised using the prospect\'s company context: recent news, funding, job postings, LinkedIn activity. The first line is different for every prospect.' },
+        { q: 'How many touchpoints does a sequence have?', a: 'Configurable. Default: 5 touchpoints over 14 days. Email, follow-up, LinkedIn connection, LinkedIn message, final email.' },
+        { q: 'What\'s a realistic reply rate?', a: 'For well-targeted B2B with genuinely personalised messages: 8–15% reply rate. Industry average for template blasts: 2–3%.' },
+        { q: 'Does it send on my behalf?', a: 'Yes. Connected to your Gmail or Outlook. Messages come from your own email address.' },
+        { q: 'How does it triage replies?', a: 'Interested → CRM task + Slack alert. Not now → schedule follow-up in 60 days. Not interested → remove from sequence. Unsubscribe → immediately removed.' },
+      ],
+    },
+    {
+      slug: 'ai-sales-coordinator',
+      name: 'AI Sales Coordinator',
+      icon: '🗂️',
+      title: 'AI Sales Coordinator — Auto-Update CRM & Draft Follow-Ups After Every Call | Amoris',
+      description: 'An AI agent that joins your sales calls, updates CRM records automatically, drafts follow-up emails, and flags stalling deals.',
+      answer: 'An AI Sales Coordinator joins your sales calls, auto-updates deal records with notes and next steps, drafts your follow-up email while you\'re still on the call, and alerts you to deals going quiet. Your reps close more and do less admin.',
+      price: 'Custom pricing',
+      priceType: 'custom',
+      builtFor: ['Sales teams of 3+', 'B2B consulting', 'Agencies', 'Financial services', 'Real estate'],
+      integrations: ['Zoom', 'Google Meet', 'HubSpot', 'Zoho CRM', 'Salesforce', 'Gmail', 'Outlook'],
+      faqs: [
+        { q: 'Does it record my calls?', a: 'It joins as a participant and records for transcription. Recording is disclosed to all participants. You own all recordings and transcripts.' },
+        { q: 'What CRM fields does it update automatically?', a: 'Deal stage, next steps, decision timeline, budget discussed, key concerns raised, follow-up date. You define which fields matter during setup.' },
+        { q: 'Can it draft the follow-up email?', a: 'Yes. Within 5 minutes of the call ending, it generates a draft summarising what was discussed and confirming next steps. You review and send — it never sends without your approval.' },
+        { q: 'How does it flag stalling deals?', a: 'Monitors your CRM for deals with no activity in a configurable window (default: 7 days). Sends a daily digest of stalling deals with suggested next action.' },
+        { q: 'Does it work with my existing CRM?', a: 'Built for HubSpot, Zoho CRM, and Salesforce with custom field mapping done during setup.' },
+      ],
+    },
+  ];
+  return employees.map(e => ({ params: { slug: e.slug }, props: { emp: e } }));
+}
+
+const { emp } = Astro.props;
+
+const faqSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: emp.faqs.map((f: {q:string,a:string}) => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+});
+---
+<Base title={emp.title} description={emp.description} schema={faqSchema}>
+
+<section style="padding-bottom:40px;">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a><span>/</span>
+    <a href="/ai-employees">AI Employees</a><span>/</span>
+    <a href="/ai-employees/sales">Sales</a><span>/</span>
+    <span style="color:var(--text-dim);">{emp.name}</span>
+  </nav>
+  <div class="emp-hero">
+    <div class="emp-hero-icon" style="background:rgba(240,168,36,0.12); font-size:36px;">{emp.icon}</div>
+    <div>
+      <span class="section-eyebrow">Sales Employee</span>
+      <h1 style="margin-bottom:0;">{emp.name}</h1>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0; padding-bottom:48px;">
+  <div class="answer-block">
+    <p style="font-size:1.05rem; color:var(--text); line-height:1.75; margin-bottom:24px;">{emp.answer}</p>
+    <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+      <span class="price-custom">Custom pricing — scope-based</span>
+      <a href="/contact" class="btn btn-primary">Request a Quote →</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0; padding-bottom:48px;">
+  <span class="section-eyebrow">Built For</span>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {emp.builtFor.map((ind: string) => <span class="tag">{ind}</span>)}
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border); padding-bottom:48px;">
+  <span class="section-eyebrow reveal">Integrations</span>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+    {emp.integrations.map((int: string) => <span class="tag">{int}</span>)}
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border);">
+  <span class="section-eyebrow reveal">FAQ</span>
+  <h2 class="reveal" style="margin-bottom:32px;">Common questions about {emp.name}.</h2>
+  <div>
+    {emp.faqs.map((faq: {q:string,a:string}) => (
+      <div class="faq-item">
+        <button class="faq-q">{faq.q}</button>
+        <div class="faq-a">{faq.a}</div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--border); text-align:center; position:relative; overflow:hidden;">
+  <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:500px; height:200px; background:radial-gradient(ellipse, rgba(240,168,36,0.07) 0%, transparent 70%); pointer-events:none;"></div>
+  <div style="position:relative; z-index:1;">
+    <h2 style="margin-bottom:12px;">Deploy {emp.name} for your team.</h2>
+    <p style="max-width:40ch; margin:0 auto 32px;">Book a call to scope this for your sales workflow.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="/contact" class="btn btn-primary">Book a Demo →</a>
+      <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.emp-hero { display:flex; align-items:center; gap:24px; margin-bottom:8px; flex-wrap:wrap; }
+.emp-hero-icon { width:72px; height:72px; border-radius:18px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.answer-block { background:var(--bg-raised); border:1px solid rgba(240,168,36,0.15); border-radius:var(--radius); padding:32px; }
+</style>
+</Base>

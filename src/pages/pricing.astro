@@ -1,150 +1,157 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const tiers = [
+  {
+    category: 'Chat Employees',
+    desc: 'Standalone chat and messaging agents with bounded scope.',
+    employees: [
+      { name: 'AI WhatsApp Assistant', href: '/ai-employees/chat/ai-whatsapp-assistant', price: 'From ₹75k', custom: false },
+      { name: 'AI Support Assistant', href: '/ai-employees/chat/ai-support-assistant', price: 'From ₹75k', custom: false },
+      { name: 'AI Lead Qualifier', href: '/ai-employees/chat/ai-lead-qualifier', price: 'From ₹1L', custom: false },
+      { name: 'AI Social Responder', href: '/ai-employees/chat/ai-social-responder', price: 'From ₹60k', custom: false },
+    ],
+  },
+  {
+    category: 'Voice Employees',
+    desc: 'AI voice agents for inbound and outbound calls. Price varies with language count, call volume, and integrations.',
+    employees: [
+      { name: 'AI Receptionist', href: '/ai-employees/voice/ai-receptionist', price: 'From ₹1.5L', custom: false },
+      { name: 'AI Booking Assistant', href: '/ai-employees/voice/ai-booking-assistant', price: 'From ₹1L', custom: false },
+      { name: 'AI Voice Sales Agent', href: '/ai-employees/voice/ai-voice-sales-agent', price: 'From ₹2L', custom: false },
+      { name: 'AI Collections Caller', href: '/ai-employees/voice/ai-collections-caller', price: 'From ₹1.25L', custom: false },
+    ],
+  },
+  {
+    category: 'Knowledge Employees',
+    desc: 'Scope depends on document volume, access control needs, and integrations. All knowledge employees are custom-priced.',
+    employees: [
+      { name: 'AI Company Brain', href: '/ai-employees/knowledge/ai-company-brain', price: 'Custom', custom: true },
+      { name: 'AI Document Analyst', href: '/ai-employees/knowledge/ai-document-analyst', price: 'Custom', custom: true },
+      { name: 'AI Help Desk', href: '/ai-employees/knowledge/ai-help-desk', price: 'Custom', custom: true },
+      { name: 'AI Compliance Assistant', href: '/ai-employees/knowledge/ai-compliance-assistant', price: 'Custom', custom: true },
+    ],
+  },
+  {
+    category: 'Sales Employees',
+    desc: 'Depends on CRM, data sources, and outreach volume. All are project-based with ongoing support.',
+    employees: [
+      { name: 'AI Prospector', href: '/ai-employees/sales/ai-prospector', price: 'Custom', custom: true },
+      { name: 'AI Outreach Rep', href: '/ai-employees/sales/ai-outreach-rep', price: 'Custom', custom: true },
+      { name: 'AI Sales Coordinator', href: '/ai-employees/sales/ai-sales-coordinator', price: 'Custom', custom: true },
+    ],
+  },
+  {
+    category: 'Operations Employees',
+    desc: 'Scope varies with data sources, volume, and system integrations. Book a call for a quote.',
+    employees: [
+      { name: 'AI Business Analyst', href: '/ai-employees/operations/ai-business-analyst', price: 'Custom', custom: true },
+      { name: 'AI Back-Office Clerk', href: '/ai-employees/operations/ai-back-office-clerk', price: 'Custom', custom: true },
+      { name: 'AI Recruiter', href: '/ai-employees/operations/ai-recruiter', price: 'Custom', custom: true },
+    ],
+  },
+];
 ---
-<Base title="Pricing — AI Agents, Automation & AIOS | Amoris" description="Public pricing for all Amoris services. AI agents from ₹1L setup + ₹15k/month. AIOS from ₹3.5L setup. INR and USD. No vague 'contact for pricing'.">
-<section>
-  <div class="section-label reveal">Public Pricing</div>
-  <h1 class="reveal" style="margin-bottom:16px;">What it costs to deploy AI.</h1>
-  <p class="reveal" style="max-width:52ch; margin-bottom:8px;">All prices shown. "Starting at" figures are floor prices — exact scope and quote on a call. Ranges reflect integration complexity.</p>
-  <p class="reveal" style="font-family:'DM Mono',monospace; font-size:12px; color:var(--text-muted); margin-bottom:48px;">Use the currency toggle in the nav to switch between INR and USD.</p>
+<Base
+  title="AI Employee Pricing — Transparent Ranges | Amoris"
+  description="Pricing for all 18 Amoris AI employees. Chat agents start from ₹60k. Knowledge, Sales and Operations agents are custom-scoped. Book a demo for an exact number."
+>
+
+<section style="padding-bottom:40px;">
+  <span class="section-eyebrow reveal">Pricing</span>
+  <h1 class="reveal" style="margin-bottom:16px; max-width:20ch;">Transparent pricing.<br/>No surprises.</h1>
+  <p class="reveal" style="max-width:52ch; font-size:1.05rem;">Simple agents have published ranges. Complex agents are scoped to your workflow — we give you a clear number on the demo call.</p>
 </section>
 
-<!-- VOICE AGENTS -->
-<section style="padding-top:0; border-top:1px solid var(--border);">
-  <div class="section-label reveal">Division 01 — Voice AI Agents</div>
-  <table class="pricing-table reveal">
-    <thead>
-      <tr>
-        <th>Agent</th>
-        <th>What it does</th>
-        <th>Setup</th>
-        <th>Monthly</th>
-      </tr>
-    </thead>
-    <tbody>
-      {[
-        { name: "AI Receptionist", href: "/agents/voice/ai-receptionist", desc: "Answers every inbound call 24/7, routes, books, takes messages", inrSetup: "₹1.5L–2.5L", usdSetup: "$3k–5k", inrMo: "₹20k/mo", usdMo: "$400/mo" },
-        { name: "Appointment Booking Agent", href: "/agents/voice/appointment-booking", desc: "Books/reschedules over phone, syncs live to calendar", inrSetup: "₹1.5L–3L", usdSetup: "$3.5k–6k", inrMo: "₹25k/mo", usdMo: "$500/mo" },
-        { name: "Outbound Follow-Up Agent", href: "/agents/voice/outbound-follow-up", desc: "Calls leads within 5 min of inquiry, qualifies, books meetings", inrSetup: "₹2L–4L", usdSetup: "$4k–8k", inrMo: "₹30k/mo", usdMo: "$600/mo" },
-        { name: "Payment & Reminder Agent", href: "/agents/voice/payment-reminders", desc: "EMI reminders, renewal calls, feedback calls at scale", inrSetup: "₹2L–3.5L", usdSetup: "$4k–7k", inrMo: "₹30k/mo", usdMo: "$600/mo" },
-      ].map(row => (
-        <tr>
-          <td><a href={row.href} style="color:var(--accent); text-decoration:none;">{row.name}</a></td>
-          <td style="font-size:13px;">{row.desc}</td>
-          <td>
-            <span class="price-inr" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text);">{row.inrSetup}</span>
-            <span class="price-usd" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text);">{row.usdSetup}</span>
-          </td>
-          <td>
-            <span class="price-inr" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim);">{row.inrMo}</span>
-            <span class="price-usd" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim);">{row.usdMo}</span>
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</section>
-
-<!-- CHAT AGENTS -->
-<section style="padding-top:0; border-top:1px solid var(--border);">
-  <div class="section-label reveal">Division 01 — Chat & Support Agents</div>
-  <table class="pricing-table reveal">
-    <thead><tr><th>Agent</th><th>What it does</th><th>Setup</th><th>Monthly</th></tr></thead>
-    <tbody>
-      {[
-        { name: "WhatsApp Business Agent", href: "/agents/chat/whatsapp-agent", desc: "Full commerce on WhatsApp: catalog, orders, payments, support", inrSetup: "₹1.25L–2.5L", usdSetup: "$2.5k–5k", inrMo: "₹15k/mo", usdMo: "$300/mo" },
-        { name: "Website Support Agent", href: "/agents/chat/website-support", desc: "Trained on your business; answers, qualifies, hands off", inrSetup: "₹1L–2L", usdSetup: "$2k–4k", inrMo: "₹15k/mo", usdMo: "$300/mo" },
-        { name: "Lead Qualification Agent", href: "/agents/chat/lead-qualification", desc: "Engages every lead, scores against your ICP, routes hot ones", inrSetup: "₹1.5L–2.5L", usdSetup: "$3k–5k", inrMo: "₹20k/mo", usdMo: "$400/mo" },
-        { name: "Instagram DM Agent", href: "/agents/chat/instagram-dm", desc: "Auto-responds to DMs/comments, converts followers to leads", inrSetup: "₹1L–1.75L", usdSetup: "$2k–3.5k", inrMo: "₹15k/mo", usdMo: "$300/mo" },
-      ].map(row => (
-        <tr>
-          <td><a href={row.href} style="color:var(--accent); text-decoration:none;">{row.name}</a></td>
-          <td style="font-size:13px;">{row.desc}</td>
-          <td><span class="price-inr" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text);">{row.inrSetup}</span><span class="price-usd" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text);">{row.usdSetup}</span></td>
-          <td><span class="price-inr" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim);">{row.inrMo}</span><span class="price-usd" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim);">{row.usdMo}</span></td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</section>
-
-<!-- KNOWLEDGE AGENTS -->
-<section style="padding-top:0; border-top:1px solid var(--border);">
-  <div class="section-label reveal">Division 01 — Knowledge (RAG) Agents</div>
-  <table class="pricing-table reveal">
-    <thead><tr><th>Agent</th><th>What it does</th><th>Setup</th><th>Monthly</th></tr></thead>
-    <tbody>
-      {[
-        { name: "Internal Knowledge Agent", href: "/agents/knowledge/internal-knowledge", desc: "Company brain: SOPs, HR, product docs — staff ask, it answers with sources", inrSetup: "₹2L–4L", usdSetup: "$4k–8k", inrMo: "₹25k/mo", usdMo: "$500/mo" },
-        { name: "Document Intelligence Agent", href: "/agents/knowledge/document-intelligence", desc: "Contracts, invoices, reports — extract, compare, summarise", inrSetup: "₹2.5L–4.5L", usdSetup: "$5k–9k", inrMo: "₹30k/mo", usdMo: "$600/mo" },
-        { name: "Customer Docs Agent", href: "/agents/knowledge/customer-docs", desc: "Public-facing help docs answered conversationally", inrSetup: "₹1.75L–3L", usdSetup: "$3.5k–6k", inrMo: "₹20k/mo", usdMo: "$400/mo" },
-        { name: "Compliance & Policy Agent", href: "/agents/knowledge/compliance", desc: "Regulated sectors: answers grounded strictly in approved policy text", inrSetup: "₹3L–5L", usdSetup: "$6k–10k", inrMo: "₹35k/mo", usdMo: "$700/mo" },
-      ].map(row => (
-        <tr>
-          <td><a href={row.href} style="color:var(--accent); text-decoration:none;">{row.name}</a></td>
-          <td style="font-size:13px;">{row.desc}</td>
-          <td><span class="price-inr" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text);">{row.inrSetup}</span><span class="price-usd" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text);">{row.usdSetup}</span></td>
-          <td><span class="price-inr" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim);">{row.inrMo}</span><span class="price-usd" style="font-family:'DM Mono',monospace; font-size:13px; color:var(--text-dim);">{row.usdMo}</span></td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</section>
-
-<!-- AIOS -->
-<section style="padding-top:0; border-top:1px solid var(--border);">
-  <div class="section-label reveal">Division 03 — Amoris AIOS (Flagship)</div>
-  <div class="grid-2 reveal">
-    <div class="card" style="border-color:var(--accent-dim);">
-      <div class="card-label">AIOS Core</div>
-      <h3>One department: 3–5 agents + vault + workflows</h3>
-      <div style="margin-top:16px;">
-        <span class="price-inr"><span class="price-amount">₹3.5L–6L</span> <span class="price-recur">setup + ₹40k/mo</span></span>
-        <span class="price-usd"><span class="price-amount">$7k–12k</span> <span class="price-recur">setup + $800/mo</span></span>
+<section style="padding-top:0; padding-bottom:60px;">
+  <div class="pricing-note-grid reveal">
+    <div class="pricing-note-item">
+      <span style="font-size:24px;">📦</span>
+      <div>
+        <div style="font-family:var(--font-display); font-weight:700; margin-bottom:4px;">Setup fee</div>
+        <p style="font-size:13px;">One-time build, training, integration, and testing. You own what we build.</p>
       </div>
     </div>
-    <div class="card" style="border-color:var(--accent-dim);">
-      <div class="card-label">AIOS Company</div>
-      <h3>Multi-department, custom agents per team, training</h3>
-      <div style="margin-top:16px;">
-        <span class="price-inr"><span class="price-amount">₹8L–15L</span> <span class="price-recur">setup + ₹75k–1.25L/mo</span></span>
-        <span class="price-usd"><span class="price-amount">$15k–30k</span> <span class="price-recur">setup + $1.5k–2.5k/mo</span></span>
+    <div class="pricing-note-item">
+      <span style="font-size:24px;">🔄</span>
+      <div>
+        <div style="font-family:var(--font-display); font-weight:700; margin-bottom:4px;">Monthly support</div>
+        <p style="font-size:13px;">Ongoing maintenance, updates, and improvements. Scoped per project.</p>
+      </div>
+    </div>
+    <div class="pricing-note-item">
+      <span style="font-size:24px;">💬</span>
+      <div>
+        <div style="font-family:var(--font-display); font-weight:700; margin-bottom:4px;">Custom builds</div>
+        <p style="font-size:13px;">Clear number before you commit. Always. No "contact for pricing" black holes.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STRATEGY -->
-<section style="padding-top:0; border-top:1px solid var(--border);">
-  <div class="section-label reveal">Division 04 — Strategy & Enablement</div>
-  <div class="grid-3 reveal">
-    {[
-      { name: "AI Opportunity Audit", desc: "2 weeks, full roadmap + ROI projections. Fee credited to any build.", inr: "₹49k–1.25L", usd: "$1k–2.5k" },
-      { name: "AI Team Workshop", desc: "Half or full-day, hands-on session for your team.", inr: "₹50k–1L", usd: "$1k–2k" },
-      { name: "Fractional AI Team", desc: "Monthly retainer: run, improve, and expand your AI systems.", inr: "₹1L–3L/mo", usd: "$2k–6k/mo" },
-    ].map(s => (
-      <div class="card">
-        <div class="card-label">{s.name}</div>
-        <p style="font-size:14px; margin-bottom:16px;">{s.desc}</p>
-        <span class="price-inr"><span class="price-amount">{s.inr}</span></span>
-        <span class="price-usd"><span class="price-amount">{s.usd}</span></span>
-      </div>
-    ))}
+{tiers.map(tier => (
+  <section style="border-top:1px solid var(--border); padding-top:56px; padding-bottom:56px;">
+    <div style="margin-bottom:28px;">
+      <h2 class="reveal" style="font-size:1.5rem; margin-bottom:6px;">{tier.category}</h2>
+      <p class="reveal" style="font-size:14px; max-width:52ch;">{tier.desc}</p>
+    </div>
+    <div class="pricing-grid stagger-cards">
+      {tier.employees.map(emp => (
+        <a href={emp.href} class="pricing-card">
+          <div class="pricing-card-name">{emp.name}</div>
+          <div>
+            {emp.custom ? (
+              <span class="price-custom">Custom</span>
+            ) : (
+              <span class="price-range" style="font-size:1.2rem;">{emp.price}</span>
+            )}
+            {!emp.custom && <div class="price-note">setup · monthly support available</div>}
+          </div>
+          <span class="pricing-card-link">Details →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+))}
+
+<section style="border-top:1px solid var(--border); padding-bottom:60px;">
+  <div class="aios-pricing-card reveal">
+    <span class="tag-gold" style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-family:var(--font-mono); display:inline-block; margin-bottom:20px;">Flagship</span>
+    <h2 style="margin-bottom:8px;">Amoris AIOS — Hire the whole team.</h2>
+    <p style="max-width:52ch; margin-bottom:28px;">All 18 AI employees, shared memory, cross-agent workflows, one command centre. Scoped per company size and workflow complexity.</p>
+    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+      <span class="price-custom">Custom pricing — contact us</span>
+      <a href="/aios" class="btn btn-outline">Learn about AIOS →</a>
+      <a href="/contact" class="btn btn-primary">Book a Demo →</a>
+    </div>
   </div>
 </section>
 
-<section style="text-align:center; border-top:1px solid var(--border);">
-  <p style="margin:0 auto 28px; max-width:44ch;">Ready to scope your build? We'll confirm the exact cost on the call — no surprises.</p>
-  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-    <a href="/contact" class="btn btn-primary">Book a Discovery Call →</a>
-    <a href="/agents" class="btn btn-outline">Browse Agents</a>
+<section style="border-top:1px solid var(--border); text-align:center; position:relative; overflow:hidden;">
+  <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:500px; height:200px; background:radial-gradient(ellipse, rgba(240,168,36,0.07) 0%, transparent 70%); pointer-events:none;"></div>
+  <div style="position:relative; z-index:1;">
+    <h2 class="reveal" style="margin-bottom:12px;">Get a clear price on the call.</h2>
+    <p class="reveal" style="max-width:44ch; margin:0 auto 32px;">30 minutes. We scope the right employee for your problem and give you a number before we end the call.</p>
+    <div class="reveal" style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="/contact" class="btn btn-primary">Book a Demo →</a>
+    </div>
   </div>
 </section>
 
 <style>
-.pricing-table { width:100%; border-collapse:collapse; margin-top:20px; }
-.pricing-table th { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); padding:8px 12px; border-bottom:1px solid var(--border2); text-align:left; }
-.pricing-table td { padding:14px 12px; border-bottom:1px solid var(--border); color:var(--text-dim); vertical-align:top; }
-@media(max-width:768px){ .pricing-table th:nth-child(2), .pricing-table td:nth-child(2) { display:none; } }
+.pricing-note-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+@media (max-width:768px) { .pricing-note-grid { grid-template-columns:1fr; } }
+.pricing-note-item { display:flex; gap:16px; align-items:flex-start; background:var(--bg-raised); border:1px solid var(--border); border-radius:var(--radius); padding:20px; }
+.pricing-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+@media (max-width:900px) { .pricing-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:600px) { .pricing-grid { grid-template-columns:1fr; } }
+.pricing-card { background:var(--bg-raised); border:1px solid var(--border); border-radius:var(--radius); padding:20px; display:flex; flex-direction:column; gap:12px; transition:all 0.22s; cursor:pointer; }
+.pricing-card:hover { border-color:var(--border-bright); transform:translateY(-3px); box-shadow:0 16px 40px rgba(0,0,0,0.4); }
+.pricing-card-name { font-family:var(--font-display); font-size:0.95rem; font-weight:700; color:var(--text); }
+.pricing-card-link { font-size:12px; font-family:var(--font-mono); color:var(--text-muted); margin-top:auto; transition:color 0.2s; }
+.pricing-card:hover .pricing-card-link { color:var(--gold); }
+.aios-pricing-card { background:var(--bg-raised); border:1px solid rgba(240,168,36,0.2); border-radius:24px; padding:48px; }
+@media (max-width:768px) { .aios-pricing-card { padding:32px 24px; } }
+.tag-gold { color:var(--gold); background:var(--gold-dim); border:1px solid rgba(240,168,36,0.2); padding:4px 12px; border-radius:var(--radius-pill); }
 </style>
 </Base>
