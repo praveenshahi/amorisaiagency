@@ -5,8 +5,22 @@ export interface Props {
   ogTitle?: string;
   schema?: string;
 }
-const { title, description = "Amoris — AI employees for your business. Voice agents, chat assistants, knowledge workers and more. Hire your AI team today.", ogTitle, schema } = Astro.props;
+const {
+  title,
+  description = "Amoris — AI employees for your business. Voice agents, chat assistants, knowledge workers and more. Hire your AI team today.",
+  ogTitle,
+  schema,
+} = Astro.props;
+
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const parts = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbs = [
+  { name: 'Home', item: 'https://amoris.in/' },
+  ...parts.map((part: string, i: number) => ({
+    name: part.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+    item: 'https://amoris.in/' + parts.slice(0, i + 1).join('/') + '/',
+  })),
+];
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +37,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:site_name" content="Amoris" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Fonts — non-blocking load, Inter removed -->
+  <!-- Fonts — non-blocking -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
@@ -40,12 +54,48 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     "@type": "Organization",
     "name": "Amoris",
     "url": "https://amoris.in",
-    "description": "AI employees — voice agents, chat assistants, knowledge workers, and operating systems for businesses.",
+    "description": "Amoris is an Indian AI agency that builds and deploys named AI employees — voice agents, chat assistants, and knowledge workers — for businesses.",
+    "areaServed": ["IN", "SG", "AE"],
     "address": { "@type": "PostalAddress", "addressCountry": "IN" },
-    "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "availableLanguage": ["English", "Hindi"] }
+    "contactPoint": [
+      { "@type": "ContactPoint", "contactType": "sales", "availableLanguage": ["English", "Hindi"], "url": "https://amoris.in/contact" },
+      { "@type": "ContactPoint", "contactType": "customer service", "url": "https://wa.me/919100933191" }
+    ]
   })}</script>
+
+  <script type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Amoris",
+    "url": "https://amoris.in",
+    "description": "AI employees for Indian businesses — voice agents, chat assistants, knowledge workers, and operating systems."
+  })}</script>
+
+  {parts.length > 0 && (
+    <script type="application/ld+json">{JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbs.map((b, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": b.name,
+        "item": b.item,
+      })),
+    })}</script>
+  )}
 </head>
 <body>
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Aurora background — three animated gradient blobs at z-index:-1, behind all content -->
+  <div id="aurora-bg" aria-hidden="true">
+    <div class="aurora-blob aurora-teal"></div>
+    <div class="aurora-blob aurora-gold"></div>
+    <div class="aurora-blob aurora-purple"></div>
+  </div>
+
+  <!-- Custom cursor (desktop) -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
@@ -60,18 +110,77 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   </div>
 
   <!-- MAIN NAV -->
-  <nav class="site-nav">
+  <nav class="site-nav" id="site-nav">
     <a href="/" class="nav-logo">Amor<span>.</span>is</a>
-    <ul class="nav-links">
-      <li><a href="/ai-employees">AI Employees</a></li>
+
+    <ul class="nav-links" id="nav-links">
+      <li class="nav-item-dropdown">
+        <a href="/ai-employees" class="nav-dropdown-trigger">
+          AI Employees
+          <svg class="nav-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="/ai-employees/voice" class="nav-dropdown-item">
+            <span class="nd-icon">🎙</span>
+            <span class="nd-text"><strong>Voice</strong><span>Calls, appointments, reminders</span></span>
+          </a>
+          <a href="/ai-employees/chat" class="nav-dropdown-item">
+            <span class="nd-icon">💬</span>
+            <span class="nd-text"><strong>Chat</strong><span>WhatsApp, website, Instagram</span></span>
+          </a>
+          <a href="/ai-employees/knowledge" class="nav-dropdown-item">
+            <span class="nd-icon">🧠</span>
+            <span class="nd-text"><strong>Knowledge</strong><span>Docs, compliance, help desk</span></span>
+          </a>
+          <a href="/ai-employees/sales" class="nav-dropdown-item">
+            <span class="nd-icon">🎯</span>
+            <span class="nd-text"><strong>Sales</strong><span>Leads, outreach, CRM</span></span>
+          </a>
+          <a href="/ai-employees/operations" class="nav-dropdown-item">
+            <span class="nd-icon">⚙️</span>
+            <span class="nd-text"><strong>Operations</strong><span>Reports, invoices, recruiting</span></span>
+          </a>
+          <a href="/ai-employees" class="nd-view-all">View all 18 AI employees →</a>
+        </div>
+      </li>
       <li><a href="/aios">AIOS</a></li>
       <li><a href="/how-it-works">How It Works</a></li>
       <li><a href="/pricing">Pricing</a></li>
       <li><a href="/work">Case Studies</a></li>
       <li><a href="/about">About</a></li>
     </ul>
+
     <a href="/contact" class="nav-cta">Book a Free Audit →</a>
+
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE NAV PANEL -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-inner">
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-label">AI Employees</div>
+        <a href="/ai-employees/voice" class="mobile-nav-link">🎙 Voice Employees</a>
+        <a href="/ai-employees/chat" class="mobile-nav-link">💬 Chat Employees</a>
+        <a href="/ai-employees/knowledge" class="mobile-nav-link">🧠 Knowledge Employees</a>
+        <a href="/ai-employees/sales" class="mobile-nav-link">🎯 Sales Employees</a>
+        <a href="/ai-employees/operations" class="mobile-nav-link">⚙️ Operations Employees</a>
+      </div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-label">Company</div>
+        <a href="/aios" class="mobile-nav-link">AIOS</a>
+        <a href="/how-it-works" class="mobile-nav-link">How It Works</a>
+        <a href="/pricing" class="mobile-nav-link">Pricing</a>
+        <a href="/work" class="mobile-nav-link">Case Studies</a>
+        <a href="/about" class="mobile-nav-link">About</a>
+      </div>
+      <a href="/contact" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:8px;">Book a Free Audit →</a>
+    </div>
+  </div>
 
   <main>
     <slot />
@@ -85,70 +194,109 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   </a>
 
   <!-- FOOTER -->
-  <div class="footer-main">
-    <div>
-      <div class="footer-logo">Amor<span>.</span>is</div>
-      <p style="margin-top:12px; font-size:13px; max-width:26ch;">AI employees that work while you grow. India-built, globally deployable.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">AI Employees</div>
-      <nav class="footer-col-links">
-        <a href="/ai-employees/voice">Voice Employees</a>
-        <a href="/ai-employees/chat">Chat Employees</a>
-        <a href="/ai-employees/knowledge">Knowledge Employees</a>
-        <a href="/ai-employees/sales">Sales Employees</a>
-        <a href="/ai-employees/operations">Operations Employees</a>
-      </nav>
-    </div>
-    <div>
-      <div class="footer-col-title">Company</div>
-      <nav class="footer-col-links">
-        <a href="/aios">AIOS</a>
-        <a href="/how-it-works">How It Works</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/work">Case Studies</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-      </nav>
-    </div>
-    <div>
-      <div class="footer-col-title">Products</div>
-      <nav class="footer-col-links">
-        <a href="/intel-echo/">Intel Echo</a>
-        <a href="/intel-echo-gtm/">Intel Echo GTM</a>
-      </nav>
-      <div style="margin-top:24px;">
-        <div class="footer-col-title">Contact</div>
-        <a href="https://wa.me/919100933191" style="font-size:13px; color:var(--success);">WhatsApp us</a>
+  <footer class="site-footer" role="contentinfo">
+    <!-- Pre-footer CTA band -->
+    <div class="footer-pre-cta">
+      <div class="footer-pre-cta-inner">
+        <div>
+          <h2 class="footer-pre-cta-heading">Ready to hire your first <span>AI employee?</span></h2>
+          <p class="footer-pre-cta-sub">30 minutes. We scope the right agent for your problem and give you a number before the call ends.</p>
+        </div>
+        <div class="footer-pre-cta-actions">
+          <a href="/contact" class="btn btn-primary">Book a Free Audit →</a>
+          <a href="https://wa.me/919100933191" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp us</a>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom-bar">
-    <span>© 2026 Amoris. All rights reserved.</span>
-    <span>India-built · Globally deployable</span>
-  </div>
+
+    <!-- Main footer grid -->
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo">Amor<span>.</span>is</div>
+        <p class="footer-tagline">AI employees that work while you grow.</p>
+        <p class="footer-aeo-text">Amoris is an Indian AI agency that builds and deploys named AI employees — voice agents, chat assistants, and knowledge workers — for businesses across India. Each agent is custom-built, deployed in 3–4 weeks, and operates 24/7.</p>
+        <div class="footer-trust">
+          <span class="footer-trust-badge">🇮🇳 India-built</span>
+          <span class="footer-trust-badge">3–4 wk deploy</span>
+          <span class="footer-trust-badge">24/7 uptime</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">AI Employees</div>
+        <nav class="footer-col-links" aria-label="AI Employee categories">
+          <a href="/ai-employees/voice">🎙 Voice</a>
+          <a href="/ai-employees/chat">💬 Chat</a>
+          <a href="/ai-employees/knowledge">🧠 Knowledge</a>
+          <a href="/ai-employees/sales">🎯 Sales</a>
+          <a href="/ai-employees/operations">⚙️ Operations</a>
+          <a href="/ai-employees" class="footer-link-cta">View all 18 →</a>
+        </nav>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Company</div>
+        <nav class="footer-col-links" aria-label="Company pages">
+          <a href="/aios">AIOS</a>
+          <a href="/how-it-works">How It Works</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/work">Case Studies</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Products</div>
+        <nav class="footer-col-links">
+          <a href="/intel-echo/">Intel Echo</a>
+          <a href="/intel-echo-gtm/">Intel Echo GTM</a>
+        </nav>
+        <div style="margin-top:28px;">
+          <div class="footer-col-title">Get in Touch</div>
+          <nav class="footer-col-links">
+            <a href="https://wa.me/919100933191" style="color:var(--success);">WhatsApp us</a>
+            <a href="/contact">Book an audit call</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <span>© 2026 Amoris. All rights reserved.</span>
+      <span class="footer-bottom-center">AI employees for India's growing businesses</span>
+      <span>India-built · Globally deployable</span>
+    </div>
+  </footer>
 
   <script>
-    /* ── 2. Custom cursor ── */
+    /* ── 1. Scroll progress bar ── */
+    const progressBar = document.getElementById('scroll-progress') as HTMLElement;
+    window.addEventListener('scroll', () => {
+      const d = document.documentElement;
+      const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+      if (progressBar) progressBar.style.width = pct + '%';
+    }, { passive: true });
+
+    /* ── 2. Custom cursor + spotlight ── */
     const cursor = document.getElementById('cursor') as HTMLElement;
     const ring = document.getElementById('cursorRing') as HTMLElement;
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => {
       mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-      /* spotlight glow via CSS custom props */
+      if (cursor) { cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; }
       document.body.style.setProperty('--mx', mx + 'px');
       document.body.style.setProperty('--my', my + 'px');
     }, { passive: true });
     function animRing() {
       rx += (mx - rx) * 0.1; ry += (my - ry) * 0.1;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
       requestAnimationFrame(animRing);
     }
     animRing();
     document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
-      el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
+      el.addEventListener('mouseenter', () => { cursor?.classList.add('hover'); ring?.classList.add('hover'); });
+      el.addEventListener('mouseleave', () => { cursor?.classList.remove('hover'); ring?.classList.remove('hover'); });
     });
 
     /* ── 3. Scroll reveal ── */
@@ -161,57 +309,46 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
     /* ── 4. 3D Card tilt ── */
     const TILT_SEL = '.emp-feature-card,.cat-card,.stat-card,.pricing-card,.capability-card,.hiw-step,.package-card,.aios-teaser,.pricing-note-item';
-    const MAX_TILT = 10;
     document.querySelectorAll(TILT_SEL).forEach(card => {
       const el = card as HTMLElement;
       el.style.transformStyle = 'preserve-3d';
       el.style.transition = 'transform 0.15s ease, box-shadow 0.15s ease, border-color 0.25s';
       el.addEventListener('mousemove', (e: MouseEvent) => {
         const r = el.getBoundingClientRect();
-        const nx = ((e.clientX - r.left) / r.width  - 0.5) * 2;
-        const ny = ((e.clientY - r.top)  / r.height - 0.5) * 2;
-        el.style.transform = `perspective(900px) rotateY(${nx * MAX_TILT}deg) rotateX(${-ny * MAX_TILT}deg) scale(1.02)`;
-        el.style.boxShadow = `${-nx*8}px ${ny*8}px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(240,168,36,0.14)`;
+        const nx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+        const ny = ((e.clientY - r.top) / r.height - 0.5) * 2;
+        el.style.transform = `perspective(900px) rotateY(${nx * 10}deg) rotateX(${-ny * 10}deg) scale(1.02)`;
+        el.style.boxShadow = `${-nx * 8}px ${ny * 8}px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(240,168,36,0.14)`;
       });
-      el.addEventListener('mouseleave', () => {
-        el.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) scale(1)';
-        el.style.boxShadow = '';
-      });
+      el.addEventListener('mouseleave', () => { el.style.transform = ''; el.style.boxShadow = ''; });
     });
 
     /* ── 5. Magnetic CTA buttons ── */
     document.querySelectorAll('.btn-primary').forEach(btn => {
       const el = btn as HTMLElement;
-      const RANGE = 80, PULL = 0.38;
       document.addEventListener('mousemove', (e: MouseEvent) => {
         const r = el.getBoundingClientRect();
-        const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-        const dx = e.clientX - cx, dy = e.clientY - cy;
+        const dx = e.clientX - (r.left + r.width / 2);
+        const dy = e.clientY - (r.top + r.height / 2);
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < RANGE) {
-          const pull = (1 - dist / RANGE) * PULL;
-          el.style.transform = `translate(${dx * pull}px, ${dy * pull}px)`;
-        } else {
-          el.style.transform = '';
-        }
+        el.style.transform = dist < 80
+          ? `translate(${dx * (1 - dist / 80) * 0.38}px, ${dy * (1 - dist / 80) * 0.38}px)`
+          : '';
       }, { passive: true });
-      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
     });
 
-    /* ── 6. Text scramble on [data-scramble] ── */
+    /* ── 6. Text scramble ── */
     const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
     document.querySelectorAll('[data-scramble]').forEach(el => {
       const target = (el as HTMLElement).innerText;
-      let frame = 0, iter = 0;
-      const total = 18;
+      let iter = 0;
       function tick() {
         (el as HTMLElement).innerText = target.split('').map((ch, i) => {
           if (ch === ' ' || ch === '\n') return ch;
           if (i < iter) return ch;
           return CHARS[Math.floor(Math.random() * CHARS.length)];
         }).join('');
-        iter += target.length / total;
-        frame++;
+        iter += target.length / 18;
         if (iter < target.length) requestAnimationFrame(tick);
         else (el as HTMLElement).innerText = target;
       }
@@ -225,12 +362,51 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
     /* ── 8. Active nav link ── */
     const path = window.location.pathname;
-    document.querySelectorAll('.nav-links a').forEach(a => {
+    document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(a => {
       const href = a.getAttribute('href') || '';
       if (href !== '/' && path.startsWith(href)) a.classList.add('active');
     });
 
-    /* ── 9. GSAP (async, non-blocking) ── */
+    /* ── 9. Mobile nav toggle ── */
+    const hamburger = document.getElementById('nav-hamburger') as HTMLElement;
+    const mobileNav = document.getElementById('mobile-nav') as HTMLElement;
+    hamburger?.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      mobileNav.setAttribute('aria-hidden', String(!open));
+    });
+    document.addEventListener('click', e => {
+      if (!mobileNav?.contains(e.target as Node) && !hamburger?.contains(e.target as Node)) {
+        mobileNav?.classList.remove('open');
+        hamburger?.classList.remove('open');
+        hamburger?.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    /* ── 10. Stat counter (vanilla, no GSAP) ── */
+    const cObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target as HTMLElement;
+        const target = parseFloat(el.dataset.target || '0');
+        const suffix = el.dataset.suffix || '';
+        const start = performance.now();
+        const dur = 1400;
+        function step(now: number) {
+          const p = Math.min((now - start) / dur, 1);
+          const ease = 1 - Math.pow(1 - p, 3);
+          el.textContent = (target % 1 !== 0 ? (target * ease).toFixed(1) : Math.round(target * ease)) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        cObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.count-up').forEach(el => cObs.observe(el));
+
+    /* ── 11. GSAP (async, stagger-cards + emp-float) ── */
     const gsapScript = document.createElement('script');
     gsapScript.src = 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js';
     gsapScript.onload = () => {
@@ -240,21 +416,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
         const { gsap, ScrollTrigger } = window as any;
         gsap.registerPlugin(ScrollTrigger);
         document.querySelectorAll('.stagger-cards').forEach(group => {
-          const cards = group.querySelectorAll(':scope > *');
-          gsap.fromTo(cards, { y: 40, opacity: 0 }, {
-            y: 0, opacity: 1, stagger: 0.09, duration: 0.65, ease: 'power2.out',
-            scrollTrigger: { trigger: group, start: 'top 87%', toggleActions: 'play none none none' }
-          });
-        });
-        document.querySelectorAll('.count-up').forEach(el => {
-          const target = parseFloat(el.getAttribute('data-target') || '0');
-          const suffix = el.getAttribute('data-suffix') || '';
-          const isDecimal = target % 1 !== 0;
-          ScrollTrigger.create({ trigger: el, start: 'top 80%', once: true, onEnter: () => {
-            gsap.fromTo({ val: 0 }, { val: target }, { duration: 1.8, ease: 'power2.out',
-              onUpdate: function() { el.textContent = (isDecimal ? this.targets()[0].val.toFixed(1) : Math.round(this.targets()[0].val)) + suffix; }
-            });
-          }});
+          gsap.fromTo(group.querySelectorAll(':scope > *'),
+            { y: 40, opacity: 0 },
+            { y: 0, opacity: 1, stagger: 0.09, duration: 0.65, ease: 'power2.out',
+              scrollTrigger: { trigger: group, start: 'top 87%', toggleActions: 'play none none none' } });
         });
         gsap.to('.emp-float', { y: -10, duration: 2.5, ease: 'sine.inOut', yoyo: true, repeat: -1, stagger: 0.4 });
       };

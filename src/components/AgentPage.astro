@@ -30,7 +30,19 @@ export interface Props {
 const { frontmatter, categoryLabel, categoryHref, roi } = Astro.props;
 const fm = frontmatter;
 ---
-<Base title={fm.title} description={fm.description}>
+<Base
+  title={fm.title}
+  description={fm.description}
+  schema={fm.faqs?.length ? JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": fm.faqs.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  }) : undefined}
+>
   <article>
     <section style="padding-bottom:40px;">
       <Breadcrumbs crumbs={[
