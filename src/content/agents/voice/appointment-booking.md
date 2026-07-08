@@ -1,13 +1,9 @@
 ---
-title: "AI Appointment Booking Agent for Clinics, Salons & Real Estate | Amoris"
-description: "An AI voice agent that books, reschedules, and confirms appointments over the phone — synced live to your calendar — in Hindi, English, and regional languages."
+title: "AI Appointment Booking Agent for Clinics, Salons & Real Estate India | Amoris"
+description: "An AI voice agent that books, reschedules, and confirms appointments over the phone — synced live to your calendar — in Hindi, English, and 4 regional languages."
 name: "Appointment Booking Agent"
 slug: "appointment-booking"
 category: "voice"
-setupINR: "₹1.5L–3L"
-retainerINR: "₹25k/mo"
-setupUSD: "$3.5k–6k"
-retainerUSD: "$500/mo"
 builtFor: ["Clinics & diagnostic centres", "Salons & spas", "Real estate agents", "Fitness studios", "Tutoring centres"]
 languages: ["Hindi", "English", "Tamil", "Telugu", "Kannada", "Marathi"]
 integrations: ["Google Calendar", "Calendly", "Zoho CRM", "WhatsApp"]

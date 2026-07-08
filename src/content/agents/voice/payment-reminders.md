@@ -1,13 +1,9 @@
 ---
-title: "AI Payment Reminder & Renewal Call Agent | Amoris"
-description: "An AI voice agent that makes EMI reminder calls, renewal nudges, and feedback calls at scale — so collections and retention happen without adding staff."
+title: "AI Payment Reminder & Collections Call Agent India — EMI & Renewal Follow-Ups | Amoris"
+description: "An AI voice agent that makes payment reminder calls, EMI nudges, and renewal follow-ups at scale — automated collections without adding staff."
 name: "Payment & Reminder Agent"
 slug: "payment-reminders"
 category: "voice"
-setupINR: "₹2L–3.5L"
-retainerINR: "₹30k/mo"
-setupUSD: "$4k–7k"
-retainerUSD: "$600/mo"
 builtFor: ["NBFCs & lending", "EdTech & coaching", "Subscription businesses", "Real estate developers", "Insurance"]
 languages: ["Hindi", "English", "Tamil", "Telugu", "Kannada", "Marathi"]
 integrations: ["Zoho CRM", "HubSpot", "Google Sheets", "WhatsApp", "Razorpay"]

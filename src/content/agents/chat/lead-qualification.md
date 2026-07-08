@@ -1,13 +1,9 @@
 ---
-title: "AI Lead Qualification Agent — Engage & Score Every Inbound Lead | Amoris"
-description: "An AI chat agent that engages every new lead, asks your qualification questions, scores them against your ICP, and pushes hot leads to your sales team instantly."
+title: "AI Lead Qualification Bot India — Score & Route Every Inbound Lead Automatically | Amoris"
+description: "An AI agent that engages every new lead instantly, asks your qualification questions, scores them against your ICP, and pushes hot leads to your sales team — zero manual sorting."
 name: "Lead Qualification Agent"
 slug: "lead-qualification"
 category: "chat"
-setupINR: "₹1.5L–2.5L"
-retainerINR: "₹20k/mo"
-setupUSD: "$3k–5k"
-retainerUSD: "$400/mo"
 builtFor: ["B2B SaaS", "Consulting & agencies", "Real estate", "EdTech", "Financial services"]
 languages: ["Hindi", "English"]
 integrations: ["HubSpot", "Zoho CRM", "Salesforce", "Google Sheets", "Slack"]

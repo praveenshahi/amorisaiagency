@@ -1,13 +1,9 @@
 ---
-title: "Website AI Support Agent — Trained on Your Business | Amoris"
-description: "A website chat agent trained on your docs, FAQs, and policies. It answers customer questions accurately, qualifies leads, and hands off to humans — without hallucinating."
+title: "AI Website Chat Support Agent India — Trained on Your Business, Not Generic Answers | Amoris"
+description: "A website chat agent trained on your own docs, FAQs, and policies. Answers customer questions accurately, qualifies leads, and hands off to humans — no hallucinations."
 name: "Website Support Agent"
 slug: "website-support"
 category: "chat"
-setupINR: "₹1L–2L"
-retainerINR: "₹15k/mo"
-setupUSD: "$2k–4k"
-retainerUSD: "$300/mo"
 builtFor: ["SaaS & tech products", "Service businesses", "E-commerce", "EdTech", "Healthcare"]
 languages: ["Hindi", "English"]
 integrations: ["Freshdesk", "Intercom", "Zoho Desk", "HubSpot", "Slack"]

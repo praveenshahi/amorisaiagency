@@ -1,13 +1,9 @@
 ---
-title: "AI Lead Research Agent — Build Enriched Prospect Lists Daily | Amoris"
-description: "An AI agent that builds enriched B2B prospect lists matching your ICP every day — company data, contact details, recent signals — pushed directly to your CRM."
+title: "AI Lead Research Agent India — Build Enriched B2B Prospect Lists Automatically | Amoris"
+description: "An AI agent that builds enriched B2B prospect lists matching your ICP every day — company data, contacts, buying signals — pushed directly to your CRM."
 name: "Lead Research Agent"
 slug: "lead-research"
 category: "sales"
-setupINR: "₹1.5L–2.5L"
-retainerINR: "₹20k/mo"
-setupUSD: "$3k–5k"
-retainerUSD: "$400/mo"
 builtFor: ["B2B SaaS", "Consulting & agencies", "IT services", "Staffing firms", "Financial services"]
 languages: ["English"]
 integrations: ["HubSpot", "Zoho CRM", "Salesforce", "LinkedIn", "Apollo", "Google Sheets"]

@@ -1,13 +1,9 @@
 ---
-title: "AI Reporting Agent — Automated Business Reports Delivered Daily | Amoris"
-description: "An AI agent that pulls data from your tools, generates daily and weekly business reports, and delivers them to the right people — without anyone touching a spreadsheet."
+title: "AI Business Reporting Agent India — Automated Daily & Weekly Reports Without Spreadsheets | Amoris"
+description: "An AI agent that pulls data from your tools, builds daily and weekly business reports, and delivers them to the right people — no one touches a spreadsheet."
 name: "Reporting Agent"
 slug: "reporting-agent"
 category: "operations"
-setupINR: "₹1L–2L"
-retainerINR: "₹15k/mo"
-setupUSD: "$2k–4k"
-retainerUSD: "$300/mo"
 builtFor: ["Marketing agencies", "E-commerce", "Sales teams", "Operations teams", "Founders"]
 languages: ["Hindi", "English"]
 integrations: ["Google Sheets", "Google Analytics", "Meta Ads", "HubSpot", "Zoho CRM", "Slack", "Email"]

@@ -1,13 +1,9 @@
 ---
-title: "Internal AI Knowledge Agent — Company Brain for Your Team | Amoris"
-description: "An AI agent trained on your SOPs, HR policies, product docs, and internal guides. Staff ask questions in plain language and get accurate answers with sources."
+title: "AI Company Knowledge Base India — Instant Answers from Your SOPs & Docs | Amoris"
+description: "An AI agent trained on your SOPs, HR policies, and internal guides. Staff get instant, accurate answers in plain language — no more digging through folders or asking managers."
 name: "Internal Knowledge Agent"
 slug: "internal-knowledge"
 category: "knowledge"
-setupINR: "₹2L–4L"
-retainerINR: "₹25k/mo"
-setupUSD: "$4k–8k"
-retainerUSD: "$500/mo"
 builtFor: ["Companies with 20+ employees", "Distributed teams", "High-process industries (finance, healthcare, real estate)", "Agencies onboarding frequently"]
 languages: ["Hindi", "English"]
 integrations: ["Notion", "Confluence", "Google Drive", "SharePoint", "Slack", "Teams"]

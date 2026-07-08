@@ -1,13 +1,9 @@
 ---
-title: "Customer-Facing AI Docs Agent — Help Desk Without the Help Desk | Amoris"
-description: "A public-facing AI agent trained on your help documentation. Customers ask questions in plain language and get accurate answers — deflecting 60–80% of support tickets."
+title: "AI Customer Help Desk Agent India — Deflect 80% of Support Tickets Automatically | Amoris"
+description: "A public-facing AI agent trained on your help docs. Customers get accurate answers in plain language — deflects 60–80% of support tickets without a human."
 name: "Customer Docs Agent"
 slug: "customer-docs"
 category: "knowledge"
-setupINR: "₹1.75L–3L"
-retainerINR: "₹20k/mo"
-setupUSD: "$3.5k–6k"
-retainerUSD: "$400/mo"
 builtFor: ["SaaS products", "E-commerce", "EdTech platforms", "Fintech", "Healthcare apps"]
 languages: ["Hindi", "English"]
 integrations: ["Freshdesk", "Zendesk", "Intercom", "Notion", "Confluence"]

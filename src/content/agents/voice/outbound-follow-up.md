@@ -1,13 +1,9 @@
 ---
-title: "Outbound AI Follow-Up Agent — Call Leads Within Minutes | Amoris"
-description: "An AI voice agent that calls new leads within minutes of inquiry, qualifies them, and books meetings — so your sales team only talks to people who are ready."
+title: "AI Outbound Sales Call Agent India — Follow Up Leads Automatically | Amoris"
+description: "An AI voice agent that calls new leads within minutes of inquiry, qualifies them, and books meetings — so your sales team only talks to people who are ready to buy."
 name: "Outbound Follow-Up Agent"
 slug: "outbound-follow-up"
 category: "voice"
-setupINR: "₹2L–4L"
-retainerINR: "₹30k/mo"
-setupUSD: "$4k–8k"
-retainerUSD: "$600/mo"
 builtFor: ["Real estate", "EdTech", "B2B SaaS", "Financial services", "Coaching & consulting"]
 languages: ["Hindi", "English", "Tamil", "Telugu"]
 integrations: ["Zoho CRM", "HubSpot", "Salesforce", "Google Sheets", "WhatsApp"]

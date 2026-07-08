@@ -1,13 +1,9 @@
 ---
-title: "AI Recruiting Agent — Screen Resumes, Rank Candidates & Schedule Interviews | Amoris"
-description: "An AI recruiting agent that screens resumes against your JD, ranks candidates, sends first-round questions, and schedules interviews — so your HR team reviews only the best fits."
+title: "AI Recruiting & HR Screening Agent India — Screen Resumes & Schedule Interviews Automatically | Amoris"
+description: "An AI recruiting agent that screens resumes against your JD, ranks candidates, sends first-round questions, and schedules interviews — your HR team only reviews the best fits."
 name: "Recruiting Agent"
 slug: "recruiting-agent"
 category: "operations"
-setupINR: "₹1.5L–2.5L"
-retainerINR: "₹20k/mo"
-setupUSD: "$3k–5k"
-retainerUSD: "$400/mo"
 builtFor: ["HR teams hiring 5+ roles/year", "Staffing agencies", "Fast-growth startups", "BPOs & large operations teams"]
 languages: ["Hindi", "English"]
 integrations: ["Gmail", "LinkedIn", "Google Sheets", "Naukri", "Internshala", "Google Calendar"]

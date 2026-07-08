@@ -1,13 +1,9 @@
 ---
-title: "Compliance & Policy AI Agent for Regulated Industries | Amoris"
+title: "AI Compliance & Policy Agent India — Instant Regulatory Answers for BFSI & Healthcare | Amoris"
 description: "An AI agent trained strictly on approved policy text. Answers regulatory and compliance questions with source citations — for BFSI, healthcare, and legal sectors."
 name: "Compliance & Policy Agent"
 slug: "compliance"
 category: "knowledge"
-setupINR: "₹3L–5L"
-retainerINR: "₹35k/mo"
-setupUSD: "$6k–10k"
-retainerUSD: "$700/mo"
 builtFor: ["NBFCs & banks", "Insurance companies", "Hospitals & clinics", "Legal firms", "EdTech with DPDP compliance needs"]
 languages: ["Hindi", "English"]
 integrations: ["SharePoint", "Confluence", "Google Drive", "Freshdesk", "ServiceNow"]

@@ -1,13 +1,9 @@
 ---
-title: "WhatsApp AI Agent for Business — Commerce, Support & Orders | Amoris"
-description: "A WhatsApp AI agent that handles your entire customer conversation: product catalog, order taking, payments, support, and follow-ups — all inside WhatsApp."
+title: "WhatsApp Chatbot for Business India — Orders, Support & Payments Automated | Amoris"
+description: "A WhatsApp AI agent that handles orders, product questions, payments, and customer support — all inside WhatsApp. Resolves 80% of queries without a human."
 name: "WhatsApp Business Agent"
 slug: "whatsapp-agent"
 category: "chat"
-setupINR: "₹1.25L–2.5L"
-retainerINR: "₹15k/mo"
-setupUSD: "$2.5k–5k"
-retainerUSD: "$300/mo"
 builtFor: ["D2C brands", "Restaurants & cloud kitchens", "Service businesses", "Retail stores", "Real estate"]
 languages: ["Hindi", "English", "Tamil", "Telugu", "Kannada"]
 integrations: ["WhatsApp Business API", "Razorpay", "Shiprocket", "Zoho CRM", "Google Sheets"]

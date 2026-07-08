@@ -1,13 +1,9 @@
 ---
-title: "Instagram DM AI Agent — Auto-Respond & Convert Followers to Leads | Amoris"
-description: "An AI agent that responds to Instagram DMs and comments automatically, handles product enquiries, and converts follower messages into qualified leads."
+title: "Instagram DM AI Agent India — Auto-Reply & Convert Followers to Leads | Amoris"
+description: "An AI agent that responds to Instagram DMs automatically, handles product enquiries, and converts followers into qualified leads — without you touching the inbox."
 name: "Instagram DM Agent"
 slug: "instagram-dm"
 category: "chat"
-setupINR: "₹1L–1.75L"
-retainerINR: "₹15k/mo"
-setupUSD: "$2k–3.5k"
-retainerUSD: "$300/mo"
 builtFor: ["D2C brands", "Coaches & creators", "Fashion & lifestyle", "Food & beverage", "Fitness studios"]
 languages: ["Hindi", "English"]
 integrations: ["Instagram Business API", "WhatsApp", "Google Sheets", "Zoho CRM"]

@@ -1,13 +1,9 @@
 ---
-title: "AI Outreach Agent — Personalised Email & LinkedIn Sequences at Scale | Amoris"
-description: "An AI agent that writes and sends personalised outreach sequences on email and LinkedIn — tailored to each prospect's context — and triages replies for your sales team."
+title: "AI Sales Outreach Agent India — Personalised Email & LinkedIn Sequences at Scale | Amoris"
+description: "An AI agent that writes and sends personalised outreach on email and LinkedIn — tailored to each prospect — and triages replies so your team only handles warm conversations."
 name: "Outreach Agent"
 slug: "outreach-agent"
 category: "sales"
-setupINR: "₹2L–3.5L"
-retainerINR: "₹25k/mo"
-setupUSD: "$4k–7k"
-retainerUSD: "$500/mo"
 builtFor: ["B2B SaaS", "IT services & consulting", "Staffing", "Agencies", "Financial services"]
 languages: ["English"]
 integrations: ["Gmail", "Outlook", "LinkedIn", "HubSpot", "Zoho CRM", "Salesforce", "Apollo"]

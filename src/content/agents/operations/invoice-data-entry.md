@@ -1,13 +1,9 @@
 ---
-title: "AI Invoice & Data Entry Agent — Read Documents, Enter Systems | Amoris"
-description: "An AI agent that reads invoices, purchase orders, and forms — extracts structured data — and enters it into your accounting or ERP system automatically."
+title: "AI Invoice Processing & Data Entry Agent India — Automate Accounts Payable | Amoris"
+description: "An AI agent that reads invoices, purchase orders, and forms — extracts structured data — and enters it into your accounting or ERP system automatically. Zero manual keying."
 name: "Invoice & Data Entry Agent"
 slug: "invoice-data-entry"
 category: "operations"
-setupINR: "₹1.5L–3L"
-retainerINR: "₹20k/mo"
-setupUSD: "$3k–6k"
-retainerUSD: "$400/mo"
 builtFor: ["Finance & accounts teams", "Procurement", "CA & accounting firms", "Retail & e-commerce", "Manufacturing"]
 languages: ["Hindi", "English"]
 integrations: ["Zoho Books", "QuickBooks", "Tally", "SAP", "Google Sheets", "Gmail"]

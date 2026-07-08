@@ -1,13 +1,9 @@
 ---
-title: "Document Intelligence Agent — Extract, Compare & Summarise at Scale | Amoris"
-description: "An AI agent that reads contracts, invoices, reports, and documents — extracts key data, flags anomalies, and answers questions across hundreds of files."
+title: "AI Document Intelligence Agent India — Extract Data from Contracts, Invoices & Reports | Amoris"
+description: "An AI agent that reads contracts, invoices, and reports — extracts key data, flags anomalies, and answers questions across hundreds of documents instantly."
 name: "Document Intelligence Agent"
 slug: "document-intelligence"
 category: "knowledge"
-setupINR: "₹2.5L–4.5L"
-retainerINR: "₹30k/mo"
-setupUSD: "$5k–9k"
-retainerUSD: "$600/mo"
 builtFor: ["Legal & CA firms", "Finance teams", "Real estate", "Procurement", "Healthcare admin"]
 languages: ["Hindi", "English"]
 integrations: ["Google Drive", "SharePoint", "Zoho Books", "Tally", "Salesforce"]

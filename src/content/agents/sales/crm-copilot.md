@@ -1,13 +1,9 @@
 ---
-title: "AI CRM Copilot — Auto-Update CRM & Draft Follow-Ups After Every Call | Amoris"
-description: "An AI agent that listens to your sales calls, auto-updates your CRM with notes and next steps, drafts follow-up emails, and flags deals that are going stale."
+title: "AI CRM Automation Agent India — Auto-Update CRM & Draft Follow-Ups After Every Sales Call | Amoris"
+description: "An AI agent that listens to your sales calls, auto-updates your CRM with notes and next steps, drafts follow-up emails, and flags deals going stale — zero manual data entry."
 name: "CRM Copilot"
 slug: "crm-copilot"
 category: "sales"
-setupINR: "₹1.75L–3L"
-retainerINR: "₹20k/mo"
-setupUSD: "$3.5k–6k"
-retainerUSD: "$400/mo"
 builtFor: ["Sales teams of 3+", "B2B consulting", "Agencies", "Financial services", "Real estate"]
 languages: ["Hindi", "English"]
 integrations: ["Zoom", "Google Meet", "HubSpot", "Zoho CRM", "Salesforce", "Gmail", "Outlook"]

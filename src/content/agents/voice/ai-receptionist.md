@@ -1,19 +1,15 @@
 ---
-title: "AI Receptionist for Clinics & Service Businesses | Amoris"
-description: "An AI voice agent that answers every inbound call 24/7, routes to the right person, books appointments, and takes messages — in Hindi, English, and regional languages."
+title: "AI Receptionist for Indian Businesses — 24/7 Voice Agent in Hindi & English | Amoris"
+description: "An AI voice receptionist that answers every inbound call 24/7, books appointments, routes to the right person, and never misses a call — in Hindi, English, and 4 regional languages."
 name: "AI Receptionist"
 slug: "ai-receptionist"
 category: "voice"
-setupINR: "₹1.5L–2.5L"
-retainerINR: "₹20k/mo"
-setupUSD: "$3k–5k"
-retainerUSD: "$400/mo"
 builtFor: ["Clinics & hospitals", "Real estate offices", "Salons & spas", "CA & legal firms", "Service businesses"]
 languages: ["Hindi", "English", "Tamil", "Telugu", "Kannada", "Marathi"]
 integrations: ["Google Calendar", "Zoho CRM", "Freshdesk", "WhatsApp"]
 faqs:
   - q: "How much does an AI receptionist cost in India?"
-    a: "Setup ranges from ₹1.5L to ₹2.5L depending on call volume and integrations. Monthly retainer is ₹20k, which covers hosting, monitoring, and up to 2,000 calls/month. Compare that to a human receptionist at ₹20–25k/month who works 8 hours a day, 5 days a week."
+    a: "Pricing depends on call volume, languages, and integrations required. Book a discovery call and we'll scope your use case and give you a number on the call — no proposal-in-5-days runaround."
   - q: "Can the AI receptionist speak Hindi and regional languages?"
     a: "Yes. The agent handles Hindi, English, Tamil, Telugu, Kannada, and Marathi out of the box. It detects the caller's language in the first 2 seconds and switches automatically. More languages available on request."
   - q: "What happens when a caller needs a human?"
@@ -24,7 +20,7 @@ faqs:
     a: "The agent handles unlimited parallel calls — 5 callers at once or 500, same response time. You pay per minute of call handled, so cost scales with usage, not headcount."
 ---
 
-An AI Receptionist answers every inbound call to your business, 24 hours a day, 7 days a week. It greets callers in their language, routes them correctly, books appointments directly into your calendar, and sends you a summary of every call. Starting at ₹1.5L setup + ₹20k/month.
+An AI Receptionist answers every inbound call to your business, 24 hours a day, 7 days a week. It greets callers in their language, routes them correctly, books appointments directly into your calendar, and sends you a summary of every call.
 
 ## What it does
 
